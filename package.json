@@ -22,7 +22,8 @@
     "ejs": "^2.5.6",
     "express": "^4.15.2",
     "express-session": "^1.15.1",
-    "grunt-pg": "https://github.com/watsoncj/grunt-pg.git",
+    "grunt-pg": "git+https://github.com/watsoncj/grunt-pg.git",
+    "heroku": "^0.2.0",
     "knex": "^0.12.9",
     "morgan": "^1.8.1",
     "passport": "^0.3.2",
@@ -54,5 +55,15 @@
     "plugins": [
       "transform-es2015-modules-commonjs"
     ]
-  }
+  },
+  "description": "The project description",
+  "main": ".eslintrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickelow/chipperchalices.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nickelow/chipperchalices/issues"
+  },
+  "homepage": "https://github.com/nickelow/chipperchalices#readme"
 }
