@@ -1,6 +1,10 @@
 {
   "name": "course.thesis",
   "version": "1.0.0",
+  "engines": {
+    "npm": "5.3.0",
+    "node": "8.2.1"
+  },
   "scripts": {
     "postinstall": "curl -s https://raw.githubusercontent.com/reactorcore/pomander/master/bin/install | bash",
     "start": "nodemon server",
@@ -37,6 +41,7 @@
     "redis": "^2.7.1"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-loader": "^7.0.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.24.0",
     "babel-preset-latest": "^6.24.0",
