@@ -1,10 +1,13 @@
 {
   "name": "course.thesis",
   "version": "1.0.0",
+  "engines": {
+    "npm": "5.3.0",
+    "node": "8.2.1"
+  },
   "scripts": {
-    "postinstall": "curl -s https://raw.githubusercontent.com/reactorcore/pomander/master/bin/install | bash",
     "start": "nodemon server",
-    "test": "NODE_ENV=test grunt test",
+    "test": "NODE_ENV=production",
     "build": "webpack --watch"
   },
   "author": "Hack Reactor",
@@ -22,7 +25,8 @@
     "ejs": "^2.5.6",
     "express": "^4.15.2",
     "express-session": "^1.15.1",
-    "grunt-pg": "https://github.com/watsoncj/grunt-pg.git",
+    "grunt-pg": "git+https://github.com/watsoncj/grunt-pg.git",
+    "heroku": "^0.2.0",
     "knex": "^0.12.9",
     "morgan": "^1.8.1",
     "passport": "^0.3.2",
@@ -36,12 +40,13 @@
     "redis": "^2.7.1"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-loader": "^7.0.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.24.0",
     "babel-preset-latest": "^6.24.0",
     "babel-preset-react": "^6.23.0",
     "chai": "^3.5.0",
-    "grunt": "~0.4.5",
+    "grunt": "^1.0.1",
     "grunt-eslint": "^19.0.0",
     "grunt-mocha-test": "^0.13.2",
     "mocha": "^3.2.0",
@@ -54,5 +59,15 @@
     "plugins": [
       "transform-es2015-modules-commonjs"
     ]
-  }
+  },
+  "description": "The project description",
+  "main": ".eslintrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickelow/chipperchalices.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nickelow/chipperchalices/issues"
+  },
+  "homepage": "https://github.com/nickelow/chipperchalices#readme"
 }
