@@ -3,10 +3,9 @@ deploy:
   provider: heroku
   api_key:
     secure: "whoops"
-before_install:
-  # install v6.x of nodejs
-   - nvm install 6
-  #install yarn globally
-   - npm install -g yarn
-  # yarn install is like npm install
-   - yarn install
+node_js:
+  - "iojs"
+  - "8"
+  - "7"
+  - "6"
+  - "5"
