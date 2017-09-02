@@ -4,7 +4,6 @@ deploy:
   api_key:
     secure: "whoops"
 node_js:
-  - "iojs"
   - "8"
   - "7"
   - "6"
