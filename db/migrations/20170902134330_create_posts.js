@@ -4,19 +4,19 @@ exports.up = function (knex, Promise) {
     knex.schema.createTableIfNotExists('posts', function (table) {
       table.increments('id').unsigned().primary();
       table.string('position', 100).nullable();
+      table.string('position_url', 100).nullable();
       table.string('description', 500).nullable();
       table.string('notes', 500).nullable();
       table.bigInteger('company_id').unsigned().index().references('id').inTable('companies');
-      table.bigInteger('status_id').unsigned().index().references('id').inTable('lifecycle');
       table.bigInteger('user_id').unsigned().index().references('id').inTable('profiles');
     }),
     knex.schema.createTableIfNotExists('location', function (table) {
       table.increments('id').unsigned().primary();
-      table.string('street', 255);
+      table.string('street', 255).nullable();
       table.string('street_2', 255).nullable();
       table.string('city', 255);
       table.string('state', 255).nullable();
-      table.bigInteger('zipcode');
+      table.bigInteger('zipcode').nullable();
       table.string('country', 255);
       table.string('country_iso_code');
     }),
@@ -24,6 +24,8 @@ exports.up = function (knex, Promise) {
       table.increments('id').unsigned().primary();
       table.string('name', 100).index();
       table.string('industry', 100).nullable();
+      table.string('logo_url', 255).nullable();
+      table.string('linkedin_url', 255).nullable();
       table.string('description', 500).nullable();
       table.bigInteger('location_id').unsigned().index().references('id').inTable('location').nullable();
     }),
@@ -38,8 +40,7 @@ exports.up = function (knex, Promise) {
       table.increments('id').unsigned( ).primary();
       table.string('status', 100).index().nullable();
       table.string('status_start_date', 100).nullable();
-      table.bigInteger('interaction_id').unsigned().nullable();
-      table.bigInteger('card_id').unsigned().index().references('id').inTable('posts');
+      table.bigInteger('post_id').unsigned().index().references('id').inTable('posts');
     }),
     knex.schema.createTableIfNotExists('interaction', function(table) {
       table.increments('id').unsigned().primary();
