@@ -7,7 +7,6 @@ exports.up = function (knex, Promise) {
       table.string('description', 500).nullable();
       table.string('notes', 500).nullable();
       table.bigInteger('company_id').unsigned().index().references('id').inTable('companies');
-      table.bigInteger('status_id').unsigned().index().references('id').inTable('lifecycle');
       table.bigInteger('user_id').unsigned().index().references('id').inTable('profiles');
     }),
     knex.schema.createTableIfNotExists('location', function (table) {
@@ -38,8 +37,7 @@ exports.up = function (knex, Promise) {
       table.increments('id').unsigned( ).primary();
       table.string('status', 100).index().nullable();
       table.string('status_start_date', 100).nullable();
-      table.bigInteger('interaction_id').unsigned().nullable();
-      table.bigInteger('card_id').unsigned().index().references('id').inTable('posts');
+      table.bigInteger('post_id').unsigned().index().references('id').inTable('posts');
     }),
     knex.schema.createTableIfNotExists('interaction', function(table) {
       table.increments('id').unsigned().primary();
