@@ -1,7 +1,7 @@
 
 exports.up = function (knex, Promise) {
   return Promise.all([
-    knex.schema.createTableIfNotExists('posts', function (table) {
+    knex.schema.createTableIfNotExists('cards', function (table) {
       table.increments('id').unsigned().primary();
       table.string('position', 100).nullable();
       table.string('description', 500).nullable();
@@ -49,10 +49,10 @@ exports.up = function (knex, Promise) {
     })
   ]);
 };
- 
+
 exports.down = function(knex, Promise) {
   return Promise.all([
-    knex.schema.dropTable('posts'),
+    knex.schema.dropTable('cards'),
     knex.schema.dropTable('location'),
     knex.schema.dropTable('companies'),
     knex.schema.dropTable('news'),
