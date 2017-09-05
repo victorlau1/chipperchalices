@@ -4,6 +4,12 @@ import { withStyles } from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
 import Grid from 'material-ui/Grid';
 
+import InterestList from './InterestList.jsx';
+import AppliedList from './AppliedList.jsx';
+// import InterviewList from './InterviewList.jsx';
+// import PostInterviewList from './PostInterviewList.jsx';
+
+
 const styles = theme => ({
   root: {
     flexGrow: 1,
@@ -24,9 +30,11 @@ const LifecycleBoard = props => {
       <Grid container spacing={24}>
         <Grid item xs={6} sm={3}>
           <Paper className={classes.paper}>Interest</Paper>
+          <InterestList />
         </Grid>
         <Grid item xs={6} sm={3}>
           <Paper className={classes.paper}>Applied</Paper>
+          <AppliedList />
         </Grid>
         <Grid item xs={6} sm={3}>
           <Paper className={classes.paper}>Interview</Paper>
