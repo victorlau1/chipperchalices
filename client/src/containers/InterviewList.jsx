@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui'
+import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui';
 
 export default class InterviewList extends Component {
   render() {
@@ -10,6 +10,6 @@ export default class InterviewList extends Component {
           subtitle='Quantified @ Menlo Park, CA'
         />
       </Card>
-    )
+    );
   }
 }
