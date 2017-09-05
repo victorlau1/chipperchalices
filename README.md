@@ -4,10 +4,10 @@ The project description
 
 ## Team
 
-- teamMember
-- teamMember
-- teamMember
-- teamMember
+- Victor Lau
+- Ting Ting Wang
+- Rebecca Chen
+- Matthew Nicolaou
 
 ## Roadmap
 

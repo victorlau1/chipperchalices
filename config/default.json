@@ -19,11 +19,6 @@
     "seeds": {
       "directory": "db/seeds"
     }
-  },
-
-  "passport": {
-    "Google": {},
-    "Facebook": {},
-    "Twitter": {}
   }
+
 }
