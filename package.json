@@ -13,6 +13,7 @@
   "author": "Hack Reactor",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.16.2",
     "babel-core": "^6.24.1",
     "bcrypt-nodejs": "^0.0.3",
     "bluebird": "^3.5.0",
@@ -28,6 +29,7 @@
     "grunt-pg": "git+https://github.com/watsoncj/grunt-pg.git",
     "heroku": "^0.2.0",
     "knex": "^0.12.9",
+    "material-ui": "^0.19.1",
     "morgan": "^1.8.1",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
@@ -37,7 +39,12 @@
     "pg": "^6.1.5",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "redis": "^2.7.1"
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "next",
+    "redis": "^2.7.1",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -49,6 +56,7 @@
     "grunt": "^1.0.1",
     "grunt-eslint": "^19.0.0",
     "grunt-mocha-test": "^0.13.2",
+    "jest": "^21.0.1",
     "mocha": "^3.2.0",
     "node-mocks-http": "^1.6.1",
     "supertest": "^3.0.0",
@@ -64,10 +72,10 @@
   "main": ".eslintrc.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nickelow/chipperchalices.git"
+    "url": "git+https://github.com/chipperchalices/chipperchalices.git"
   },
   "bugs": {
-    "url": "https://github.com/nickelow/chipperchalices/issues"
+    "url": "https://github.com/chipperchalices/chipperchalices/issues"
   },
-  "homepage": "https://github.com/nickelow/chipperchalices#readme"
+  "homepage": "https://github.com/chipperchalices/chipperchalices#readme"
 }
