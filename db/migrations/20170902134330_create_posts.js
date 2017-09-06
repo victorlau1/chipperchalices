@@ -1,7 +1,7 @@
 
 exports.up = function (knex, Promise) {
   return Promise.all([
-    knex.schema.createTableIfNotExists('posts', function (table) {
+    knex.schema.createTableIfNotExists('cards', function (table) {
       table.increments('id').unsigned().primary();
       table.string('position', 100).nullable();
       table.string('position_url', 100).nullable();
@@ -40,7 +40,7 @@ exports.up = function (knex, Promise) {
       table.increments('id').unsigned( ).primary();
       table.string('status', 100).index().nullable();
       table.string('status_start_date', 100).nullable();
-      table.bigInteger('post_id').unsigned().index().references('id').inTable('posts');
+      table.bigInteger('card_id').unsigned().index().references('id').inTable('cards');
     }),
     knex.schema.createTableIfNotExists('interaction', function(table) {
       table.increments('id').unsigned().primary();
@@ -50,7 +50,7 @@ exports.up = function (knex, Promise) {
     })
   ]);
 };
- 
+
 exports.down = function(knex, Promise) {
   return Promise.all([
     knex.raw('DROP TABLE posts CASCADE'),
