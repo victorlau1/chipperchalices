@@ -23,7 +23,7 @@ const App = () => (
       </Switch>
     </main>
   </div>
-)
+);
 
 ReactDOM.render((
   <Provider store={createStoreWithMiddleware(reducers)}>
