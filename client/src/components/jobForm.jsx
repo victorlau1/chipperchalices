@@ -9,7 +9,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import DatePicker from 'material-ui/DatePicker';
 import TimePicker from 'material-ui/TimePicker';
 
-var moment = require('moment');
+// var moment = require('moment');
 
 class JobForm extends React.Component {
   constructor(props) {
@@ -122,7 +122,7 @@ class JobForm extends React.Component {
 }
 
 // function mapStateToProps () {
-  
+
 // }
 
 export default JobForm;

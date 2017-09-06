@@ -10,6 +10,7 @@ export default class User extends Component {
       <div>
         <h1>Application Lifecycle Board</h1>
         <JobForm/>
+        <br/>
         <LifecycleBoard/>
       </div>
     );
