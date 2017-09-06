@@ -1,20 +1,32 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Card, CardHeader, CardTitle, CardText } from 'material-ui/Card';
 
-// import JobCard from './JobCard.jsx';
+//import JobCard from './JobCard.jsx';
 
 class InterestList extends Component {
   renderList() {
+    return this.props.interestJobs.map((job, i)=> {
+      return (
+        <li key={i}>
+          {job.position} at {job.company.name}
+        </li>
+      );
+    });
   }
 
   render() {
     return (
       <div>
-        <h2>Test</h2>
+        {this.renderList()}
       </div>
     );
   }
 }
+
+
+
+
 
 /*REDUX: everytime the application state changes, the container/InterestList will re-render and update the props*/
 
@@ -24,4 +36,4 @@ const mapStateToProps = (state) => {
     interestJobs: state.interestJobs
   };
 };
-export default InterestList;
+export default connect(mapStateToProps)(InterestList);
