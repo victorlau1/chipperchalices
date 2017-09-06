@@ -10,12 +10,13 @@ import Header from './components/Header.jsx';
 import Landing from './page-components/Landing.jsx';
 import User from './page-components/User.jsx';
 
-const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
+import { lightBaseTheme, MuiThemeProvider, getMuiTheme } from 'material-ui/styles';
+
+const createStoreWithMiddleware = applyMiddleware()(createStore);
 
 const App = () => (
   <div>
     <Header />
-
     <main>
       <Switch>
         <Route exact path='/' component={Landing} />
@@ -23,12 +24,14 @@ const App = () => (
       </Switch>
     </main>
   </div>
-)
+);
 
 ReactDOM.render((
   <Provider store={createStoreWithMiddleware(reducers)}>
     <BrowserRouter>
-      <App />
+      <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
+        <App />
+      </MuiThemeProvider>
     </BrowserRouter>
   </Provider>
 ), document.getElementById('root'));

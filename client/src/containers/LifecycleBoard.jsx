@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withStyles } from 'material-ui/styles';
+import { Grid, Row, Col, Clearfix } from 'react-bootstrap';
 import Paper from 'material-ui/Paper';
-import Grid from 'material-ui/Grid';
+// import Grid from 'material-ui/Grid';
 
 import InterestList from './InterestList.jsx';
 import AppliedList from './AppliedList.jsx';
@@ -10,45 +10,41 @@ import AppliedList from './AppliedList.jsx';
 // import PostInterviewList from './PostInterviewList.jsx';
 
 
-const styles = theme => ({
-  root: {
-    flexGrow: 1,
-    marginTop: 30,
-  },
-  paper: {
-    padding: 16,
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
-});
-
-const LifecycleBoard = props => {
-  const classes = props.classes;
-
-  return (
-    <div className={classes.root}>
-      <Grid container spacing={24}>
-        <Grid item xs={6} sm={3}>
-          <Paper className={classes.paper}>Interest</Paper>
-          <InterestList />
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          <Paper className={classes.paper}>Applied</Paper>
-          <AppliedList />
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          <Paper className={classes.paper}>Interview</Paper>
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          <Paper className={classes.paper}>Post-Interview</Paper>
-        </Grid>
-      </Grid>
-    </div>
-  );
+const style = {
+  padding: 16,
+  textAlign: 'center',
 };
 
+class LifecycleBoard extends Component {
 
-export default withStyles(styles)(LifecycleBoard);
+  render() {
+    return (
+      <div>
+        <Grid>
+          <Col xs={6} sm={3}>
+            <Paper style={style} zDepth={4}>
+              Interest
+            </Paper>
+            <InterestList />
+          </Col>
+          <Col xs={6} sm={3}>
+            <Paper style={style} zDepth={4}>Applied</Paper>
+            <AppliedList />
+          </Col>
+          <Col xs={6} sm={3}>
+            <Paper style={style} zDepth={4}>Interview</Paper>
+          </Col>
+          <Col xs={6} sm={3}>
+            <Paper style={style} zDepth={4}>Post-Interview</Paper>
+          </Col>
+        </Grid>
+      </div>
+    );
+  }
+}
+
+export default LifecycleBoard;
+
 
 // class LifecycleBoard extends Component {
 //   render() {
