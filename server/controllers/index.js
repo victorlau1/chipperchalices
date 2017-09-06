@@ -1,2 +1,2 @@
 module.exports.Profiles = require('./profiles');
-module.exports.Jobs = require('./jobs');
+module.exports.Cards = require('./cards');

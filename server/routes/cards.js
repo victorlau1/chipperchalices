@@ -1,20 +1,20 @@
 const express = require('express');
 const router = express.Router();
-const JobController = require('../controllers').Jobs;
+const CardController = require('../controllers').Cards;
 
-router.route('/job')
+router.route('/card')
 
   //handle get request from client to retrieve all job cards from db
-  .get(JobController.getAll)
+  .get(CardController.getAll)
 
   //handle post request from client to create new job card
-  .post(JobController.create)
+  .post(CardController.create)
   ;
 
-router.route('/job/update')
+router.route('/card/update')
 
   //handle post request from client to update status on a job card
-  .post(JobController.update)
+  .post(CardController.update)
   ;
 
 
