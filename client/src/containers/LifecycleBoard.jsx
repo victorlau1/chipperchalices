@@ -13,7 +13,7 @@ import AppliedList from './AppliedList.jsx';
 const style = {
   padding: 16,
   textAlign: 'center',
-}
+};
 
 class LifecycleBoard extends Component {
 
