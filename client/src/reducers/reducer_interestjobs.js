@@ -21,6 +21,7 @@ export default function() {
       notes: null
     },
     {
+      id: 2,
       company: {
         id: 3,
         name: 'RHLA Technology',
@@ -28,15 +29,14 @@ export default function() {
         logoUrl: 'https://tinyurl.com/y8z3pajs',
         location: 'San Francisco, CA'
       },
-      position: {
-        title: 'Front End Developer',
-        applicationUrl: 'https://www.linkedin.com/jobs/view/430047268/'
-      },
+      position: 'Front End Developer',
+      applicationUrl: 'https://www.linkedin.com/jobs/view/430047268/',
       currentStatus: 1,
       date: '2017-08-22',
       notes: 'Recruiter reached out to me.'
     },
     {
+      id: 3,
       company: {
         id: 2,
         name: 'Ladeeda',
@@ -44,13 +44,11 @@ export default function() {
         logoUrl: 'https://tinyurl.com/y88e4djd',
         location: 'Los Altos, CA'
       },
-      position: {
-        title: 'Front End UI Developer',
-        applicationUrl: 'https://www.linkedin.com/jobs/view/380992731/'
-      },
+      position: 'Front End UI Developer',
+      applicationUrl: 'https://www.linkedin.com/jobs/view/380992731/',
       currentStatus: 1,
       date: '2017-09-01',
       notes: null
     }
-  ]
+  ];
 }

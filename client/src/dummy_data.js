@@ -19,35 +19,33 @@ const data = [
     notes: null
   },
   {
+    id: 2,
     company: {
       id: 3,
-      name: 'Robert Half Technology',
-      description: 'Robert Half Technology is a leading provider of technology professionals on a project and full-time basis.',
+      name: 'RHLA Technology',
+      description: 'RHLA Technology is a leading provider of technology professionals on a project and full-time basis.',
       logoUrl: 'https://tinyurl.com/y8z3pajs',
       location: 'San Francisco, CA'
     },
-    position: {
-      title: 'Front End Developer',
-      applicationUrl: 'https://www.linkedin.com/jobs/view/430047268/'
-    },
-    currentStatus: 2,
+    position: 'Front End Developer',
+    applicationUrl: 'https://www.linkedin.com/jobs/view/430047268/',
+    currentStatus: 1,
     date: '2017-08-22',
     notes: 'Recruiter reached out to me.'
   },
   {
+    id: 3,
     company: {
       id: 2,
-      name: 'Netskope',
-      description: 'Netskope is the leader in cloud security. ',
+      name: 'Ladeeda',
+      description: 'Ladeeda is the leader in cloud security. ',
       logoUrl: 'https://tinyurl.com/y88e4djd',
       location: 'Los Altos, CA'
     },
-    position: {
-      title: 'Front End UI Developer',
-      applicationUrl: 'https://www.linkedin.com/jobs/view/380992731/'
-    },
-    currentStatus: 2,
+    position: 'Front End UI Developer',
+    applicationUrl: 'https://www.linkedin.com/jobs/view/380992731/',
+    currentStatus: 1,
     date: '2017-09-01',
     notes: null
   }
-]
+];
