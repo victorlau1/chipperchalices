@@ -40,7 +40,7 @@ exports.up = function (knex, Promise) {
       table.increments('id').unsigned( ).primary();
       table.string('status', 100).index().nullable();
       table.string('status_start_date', 100).nullable();
-      table.bigInteger('post_id').unsigned().index().references('id').inTable('posts');
+      table.bigInteger('card_id').unsigned().index().references('id').inTable('cards');
     }),
     knex.schema.createTableIfNotExists('interaction', function(table) {
       table.increments('id').unsigned().primary();
