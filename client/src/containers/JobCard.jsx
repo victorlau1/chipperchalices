@@ -4,18 +4,37 @@ import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'm
 class JobCard extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      expanded: false,
+    };
+
+    this.handleExpandChange = this.handleExpandChange.bind(this);
+  }
+
+  handleExpandChange(expanded) {
+    this.setState({expanded: expanded});
   }
 
   render() {
     const job = this.props.job;
 
     return (
-      <Card className='job-entry'>
+      <Card className='job-card' expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
         <CardHeader
-          title={job.position}
-          subtitle='Quantified @ Menlo Park, CA'
+          title={job.company.name}
+          subtitle={job.position}
+          avatar={job.company.logoUrl}
+          actAsExpander={true}
+          showExpandableButton={true}
         />
+        <CardTitle title={job.company.name} subtitle={job.company.location} expandable={true} />
+        <CardText expandable={true}>
+          {job.company.description}
+        </CardText>
       </Card>
     );
   }
 }
+
+export default JobCard;

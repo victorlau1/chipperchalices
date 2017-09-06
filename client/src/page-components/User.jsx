@@ -9,8 +9,9 @@ export default class User extends Component {
     return (
       <div>
         <h1>Application Lifecycle Board</h1>
-        <LifecycleBoard/>
         <JobForm/>
+        <br/>
+        <LifecycleBoard/>
       </div>
     );
   }
