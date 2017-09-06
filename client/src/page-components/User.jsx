@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-
+//import Grid from 'material-ui/Grid';
 import LifecycleBoard from '../containers/LifecycleBoard.jsx';
+import JobForm from '../components/jobForm.jsx';
 
 export default class User extends Component {
 
@@ -8,7 +9,8 @@ export default class User extends Component {
     return (
       <div>
         <h1>Application Lifecycle Board</h1>
-        <LifecycleBoard />
+        <LifecycleBoard/>
+        <JobForm/>
       </div>
     );
   }
