@@ -37,3 +37,5 @@ dist/
 node_modules/
 bower_components/
 package-lock.json
+package.json
+yarn.lock
