@@ -5,9 +5,18 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('lifecycles').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
+        { status: '1',
+          status_start_date: 'August 10, 2017',
+          card_id: 1
+        },
+        { status: '2',
+          status_start_date: 'September 4, 2017',
+          card_id: 1
+        },
+        { status: '1',
+          status_start_date: 'September 7, 2017',
+          card_id: 2
+        },
       ]);
     });
 };
