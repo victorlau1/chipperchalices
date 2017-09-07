@@ -1,5 +1,6 @@
 const db = require('../');
 
+
 const Card = db.Model.extend({
   tableName: 'cards',
   lifecycle: function() {

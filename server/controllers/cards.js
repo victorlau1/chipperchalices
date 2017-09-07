@@ -12,12 +12,11 @@ module.exports.getAll = (req, res) => {
 };
 
 module.exports.create = (req, res, company) => {
-  console.log('in card', req.body, company);
   models.Card.forge({
     position: req.body.job.title,
-    position_url: null,
+    position_url: req.body.job.url,
     description: null,
-    notes: null,
+    notes: req.body.job.notes,
     company_id: company.id,
     user_id: req.user.id
   })
