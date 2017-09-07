@@ -72,7 +72,6 @@ class JobForm extends React.Component {
 
   saveJob () {
     var form = this;
-
     axios.post('/card', {
       job: {
         title: this.state.title,
@@ -86,7 +85,7 @@ class JobForm extends React.Component {
       }
     })
       .then(function(response) {
-        this.setState({
+        form.setState({
           open: false
         });
         console.log('sent to server');
