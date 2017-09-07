@@ -125,7 +125,7 @@ class JobForm extends React.Component {
       />
     ];
     const values = ['What is the status of this application?', 'Interested', 'Applied', 'Interview Scheduled', 'Interviewed', 'No response', 'Rejected', 'Offer made', 'Archived'];
-    const items = values.map(function(val, i) { return <MenuItem value={i} primaryText = {val} />; });
+    const items = values.map(function(val, i) { return <MenuItem value={i} key={i} primaryText = {val} />; });
     return (
       <div>
         <RaisedButton label='Add a job' onClick={this.handleClick}/>
