@@ -31,6 +31,8 @@ class JobCard extends Component {
         <CardTitle title={job.company.name} subtitle={job.company.location} expandable={true} />
         <CardText expandable={true}>
           {job.company.description}
+          <br/>
+          <a href={job.applicationUrl}>Job Description</a>
         </CardText>
       </Card>
     );
