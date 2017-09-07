@@ -10,7 +10,7 @@ before_script:
   - psql -c 'create database thesis_test;' -U postgres
   - yarn knex migrate:latest
 script: 
-  - 'yarn mocha /server/test'
+  - 'yarn server-test'
 deploy:
   provider: heroku
   api_key:

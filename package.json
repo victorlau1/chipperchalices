@@ -7,9 +7,8 @@
   },
   "scripts": {
     "start": "nodemon server",
-    "prod": "NODE_ENV=production",
-    "test": "NODE_ENV=test knex migrate:latest",
-    "front-test": "jest ./client",
+    "front-test": "jest client",
+    "server-test": "mocha server/test",
     "build": "webpack --watch"
   },
   "author": "Hack Reactor",
