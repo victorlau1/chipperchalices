@@ -22,6 +22,12 @@
       "consumerKey": "FILL_ME_IN",
       "consumerSecret": "FILL_ME_IN",
       "callbackURL": "http://FILL_ME_IN/auth/twitter/callback"
+    },
+
+    "LinkedIn": {
+    "clientID": "FILL_ME_IN",
+    "consumerSecret": "FILL_ME_IN",
+    "callbackURL": "http://FILL_ME_IN/auth/linkedin/callback"
     }
   }
 }
