@@ -51,6 +51,7 @@ class JobForm extends React.Component {
     });
   }
 
+
   handleNotes (e) {
     this.setState({
       notes: e.target.value
@@ -65,13 +66,13 @@ class JobForm extends React.Component {
 
   handleStatus (event, index, value) {
     this.setState({
-      status: index,
-      value: index
+      status: index
     });
   }
 
   saveJob () {
     var form = this;
+
     axios.post('/card', {
       job: {
         title: this.state.title,
@@ -94,6 +95,7 @@ class JobForm extends React.Component {
         form.setState({
           open: false
         });
+        console.log('error', error);
       });
   }
 
@@ -136,6 +138,7 @@ class JobForm extends React.Component {
             {items}
           </DropDownMenu><br/>
           <DatePicker onChange={this.handleDate} value ={this.state.date} hintText="When did you apply?"/><br/>
+
           <TextField onChange={this.handleURL} hintText="Application link"/><br/>
           <TextField onChange={this.handleNotes} multiLine = {true} rows={2} rowsMax={10} hintText="Anything else we should know?"/><br/>
         </Dialog>
