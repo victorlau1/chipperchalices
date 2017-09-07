@@ -66,12 +66,14 @@ class JobForm extends React.Component {
 
   handleStatus (event, index, value) {
     this.setState({
-      status: index
+      status: event.target.textContent,
+      value: value,
     });
   }
 
   saveJob () {
     var form = this;
+    console.log(this.state);
     axios.post('/card', {
       job: {
         title: this.state.title,
@@ -86,17 +88,20 @@ class JobForm extends React.Component {
     })
       .then(function(response) {
         form.setState({
-          open: false
+          open: false,
+          value: 0
         });
         console.log('sent to server');
       })
       .catch(function(error) {
         form.setState({
-          open: false
+          open: false,
+          value: 0
         });
         console.log('error', error);
       });
   }
+
 
   handleDate (e, date) {
     this.setState({
@@ -119,8 +124,8 @@ class JobForm extends React.Component {
         onClick={this.saveJob}
       />
     ];
-    const values = ['What is the status of this application?', 'Interested', 'Applied', 'Interview Scheduled', 'Interviewed'];
-    const items = values.map(function(val, i) { return <MenuItem value={i} key ={i} primaryText = {val} />; });
+    const values = ['What is the status of this application?', 'Interested', 'Applied', 'Interview Scheduled', 'Interviewed', 'No response', 'Rejected', 'Offer made', 'Archived'];
+    const items = values.map(function(val, i) { return <MenuItem value={i} primaryText = {val} />; });
     return (
       <div>
         <RaisedButton label='Add a job' onClick={this.handleClick}/>
