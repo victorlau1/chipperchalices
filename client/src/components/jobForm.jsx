@@ -9,8 +9,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 import DatePicker from 'material-ui/DatePicker';
 import TimePicker from 'material-ui/TimePicker';
 
-// var moment = require('moment');
-
 class JobForm extends React.Component {
   constructor(props) {
     super(props);
@@ -51,7 +49,7 @@ class JobForm extends React.Component {
 
   handleStatus (event, index, value) {
     this.setState({
-      status: value,
+      status: index,
       value: index
     });
   }
@@ -61,6 +59,8 @@ class JobForm extends React.Component {
       job: {
         title: this.state.title,
         company: this.state.company,
+      },
+      status: {
         date: this.state.date,
         status: this.state.status
       }
@@ -72,7 +72,9 @@ class JobForm extends React.Component {
         console.log('sent to server');
       })
       .catch(function(error) {
-        console.log('error', error);
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
       });
   }
 
