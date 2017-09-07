@@ -5,9 +5,12 @@ services:
   - postgresql
 addons:
   postgresql: "9.6"
+cache: yarn
 before_script:
   - psql -c 'create database thesis_test;' -U postgres
-  - yarn knex migrate:latest 
+  - yarn knex migrate:latest
+script: 
+  - 'yarn mocha /server/test'
 deploy:
   provider: heroku
   api_key:
