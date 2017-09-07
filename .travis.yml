@@ -1,6 +1,5 @@
 language: node_js
 env:
-  - DB=postgres
   - NODE_ENV=test
 services: 
   - postgresql
@@ -9,7 +8,6 @@ addons:
 before_script:
   - psql -c 'create database thesis_test;' -U postgres
   - yarn knex migrate:latest 
-  - yarn knex seed:run
 deploy:
   provider: heroku
   api_key:
