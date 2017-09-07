@@ -24,7 +24,7 @@ exports.seed = function(knex, Promise) {
         },
         { id: 3,
           position: 'Front End UI Developer',
-          position_url: ''https://www.linkedin.com/jobs/view/380992731/'',
+          position_url: 'https://www.linkedin.com/jobs/view/380992731/',
           description: 'Ladeeda is the leader in cloud security. ',
           notes: null,
           company_id: 2,
