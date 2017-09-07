@@ -16,7 +16,7 @@ export default function() {
       position: 'UI Developer',
       // applicationUrl: 'https://www.linkedin.com/jobs/view/383180342/'
       applicationUrl: 'https://boards.greenhouse.io/vlocity/jobs/781103',
-      currentStatus: 1,
+      currentStatus: 'Interested',
       date: '2017-09-02',
       notes: null
     },
@@ -31,7 +31,7 @@ export default function() {
       },
       position: 'Front End Developer',
       applicationUrl: 'https://www.linkedin.com/jobs/view/430047268/',
-      currentStatus: 1,
+      currentStatus: 'Interested',
       date: '2017-08-22',
       notes: 'Recruiter reached out to me.'
     },
@@ -46,7 +46,7 @@ export default function() {
       },
       position: 'Front End UI Developer',
       applicationUrl: 'https://www.linkedin.com/jobs/view/380992731/',
-      currentStatus: 1,
+      currentStatus: 'Interested',
       date: '2017-09-01',
       notes: null
     }
