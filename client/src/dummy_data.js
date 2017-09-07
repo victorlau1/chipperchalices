@@ -49,3 +49,5 @@ const data = [
     notes: null
   }
 ];
+
+export default data;
