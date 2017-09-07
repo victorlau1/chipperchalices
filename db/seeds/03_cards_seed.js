@@ -11,7 +11,7 @@ exports.seed = function(knex, Promise) {
           position_url: 'https://boards.greenhouse.io/vlocity/jobs/781103',
           description: 'Vlocity is a leading industry cloud software company that delivers award winning industry-specific applications on the Salesforce platform.',
           notes: null,
-          company_id: 12,
+          company_id: 1,
           user_id: 1
         }
         { id: 2,
