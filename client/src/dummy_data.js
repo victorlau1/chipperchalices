@@ -49,5 +49,3 @@ const data = [
     notes: null
   }
 ];
-
-
