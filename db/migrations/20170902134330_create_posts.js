@@ -7,8 +7,8 @@ exports.up = function (knex, Promise) {
       table.string('position_url', 100).nullable();
       table.string('description', 500).nullable();
       table.string('notes', 500).nullable();
-      table.bigInteger('company_id').unsigned().index().references('id').inTable('companies');
-      table.bigInteger('user_id').unsigned().index().references('id').inTable('profiles');
+      table.bigInteger('company_id').unsigned().index().references('id').inTable('companies').onDelete('CASCADE');
+      table.bigInteger('user_id').unsigned().index().references('id').inTable('profiles').onDelete('CASCADE');
     }),
     knex.schema.createTableIfNotExists('location', function (table) {
       table.increments('id').unsigned().primary();
@@ -27,26 +27,26 @@ exports.up = function (knex, Promise) {
       table.string('logo_url', 255).nullable();
       table.string('linkedin_url', 255).nullable();
       table.string('description', 500).nullable();
-      table.bigInteger('location_id').unsigned().index().references('id').inTable('location').nullable();
+      table.bigInteger('location_id').unsigned().index().references('id').inTable('location').onDelete('CASCADE').nullable();
     }),
     knex.schema.createTableIfNotExists('news', function (table) {
       table.increments('id').unsigned().primary();
       table.string('news_date', 100).nullable();
       table.string('news_link', 250);
-      table.bigInteger('company_id').unsigned().index().references('id').inTable('companies').nullable();
-      table.bigInteger('news_company_id').unsigned().index().references('id').inTable('companies').nullable();
+      table.bigInteger('company_id').unsigned().index().references('id').inTable('companies').onDelete('CASCADE').nullable();
+      table.bigInteger('news_company_id').unsigned().index().references('id').inTable('companies').onDelete('CASCADE').nullable();
     }),
     knex.schema.createTableIfNotExists('lifecycle', function (table) {
       table.increments('id').unsigned( ).primary();
       table.string('status', 100).index().nullable();
       table.string('status_start_date', 100).nullable();
-      table.bigInteger('card_id').unsigned().index().references('id').inTable('cards');
+      table.bigInteger('card_id').unsigned().index().references('id').inTable('cards').onDelete('CASCADE');
     }),
     knex.schema.createTableIfNotExists('interaction', function(table) {
       table.increments('id').unsigned().primary();
       table.string('interaction_type', 250).index();
       table.string('interaction_date').index();
-      table.bigInteger('status_id').unsigned().references('id').inTable('lifecycle');
+      table.bigInteger('status_id').unsigned().references('id').inTable('lifecycle').onDelete('CASCADE');
     })
   ]);
 };

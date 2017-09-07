@@ -25,5 +25,4 @@ app.use('/api', routes.api);
 app.use('/api/profiles', routes.profiles);
 app.use('/card', routes.cards);
 
-
 module.exports = app;

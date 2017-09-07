@@ -1,10 +1,9 @@
-
 exports.seed = function(knex, Promise) {
-  // Deletes ALL existing entries
-  return knex('lifecycles').del()
+
+  return knex('lifecycle').del()
     .then(function () {
-      // Inserts seed entries
-      return knex('lifecycles').insert([
+
+      return knex('lifecycle').insert([
         { status: '1',
           status_start_date: 'August 10, 2017',
           card_id: 1
