@@ -2,7 +2,7 @@
 
 exports[`Snapshots JobCard renders a JobCard 1`] = `
 <div
-  className="job-entry"
+  className="job-card"
   style={
     Object {
       "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -27,9 +27,11 @@ exports[`Snapshots JobCard renders a JobCard 1`] = `
     }
   >
     <div
+      onClick={[Function]}
       style={
         Object {
           "boxSizing": "border-box",
+          "cursor": "pointer",
           "fontWeight": 500,
           "muiPrepared": true,
           "padding": 16,
@@ -38,6 +40,27 @@ exports[`Snapshots JobCard renders a JobCard 1`] = `
         }
       }
     >
+      <img
+        className={undefined}
+        size={40}
+        src="https://tinyurl.com/ya54jrkq"
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "rgb(188, 188, 188)",
+            "borderRadius": "50%",
+            "color": "#ffffff",
+            "display": "inline-flex",
+            "fontSize": 20,
+            "height": 40,
+            "justifyContent": "center",
+            "marginRight": 16,
+            "muiPrepared": true,
+            "userSelect": "none",
+            "width": 40,
+          }
+        }
+      />
       <div
         style={
           Object {
@@ -59,7 +82,7 @@ exports[`Snapshots JobCard renders a JobCard 1`] = `
             }
           }
         >
-          UI Developer
+          Vlocity
         </span>
         <span
           style={
@@ -71,9 +94,82 @@ exports[`Snapshots JobCard renders a JobCard 1`] = `
             }
           }
         >
-          Quantified @ Menlo Park, CA
+          UI Developer
         </span>
       </div>
+      <button
+        disabled={false}
+        href={undefined}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseOut={[Function]}
+        onTouchStart={[Function]}
+        style={
+          Object {
+            "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
+            "background": "none",
+            "border": 10,
+            "bottom": 0,
+            "boxSizing": "border-box",
+            "cursor": "pointer",
+            "display": "inline-block",
+            "fontFamily": "Roboto, sans-serif",
+            "fontSize": 0,
+            "fontWeight": "inherit",
+            "height": 48,
+            "margin": "auto",
+            "muiPrepared": true,
+            "outline": "none",
+            "overflow": "visible",
+            "padding": 12,
+            "position": "absolute",
+            "right": 4,
+            "textDecoration": "none",
+            "top": 0,
+            "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+            "verticalAlign": null,
+            "width": 48,
+            "zIndex": 1,
+          }
+        }
+        tabIndex={0}
+        type="button"
+      >
+        <div
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchStart={[Function]}
+        >
+          <svg
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            style={
+              Object {
+                "color": "rgba(0, 0, 0, 0.87)",
+                "display": "inline-block",
+                "fill": "currentColor",
+                "height": 24,
+                "muiPrepared": true,
+                "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                "userSelect": "none",
+                "width": 24,
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </div>
+      </button>
     </div>
   </div>
 </div>
@@ -99,30 +195,534 @@ exports[`Snapshots LifeCycleBoard renders 4 Columns and Calls Subcomponents 1`] 
             "color": "rgba(0, 0, 0, 0.87)",
             "fontFamily": "Roboto, sans-serif",
             "muiPrepared": true,
-            "padding": 16,
+            "padding": 3,
             "textAlign": "center",
             "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
           }
         }
       >
-        Interest
+        <h2>
+          Interest
+        </h2>
       </div>
+      <br />
       <div>
-        <li>
-          UI Developer
-           at 
-          Vlocity
-        </li>
-        <li>
-          Front End Developer
-           at 
-          RHLA Technology
-        </li>
-        <li>
-          Front End UI Developer
-           at 
-          Ladeeda
-        </li>
+        <div
+          className="job-card"
+          style={
+            Object {
+              "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 2,
+              "boxShadow": "0 1px 6px rgba(0, 0, 0, 0.12),
+         0 1px 4px rgba(0, 0, 0, 0.12)",
+              "boxSizing": "border-box",
+              "color": "rgba(0, 0, 0, 0.87)",
+              "fontFamily": "Roboto, sans-serif",
+              "muiPrepared": true,
+              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+              "zIndex": 1,
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "paddingBottom": 0,
+              }
+            }
+          >
+            <div
+              onClick={[Function]}
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "cursor": "pointer",
+                  "fontWeight": 500,
+                  "muiPrepared": true,
+                  "padding": 16,
+                  "position": "relative",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              <img
+                className={undefined}
+                size={40}
+                src="https://tinyurl.com/ya54jrkq"
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "rgb(188, 188, 188)",
+                    "borderRadius": "50%",
+                    "color": "#ffffff",
+                    "display": "inline-flex",
+                    "fontSize": 20,
+                    "height": 40,
+                    "justifyContent": "center",
+                    "marginRight": 16,
+                    "muiPrepared": true,
+                    "userSelect": "none",
+                    "width": 40,
+                  }
+                }
+              />
+              <div
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "muiPrepared": true,
+                    "paddingRight": "90px",
+                    "verticalAlign": "top",
+                    "whiteSpace": "normal",
+                  }
+                }
+              >
+                <span
+                  style={
+                    Object {
+                      "color": "rgba(0, 0, 0, 0.87)",
+                      "display": "block",
+                      "fontSize": 15,
+                      "muiPrepared": true,
+                    }
+                  }
+                >
+                  Vlocity
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "rgba(0, 0, 0, 0.54)",
+                      "display": "block",
+                      "fontSize": 14,
+                      "muiPrepared": true,
+                    }
+                  }
+                >
+                  UI Developer
+                </span>
+              </div>
+              <button
+                disabled={false}
+                href={undefined}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseOut={[Function]}
+                onTouchStart={[Function]}
+                style={
+                  Object {
+                    "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
+                    "background": "none",
+                    "border": 10,
+                    "bottom": 0,
+                    "boxSizing": "border-box",
+                    "cursor": "pointer",
+                    "display": "inline-block",
+                    "fontFamily": "Roboto, sans-serif",
+                    "fontSize": 0,
+                    "fontWeight": "inherit",
+                    "height": 48,
+                    "margin": "auto",
+                    "muiPrepared": true,
+                    "outline": "none",
+                    "overflow": "visible",
+                    "padding": 12,
+                    "position": "absolute",
+                    "right": 4,
+                    "textDecoration": "none",
+                    "top": 0,
+                    "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                    "verticalAlign": null,
+                    "width": 48,
+                    "zIndex": 1,
+                  }
+                }
+                tabIndex={0}
+                type="button"
+              >
+                <div
+                  onMouseDown={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseUp={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchStart={[Function]}
+                >
+                  <svg
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
+                    style={
+                      Object {
+                        "color": "rgba(0, 0, 0, 0.87)",
+                        "display": "inline-block",
+                        "fill": "currentColor",
+                        "height": 24,
+                        "muiPrepared": true,
+                        "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                        "userSelect": "none",
+                        "width": 24,
+                      }
+                    }
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+                    />
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          className="job-card"
+          style={
+            Object {
+              "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 2,
+              "boxShadow": "0 1px 6px rgba(0, 0, 0, 0.12),
+         0 1px 4px rgba(0, 0, 0, 0.12)",
+              "boxSizing": "border-box",
+              "color": "rgba(0, 0, 0, 0.87)",
+              "fontFamily": "Roboto, sans-serif",
+              "muiPrepared": true,
+              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+              "zIndex": 1,
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "paddingBottom": 0,
+              }
+            }
+          >
+            <div
+              onClick={[Function]}
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "cursor": "pointer",
+                  "fontWeight": 500,
+                  "muiPrepared": true,
+                  "padding": 16,
+                  "position": "relative",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              <img
+                className={undefined}
+                size={40}
+                src="https://tinyurl.com/y8z3pajs"
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "rgb(188, 188, 188)",
+                    "borderRadius": "50%",
+                    "color": "#ffffff",
+                    "display": "inline-flex",
+                    "fontSize": 20,
+                    "height": 40,
+                    "justifyContent": "center",
+                    "marginRight": 16,
+                    "muiPrepared": true,
+                    "userSelect": "none",
+                    "width": 40,
+                  }
+                }
+              />
+              <div
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "muiPrepared": true,
+                    "paddingRight": "90px",
+                    "verticalAlign": "top",
+                    "whiteSpace": "normal",
+                  }
+                }
+              >
+                <span
+                  style={
+                    Object {
+                      "color": "rgba(0, 0, 0, 0.87)",
+                      "display": "block",
+                      "fontSize": 15,
+                      "muiPrepared": true,
+                    }
+                  }
+                >
+                  RHLA Technology
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "rgba(0, 0, 0, 0.54)",
+                      "display": "block",
+                      "fontSize": 14,
+                      "muiPrepared": true,
+                    }
+                  }
+                >
+                  Front End Developer
+                </span>
+              </div>
+              <button
+                disabled={false}
+                href={undefined}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseOut={[Function]}
+                onTouchStart={[Function]}
+                style={
+                  Object {
+                    "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
+                    "background": "none",
+                    "border": 10,
+                    "bottom": 0,
+                    "boxSizing": "border-box",
+                    "cursor": "pointer",
+                    "display": "inline-block",
+                    "fontFamily": "Roboto, sans-serif",
+                    "fontSize": 0,
+                    "fontWeight": "inherit",
+                    "height": 48,
+                    "margin": "auto",
+                    "muiPrepared": true,
+                    "outline": "none",
+                    "overflow": "visible",
+                    "padding": 12,
+                    "position": "absolute",
+                    "right": 4,
+                    "textDecoration": "none",
+                    "top": 0,
+                    "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                    "verticalAlign": null,
+                    "width": 48,
+                    "zIndex": 1,
+                  }
+                }
+                tabIndex={0}
+                type="button"
+              >
+                <div
+                  onMouseDown={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseUp={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchStart={[Function]}
+                >
+                  <svg
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
+                    style={
+                      Object {
+                        "color": "rgba(0, 0, 0, 0.87)",
+                        "display": "inline-block",
+                        "fill": "currentColor",
+                        "height": 24,
+                        "muiPrepared": true,
+                        "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                        "userSelect": "none",
+                        "width": 24,
+                      }
+                    }
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+                    />
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          className="job-card"
+          style={
+            Object {
+              "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 2,
+              "boxShadow": "0 1px 6px rgba(0, 0, 0, 0.12),
+         0 1px 4px rgba(0, 0, 0, 0.12)",
+              "boxSizing": "border-box",
+              "color": "rgba(0, 0, 0, 0.87)",
+              "fontFamily": "Roboto, sans-serif",
+              "muiPrepared": true,
+              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+              "zIndex": 1,
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "paddingBottom": 0,
+              }
+            }
+          >
+            <div
+              onClick={[Function]}
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "cursor": "pointer",
+                  "fontWeight": 500,
+                  "muiPrepared": true,
+                  "padding": 16,
+                  "position": "relative",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              <img
+                className={undefined}
+                size={40}
+                src="https://tinyurl.com/y88e4djd"
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "rgb(188, 188, 188)",
+                    "borderRadius": "50%",
+                    "color": "#ffffff",
+                    "display": "inline-flex",
+                    "fontSize": 20,
+                    "height": 40,
+                    "justifyContent": "center",
+                    "marginRight": 16,
+                    "muiPrepared": true,
+                    "userSelect": "none",
+                    "width": 40,
+                  }
+                }
+              />
+              <div
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "muiPrepared": true,
+                    "paddingRight": "90px",
+                    "verticalAlign": "top",
+                    "whiteSpace": "normal",
+                  }
+                }
+              >
+                <span
+                  style={
+                    Object {
+                      "color": "rgba(0, 0, 0, 0.87)",
+                      "display": "block",
+                      "fontSize": 15,
+                      "muiPrepared": true,
+                    }
+                  }
+                >
+                  Ladeeda
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "rgba(0, 0, 0, 0.54)",
+                      "display": "block",
+                      "fontSize": 14,
+                      "muiPrepared": true,
+                    }
+                  }
+                >
+                  Front End UI Developer
+                </span>
+              </div>
+              <button
+                disabled={false}
+                href={undefined}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseOut={[Function]}
+                onTouchStart={[Function]}
+                style={
+                  Object {
+                    "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
+                    "background": "none",
+                    "border": 10,
+                    "bottom": 0,
+                    "boxSizing": "border-box",
+                    "cursor": "pointer",
+                    "display": "inline-block",
+                    "fontFamily": "Roboto, sans-serif",
+                    "fontSize": 0,
+                    "fontWeight": "inherit",
+                    "height": 48,
+                    "margin": "auto",
+                    "muiPrepared": true,
+                    "outline": "none",
+                    "overflow": "visible",
+                    "padding": 12,
+                    "position": "absolute",
+                    "right": 4,
+                    "textDecoration": "none",
+                    "top": 0,
+                    "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                    "verticalAlign": null,
+                    "width": 48,
+                    "zIndex": 1,
+                  }
+                }
+                tabIndex={0}
+                type="button"
+              >
+                <div
+                  onMouseDown={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseUp={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchStart={[Function]}
+                >
+                  <svg
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
+                    style={
+                      Object {
+                        "color": "rgba(0, 0, 0, 0.87)",
+                        "display": "inline-block",
+                        "fill": "currentColor",
+                        "height": 24,
+                        "muiPrepared": true,
+                        "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                        "userSelect": "none",
+                        "width": 24,
+                      }
+                    }
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+                    />
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div
@@ -140,42 +740,534 @@ exports[`Snapshots LifeCycleBoard renders 4 Columns and Calls Subcomponents 1`] 
             "color": "rgba(0, 0, 0, 0.87)",
             "fontFamily": "Roboto, sans-serif",
             "muiPrepared": true,
-            "padding": 16,
+            "padding": 3,
             "textAlign": "center",
             "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
           }
         }
       >
-        Applied
-      </div>
-      <div>
         <h2>
           Applied
         </h2>
       </div>
-    </div>
-    <div
-      className="col-sm-3 col-xs-6"
-    >
-      <div
-        style={
-          Object {
-            "WebkitTapHighlightColor": "rgba(0,0,0,0)",
-            "backgroundColor": "#ffffff",
-            "borderRadius": 2,
-            "boxShadow": "0 14px 45px rgba(0, 0, 0, 0.25),
-         0 10px 18px rgba(0, 0, 0, 0.22)",
-            "boxSizing": "border-box",
-            "color": "rgba(0, 0, 0, 0.87)",
-            "fontFamily": "Roboto, sans-serif",
-            "muiPrepared": true,
-            "padding": 16,
-            "textAlign": "center",
-            "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+      <br />
+      <div>
+        <div
+          className="job-card"
+          style={
+            Object {
+              "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 2,
+              "boxShadow": "0 1px 6px rgba(0, 0, 0, 0.12),
+         0 1px 4px rgba(0, 0, 0, 0.12)",
+              "boxSizing": "border-box",
+              "color": "rgba(0, 0, 0, 0.87)",
+              "fontFamily": "Roboto, sans-serif",
+              "muiPrepared": true,
+              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+              "zIndex": 1,
+            }
           }
-        }
-      >
-        Interview
+        >
+          <div
+            style={
+              Object {
+                "paddingBottom": 0,
+              }
+            }
+          >
+            <div
+              onClick={[Function]}
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "cursor": "pointer",
+                  "fontWeight": 500,
+                  "muiPrepared": true,
+                  "padding": 16,
+                  "position": "relative",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              <img
+                className={undefined}
+                size={40}
+                src="https://tinyurl.com/ya54jrkq"
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "rgb(188, 188, 188)",
+                    "borderRadius": "50%",
+                    "color": "#ffffff",
+                    "display": "inline-flex",
+                    "fontSize": 20,
+                    "height": 40,
+                    "justifyContent": "center",
+                    "marginRight": 16,
+                    "muiPrepared": true,
+                    "userSelect": "none",
+                    "width": 40,
+                  }
+                }
+              />
+              <div
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "muiPrepared": true,
+                    "paddingRight": "90px",
+                    "verticalAlign": "top",
+                    "whiteSpace": "normal",
+                  }
+                }
+              >
+                <span
+                  style={
+                    Object {
+                      "color": "rgba(0, 0, 0, 0.87)",
+                      "display": "block",
+                      "fontSize": 15,
+                      "muiPrepared": true,
+                    }
+                  }
+                >
+                  Vlocity
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "rgba(0, 0, 0, 0.54)",
+                      "display": "block",
+                      "fontSize": 14,
+                      "muiPrepared": true,
+                    }
+                  }
+                >
+                  UI Developer
+                </span>
+              </div>
+              <button
+                disabled={false}
+                href={undefined}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseOut={[Function]}
+                onTouchStart={[Function]}
+                style={
+                  Object {
+                    "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
+                    "background": "none",
+                    "border": 10,
+                    "bottom": 0,
+                    "boxSizing": "border-box",
+                    "cursor": "pointer",
+                    "display": "inline-block",
+                    "fontFamily": "Roboto, sans-serif",
+                    "fontSize": 0,
+                    "fontWeight": "inherit",
+                    "height": 48,
+                    "margin": "auto",
+                    "muiPrepared": true,
+                    "outline": "none",
+                    "overflow": "visible",
+                    "padding": 12,
+                    "position": "absolute",
+                    "right": 4,
+                    "textDecoration": "none",
+                    "top": 0,
+                    "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                    "verticalAlign": null,
+                    "width": 48,
+                    "zIndex": 1,
+                  }
+                }
+                tabIndex={0}
+                type="button"
+              >
+                <div
+                  onMouseDown={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseUp={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchStart={[Function]}
+                >
+                  <svg
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
+                    style={
+                      Object {
+                        "color": "rgba(0, 0, 0, 0.87)",
+                        "display": "inline-block",
+                        "fill": "currentColor",
+                        "height": 24,
+                        "muiPrepared": true,
+                        "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                        "userSelect": "none",
+                        "width": 24,
+                      }
+                    }
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+                    />
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          className="job-card"
+          style={
+            Object {
+              "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 2,
+              "boxShadow": "0 1px 6px rgba(0, 0, 0, 0.12),
+         0 1px 4px rgba(0, 0, 0, 0.12)",
+              "boxSizing": "border-box",
+              "color": "rgba(0, 0, 0, 0.87)",
+              "fontFamily": "Roboto, sans-serif",
+              "muiPrepared": true,
+              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+              "zIndex": 1,
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "paddingBottom": 0,
+              }
+            }
+          >
+            <div
+              onClick={[Function]}
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "cursor": "pointer",
+                  "fontWeight": 500,
+                  "muiPrepared": true,
+                  "padding": 16,
+                  "position": "relative",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              <img
+                className={undefined}
+                size={40}
+                src="https://tinyurl.com/y8z3pajs"
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "rgb(188, 188, 188)",
+                    "borderRadius": "50%",
+                    "color": "#ffffff",
+                    "display": "inline-flex",
+                    "fontSize": 20,
+                    "height": 40,
+                    "justifyContent": "center",
+                    "marginRight": 16,
+                    "muiPrepared": true,
+                    "userSelect": "none",
+                    "width": 40,
+                  }
+                }
+              />
+              <div
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "muiPrepared": true,
+                    "paddingRight": "90px",
+                    "verticalAlign": "top",
+                    "whiteSpace": "normal",
+                  }
+                }
+              >
+                <span
+                  style={
+                    Object {
+                      "color": "rgba(0, 0, 0, 0.87)",
+                      "display": "block",
+                      "fontSize": 15,
+                      "muiPrepared": true,
+                    }
+                  }
+                >
+                  RHLA Technology
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "rgba(0, 0, 0, 0.54)",
+                      "display": "block",
+                      "fontSize": 14,
+                      "muiPrepared": true,
+                    }
+                  }
+                >
+                  Front End Developer
+                </span>
+              </div>
+              <button
+                disabled={false}
+                href={undefined}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseOut={[Function]}
+                onTouchStart={[Function]}
+                style={
+                  Object {
+                    "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
+                    "background": "none",
+                    "border": 10,
+                    "bottom": 0,
+                    "boxSizing": "border-box",
+                    "cursor": "pointer",
+                    "display": "inline-block",
+                    "fontFamily": "Roboto, sans-serif",
+                    "fontSize": 0,
+                    "fontWeight": "inherit",
+                    "height": 48,
+                    "margin": "auto",
+                    "muiPrepared": true,
+                    "outline": "none",
+                    "overflow": "visible",
+                    "padding": 12,
+                    "position": "absolute",
+                    "right": 4,
+                    "textDecoration": "none",
+                    "top": 0,
+                    "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                    "verticalAlign": null,
+                    "width": 48,
+                    "zIndex": 1,
+                  }
+                }
+                tabIndex={0}
+                type="button"
+              >
+                <div
+                  onMouseDown={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseUp={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchStart={[Function]}
+                >
+                  <svg
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
+                    style={
+                      Object {
+                        "color": "rgba(0, 0, 0, 0.87)",
+                        "display": "inline-block",
+                        "fill": "currentColor",
+                        "height": 24,
+                        "muiPrepared": true,
+                        "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                        "userSelect": "none",
+                        "width": 24,
+                      }
+                    }
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+                    />
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          className="job-card"
+          style={
+            Object {
+              "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 2,
+              "boxShadow": "0 1px 6px rgba(0, 0, 0, 0.12),
+         0 1px 4px rgba(0, 0, 0, 0.12)",
+              "boxSizing": "border-box",
+              "color": "rgba(0, 0, 0, 0.87)",
+              "fontFamily": "Roboto, sans-serif",
+              "muiPrepared": true,
+              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+              "zIndex": 1,
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "paddingBottom": 0,
+              }
+            }
+          >
+            <div
+              onClick={[Function]}
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "cursor": "pointer",
+                  "fontWeight": 500,
+                  "muiPrepared": true,
+                  "padding": 16,
+                  "position": "relative",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              <img
+                className={undefined}
+                size={40}
+                src="https://tinyurl.com/y88e4djd"
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "rgb(188, 188, 188)",
+                    "borderRadius": "50%",
+                    "color": "#ffffff",
+                    "display": "inline-flex",
+                    "fontSize": 20,
+                    "height": 40,
+                    "justifyContent": "center",
+                    "marginRight": 16,
+                    "muiPrepared": true,
+                    "userSelect": "none",
+                    "width": 40,
+                  }
+                }
+              />
+              <div
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "muiPrepared": true,
+                    "paddingRight": "90px",
+                    "verticalAlign": "top",
+                    "whiteSpace": "normal",
+                  }
+                }
+              >
+                <span
+                  style={
+                    Object {
+                      "color": "rgba(0, 0, 0, 0.87)",
+                      "display": "block",
+                      "fontSize": 15,
+                      "muiPrepared": true,
+                    }
+                  }
+                >
+                  Ladeeda
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "rgba(0, 0, 0, 0.54)",
+                      "display": "block",
+                      "fontSize": 14,
+                      "muiPrepared": true,
+                    }
+                  }
+                >
+                  Front End UI Developer
+                </span>
+              </div>
+              <button
+                disabled={false}
+                href={undefined}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseOut={[Function]}
+                onTouchStart={[Function]}
+                style={
+                  Object {
+                    "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
+                    "background": "none",
+                    "border": 10,
+                    "bottom": 0,
+                    "boxSizing": "border-box",
+                    "cursor": "pointer",
+                    "display": "inline-block",
+                    "fontFamily": "Roboto, sans-serif",
+                    "fontSize": 0,
+                    "fontWeight": "inherit",
+                    "height": 48,
+                    "margin": "auto",
+                    "muiPrepared": true,
+                    "outline": "none",
+                    "overflow": "visible",
+                    "padding": 12,
+                    "position": "absolute",
+                    "right": 4,
+                    "textDecoration": "none",
+                    "top": 0,
+                    "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                    "verticalAlign": null,
+                    "width": 48,
+                    "zIndex": 1,
+                  }
+                }
+                tabIndex={0}
+                type="button"
+              >
+                <div
+                  onMouseDown={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseUp={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchStart={[Function]}
+                >
+                  <svg
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
+                    style={
+                      Object {
+                        "color": "rgba(0, 0, 0, 0.87)",
+                        "display": "inline-block",
+                        "fill": "currentColor",
+                        "height": 24,
+                        "muiPrepared": true,
+                        "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                        "userSelect": "none",
+                        "width": 24,
+                      }
+                    }
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+                    />
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div
@@ -193,35 +1285,1081 @@ exports[`Snapshots LifeCycleBoard renders 4 Columns and Calls Subcomponents 1`] 
             "color": "rgba(0, 0, 0, 0.87)",
             "fontFamily": "Roboto, sans-serif",
             "muiPrepared": true,
-            "padding": 16,
+            "padding": 3,
             "textAlign": "center",
             "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
           }
         }
       >
-        Post-Interview
+        <h2>
+          Interview
+        </h2>
+      </div>
+      <br />
+      <div>
+        <div
+          className="job-card"
+          style={
+            Object {
+              "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 2,
+              "boxShadow": "0 1px 6px rgba(0, 0, 0, 0.12),
+         0 1px 4px rgba(0, 0, 0, 0.12)",
+              "boxSizing": "border-box",
+              "color": "rgba(0, 0, 0, 0.87)",
+              "fontFamily": "Roboto, sans-serif",
+              "muiPrepared": true,
+              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+              "zIndex": 1,
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "paddingBottom": 0,
+              }
+            }
+          >
+            <div
+              onClick={[Function]}
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "cursor": "pointer",
+                  "fontWeight": 500,
+                  "muiPrepared": true,
+                  "padding": 16,
+                  "position": "relative",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              <img
+                className={undefined}
+                size={40}
+                src="https://tinyurl.com/ya54jrkq"
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "rgb(188, 188, 188)",
+                    "borderRadius": "50%",
+                    "color": "#ffffff",
+                    "display": "inline-flex",
+                    "fontSize": 20,
+                    "height": 40,
+                    "justifyContent": "center",
+                    "marginRight": 16,
+                    "muiPrepared": true,
+                    "userSelect": "none",
+                    "width": 40,
+                  }
+                }
+              />
+              <div
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "muiPrepared": true,
+                    "paddingRight": "90px",
+                    "verticalAlign": "top",
+                    "whiteSpace": "normal",
+                  }
+                }
+              >
+                <span
+                  style={
+                    Object {
+                      "color": "rgba(0, 0, 0, 0.87)",
+                      "display": "block",
+                      "fontSize": 15,
+                      "muiPrepared": true,
+                    }
+                  }
+                >
+                  Vlocity
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "rgba(0, 0, 0, 0.54)",
+                      "display": "block",
+                      "fontSize": 14,
+                      "muiPrepared": true,
+                    }
+                  }
+                >
+                  UI Developer
+                </span>
+              </div>
+              <button
+                disabled={false}
+                href={undefined}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseOut={[Function]}
+                onTouchStart={[Function]}
+                style={
+                  Object {
+                    "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
+                    "background": "none",
+                    "border": 10,
+                    "bottom": 0,
+                    "boxSizing": "border-box",
+                    "cursor": "pointer",
+                    "display": "inline-block",
+                    "fontFamily": "Roboto, sans-serif",
+                    "fontSize": 0,
+                    "fontWeight": "inherit",
+                    "height": 48,
+                    "margin": "auto",
+                    "muiPrepared": true,
+                    "outline": "none",
+                    "overflow": "visible",
+                    "padding": 12,
+                    "position": "absolute",
+                    "right": 4,
+                    "textDecoration": "none",
+                    "top": 0,
+                    "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                    "verticalAlign": null,
+                    "width": 48,
+                    "zIndex": 1,
+                  }
+                }
+                tabIndex={0}
+                type="button"
+              >
+                <div
+                  onMouseDown={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseUp={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchStart={[Function]}
+                >
+                  <svg
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
+                    style={
+                      Object {
+                        "color": "rgba(0, 0, 0, 0.87)",
+                        "display": "inline-block",
+                        "fill": "currentColor",
+                        "height": 24,
+                        "muiPrepared": true,
+                        "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                        "userSelect": "none",
+                        "width": 24,
+                      }
+                    }
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+                    />
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          className="job-card"
+          style={
+            Object {
+              "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 2,
+              "boxShadow": "0 1px 6px rgba(0, 0, 0, 0.12),
+         0 1px 4px rgba(0, 0, 0, 0.12)",
+              "boxSizing": "border-box",
+              "color": "rgba(0, 0, 0, 0.87)",
+              "fontFamily": "Roboto, sans-serif",
+              "muiPrepared": true,
+              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+              "zIndex": 1,
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "paddingBottom": 0,
+              }
+            }
+          >
+            <div
+              onClick={[Function]}
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "cursor": "pointer",
+                  "fontWeight": 500,
+                  "muiPrepared": true,
+                  "padding": 16,
+                  "position": "relative",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              <img
+                className={undefined}
+                size={40}
+                src="https://tinyurl.com/y8z3pajs"
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "rgb(188, 188, 188)",
+                    "borderRadius": "50%",
+                    "color": "#ffffff",
+                    "display": "inline-flex",
+                    "fontSize": 20,
+                    "height": 40,
+                    "justifyContent": "center",
+                    "marginRight": 16,
+                    "muiPrepared": true,
+                    "userSelect": "none",
+                    "width": 40,
+                  }
+                }
+              />
+              <div
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "muiPrepared": true,
+                    "paddingRight": "90px",
+                    "verticalAlign": "top",
+                    "whiteSpace": "normal",
+                  }
+                }
+              >
+                <span
+                  style={
+                    Object {
+                      "color": "rgba(0, 0, 0, 0.87)",
+                      "display": "block",
+                      "fontSize": 15,
+                      "muiPrepared": true,
+                    }
+                  }
+                >
+                  RHLA Technology
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "rgba(0, 0, 0, 0.54)",
+                      "display": "block",
+                      "fontSize": 14,
+                      "muiPrepared": true,
+                    }
+                  }
+                >
+                  Front End Developer
+                </span>
+              </div>
+              <button
+                disabled={false}
+                href={undefined}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseOut={[Function]}
+                onTouchStart={[Function]}
+                style={
+                  Object {
+                    "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
+                    "background": "none",
+                    "border": 10,
+                    "bottom": 0,
+                    "boxSizing": "border-box",
+                    "cursor": "pointer",
+                    "display": "inline-block",
+                    "fontFamily": "Roboto, sans-serif",
+                    "fontSize": 0,
+                    "fontWeight": "inherit",
+                    "height": 48,
+                    "margin": "auto",
+                    "muiPrepared": true,
+                    "outline": "none",
+                    "overflow": "visible",
+                    "padding": 12,
+                    "position": "absolute",
+                    "right": 4,
+                    "textDecoration": "none",
+                    "top": 0,
+                    "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                    "verticalAlign": null,
+                    "width": 48,
+                    "zIndex": 1,
+                  }
+                }
+                tabIndex={0}
+                type="button"
+              >
+                <div
+                  onMouseDown={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseUp={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchStart={[Function]}
+                >
+                  <svg
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
+                    style={
+                      Object {
+                        "color": "rgba(0, 0, 0, 0.87)",
+                        "display": "inline-block",
+                        "fill": "currentColor",
+                        "height": 24,
+                        "muiPrepared": true,
+                        "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                        "userSelect": "none",
+                        "width": 24,
+                      }
+                    }
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+                    />
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          className="job-card"
+          style={
+            Object {
+              "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 2,
+              "boxShadow": "0 1px 6px rgba(0, 0, 0, 0.12),
+         0 1px 4px rgba(0, 0, 0, 0.12)",
+              "boxSizing": "border-box",
+              "color": "rgba(0, 0, 0, 0.87)",
+              "fontFamily": "Roboto, sans-serif",
+              "muiPrepared": true,
+              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+              "zIndex": 1,
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "paddingBottom": 0,
+              }
+            }
+          >
+            <div
+              onClick={[Function]}
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "cursor": "pointer",
+                  "fontWeight": 500,
+                  "muiPrepared": true,
+                  "padding": 16,
+                  "position": "relative",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              <img
+                className={undefined}
+                size={40}
+                src="https://tinyurl.com/y88e4djd"
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "rgb(188, 188, 188)",
+                    "borderRadius": "50%",
+                    "color": "#ffffff",
+                    "display": "inline-flex",
+                    "fontSize": 20,
+                    "height": 40,
+                    "justifyContent": "center",
+                    "marginRight": 16,
+                    "muiPrepared": true,
+                    "userSelect": "none",
+                    "width": 40,
+                  }
+                }
+              />
+              <div
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "muiPrepared": true,
+                    "paddingRight": "90px",
+                    "verticalAlign": "top",
+                    "whiteSpace": "normal",
+                  }
+                }
+              >
+                <span
+                  style={
+                    Object {
+                      "color": "rgba(0, 0, 0, 0.87)",
+                      "display": "block",
+                      "fontSize": 15,
+                      "muiPrepared": true,
+                    }
+                  }
+                >
+                  Ladeeda
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "rgba(0, 0, 0, 0.54)",
+                      "display": "block",
+                      "fontSize": 14,
+                      "muiPrepared": true,
+                    }
+                  }
+                >
+                  Front End UI Developer
+                </span>
+              </div>
+              <button
+                disabled={false}
+                href={undefined}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseOut={[Function]}
+                onTouchStart={[Function]}
+                style={
+                  Object {
+                    "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
+                    "background": "none",
+                    "border": 10,
+                    "bottom": 0,
+                    "boxSizing": "border-box",
+                    "cursor": "pointer",
+                    "display": "inline-block",
+                    "fontFamily": "Roboto, sans-serif",
+                    "fontSize": 0,
+                    "fontWeight": "inherit",
+                    "height": 48,
+                    "margin": "auto",
+                    "muiPrepared": true,
+                    "outline": "none",
+                    "overflow": "visible",
+                    "padding": 12,
+                    "position": "absolute",
+                    "right": 4,
+                    "textDecoration": "none",
+                    "top": 0,
+                    "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                    "verticalAlign": null,
+                    "width": 48,
+                    "zIndex": 1,
+                  }
+                }
+                tabIndex={0}
+                type="button"
+              >
+                <div
+                  onMouseDown={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseUp={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchStart={[Function]}
+                >
+                  <svg
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
+                    style={
+                      Object {
+                        "color": "rgba(0, 0, 0, 0.87)",
+                        "display": "inline-block",
+                        "fill": "currentColor",
+                        "height": 24,
+                        "muiPrepared": true,
+                        "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                        "userSelect": "none",
+                        "width": 24,
+                      }
+                    }
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+                    />
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-sm-3 col-xs-6"
+    >
+      <div
+        style={
+          Object {
+            "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+            "backgroundColor": "#ffffff",
+            "borderRadius": 2,
+            "boxShadow": "0 14px 45px rgba(0, 0, 0, 0.25),
+         0 10px 18px rgba(0, 0, 0, 0.22)",
+            "boxSizing": "border-box",
+            "color": "rgba(0, 0, 0, 0.87)",
+            "fontFamily": "Roboto, sans-serif",
+            "muiPrepared": true,
+            "padding": 3,
+            "textAlign": "center",
+            "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+          }
+        }
+      >
+        <h2>
+          Post-Interview
+        </h2>
+      </div>
+      <br />
+      <div>
+        <div
+          className="job-card"
+          style={
+            Object {
+              "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 2,
+              "boxShadow": "0 1px 6px rgba(0, 0, 0, 0.12),
+         0 1px 4px rgba(0, 0, 0, 0.12)",
+              "boxSizing": "border-box",
+              "color": "rgba(0, 0, 0, 0.87)",
+              "fontFamily": "Roboto, sans-serif",
+              "muiPrepared": true,
+              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+              "zIndex": 1,
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "paddingBottom": 0,
+              }
+            }
+          >
+            <div
+              onClick={[Function]}
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "cursor": "pointer",
+                  "fontWeight": 500,
+                  "muiPrepared": true,
+                  "padding": 16,
+                  "position": "relative",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              <img
+                className={undefined}
+                size={40}
+                src="https://tinyurl.com/ya54jrkq"
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "rgb(188, 188, 188)",
+                    "borderRadius": "50%",
+                    "color": "#ffffff",
+                    "display": "inline-flex",
+                    "fontSize": 20,
+                    "height": 40,
+                    "justifyContent": "center",
+                    "marginRight": 16,
+                    "muiPrepared": true,
+                    "userSelect": "none",
+                    "width": 40,
+                  }
+                }
+              />
+              <div
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "muiPrepared": true,
+                    "paddingRight": "90px",
+                    "verticalAlign": "top",
+                    "whiteSpace": "normal",
+                  }
+                }
+              >
+                <span
+                  style={
+                    Object {
+                      "color": "rgba(0, 0, 0, 0.87)",
+                      "display": "block",
+                      "fontSize": 15,
+                      "muiPrepared": true,
+                    }
+                  }
+                >
+                  Vlocity
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "rgba(0, 0, 0, 0.54)",
+                      "display": "block",
+                      "fontSize": 14,
+                      "muiPrepared": true,
+                    }
+                  }
+                >
+                  UI Developer
+                </span>
+              </div>
+              <button
+                disabled={false}
+                href={undefined}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseOut={[Function]}
+                onTouchStart={[Function]}
+                style={
+                  Object {
+                    "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
+                    "background": "none",
+                    "border": 10,
+                    "bottom": 0,
+                    "boxSizing": "border-box",
+                    "cursor": "pointer",
+                    "display": "inline-block",
+                    "fontFamily": "Roboto, sans-serif",
+                    "fontSize": 0,
+                    "fontWeight": "inherit",
+                    "height": 48,
+                    "margin": "auto",
+                    "muiPrepared": true,
+                    "outline": "none",
+                    "overflow": "visible",
+                    "padding": 12,
+                    "position": "absolute",
+                    "right": 4,
+                    "textDecoration": "none",
+                    "top": 0,
+                    "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                    "verticalAlign": null,
+                    "width": 48,
+                    "zIndex": 1,
+                  }
+                }
+                tabIndex={0}
+                type="button"
+              >
+                <div
+                  onMouseDown={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseUp={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchStart={[Function]}
+                >
+                  <svg
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
+                    style={
+                      Object {
+                        "color": "rgba(0, 0, 0, 0.87)",
+                        "display": "inline-block",
+                        "fill": "currentColor",
+                        "height": 24,
+                        "muiPrepared": true,
+                        "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                        "userSelect": "none",
+                        "width": 24,
+                      }
+                    }
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+                    />
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          className="job-card"
+          style={
+            Object {
+              "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 2,
+              "boxShadow": "0 1px 6px rgba(0, 0, 0, 0.12),
+         0 1px 4px rgba(0, 0, 0, 0.12)",
+              "boxSizing": "border-box",
+              "color": "rgba(0, 0, 0, 0.87)",
+              "fontFamily": "Roboto, sans-serif",
+              "muiPrepared": true,
+              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+              "zIndex": 1,
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "paddingBottom": 0,
+              }
+            }
+          >
+            <div
+              onClick={[Function]}
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "cursor": "pointer",
+                  "fontWeight": 500,
+                  "muiPrepared": true,
+                  "padding": 16,
+                  "position": "relative",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              <img
+                className={undefined}
+                size={40}
+                src="https://tinyurl.com/y8z3pajs"
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "rgb(188, 188, 188)",
+                    "borderRadius": "50%",
+                    "color": "#ffffff",
+                    "display": "inline-flex",
+                    "fontSize": 20,
+                    "height": 40,
+                    "justifyContent": "center",
+                    "marginRight": 16,
+                    "muiPrepared": true,
+                    "userSelect": "none",
+                    "width": 40,
+                  }
+                }
+              />
+              <div
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "muiPrepared": true,
+                    "paddingRight": "90px",
+                    "verticalAlign": "top",
+                    "whiteSpace": "normal",
+                  }
+                }
+              >
+                <span
+                  style={
+                    Object {
+                      "color": "rgba(0, 0, 0, 0.87)",
+                      "display": "block",
+                      "fontSize": 15,
+                      "muiPrepared": true,
+                    }
+                  }
+                >
+                  RHLA Technology
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "rgba(0, 0, 0, 0.54)",
+                      "display": "block",
+                      "fontSize": 14,
+                      "muiPrepared": true,
+                    }
+                  }
+                >
+                  Front End Developer
+                </span>
+              </div>
+              <button
+                disabled={false}
+                href={undefined}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseOut={[Function]}
+                onTouchStart={[Function]}
+                style={
+                  Object {
+                    "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
+                    "background": "none",
+                    "border": 10,
+                    "bottom": 0,
+                    "boxSizing": "border-box",
+                    "cursor": "pointer",
+                    "display": "inline-block",
+                    "fontFamily": "Roboto, sans-serif",
+                    "fontSize": 0,
+                    "fontWeight": "inherit",
+                    "height": 48,
+                    "margin": "auto",
+                    "muiPrepared": true,
+                    "outline": "none",
+                    "overflow": "visible",
+                    "padding": 12,
+                    "position": "absolute",
+                    "right": 4,
+                    "textDecoration": "none",
+                    "top": 0,
+                    "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                    "verticalAlign": null,
+                    "width": 48,
+                    "zIndex": 1,
+                  }
+                }
+                tabIndex={0}
+                type="button"
+              >
+                <div
+                  onMouseDown={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseUp={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchStart={[Function]}
+                >
+                  <svg
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
+                    style={
+                      Object {
+                        "color": "rgba(0, 0, 0, 0.87)",
+                        "display": "inline-block",
+                        "fill": "currentColor",
+                        "height": 24,
+                        "muiPrepared": true,
+                        "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                        "userSelect": "none",
+                        "width": 24,
+                      }
+                    }
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+                    />
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          className="job-card"
+          style={
+            Object {
+              "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 2,
+              "boxShadow": "0 1px 6px rgba(0, 0, 0, 0.12),
+         0 1px 4px rgba(0, 0, 0, 0.12)",
+              "boxSizing": "border-box",
+              "color": "rgba(0, 0, 0, 0.87)",
+              "fontFamily": "Roboto, sans-serif",
+              "muiPrepared": true,
+              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+              "zIndex": 1,
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "paddingBottom": 0,
+              }
+            }
+          >
+            <div
+              onClick={[Function]}
+              style={
+                Object {
+                  "boxSizing": "border-box",
+                  "cursor": "pointer",
+                  "fontWeight": 500,
+                  "muiPrepared": true,
+                  "padding": 16,
+                  "position": "relative",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              <img
+                className={undefined}
+                size={40}
+                src="https://tinyurl.com/y88e4djd"
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "rgb(188, 188, 188)",
+                    "borderRadius": "50%",
+                    "color": "#ffffff",
+                    "display": "inline-flex",
+                    "fontSize": 20,
+                    "height": 40,
+                    "justifyContent": "center",
+                    "marginRight": 16,
+                    "muiPrepared": true,
+                    "userSelect": "none",
+                    "width": 40,
+                  }
+                }
+              />
+              <div
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "muiPrepared": true,
+                    "paddingRight": "90px",
+                    "verticalAlign": "top",
+                    "whiteSpace": "normal",
+                  }
+                }
+              >
+                <span
+                  style={
+                    Object {
+                      "color": "rgba(0, 0, 0, 0.87)",
+                      "display": "block",
+                      "fontSize": 15,
+                      "muiPrepared": true,
+                    }
+                  }
+                >
+                  Ladeeda
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "rgba(0, 0, 0, 0.54)",
+                      "display": "block",
+                      "fontSize": 14,
+                      "muiPrepared": true,
+                    }
+                  }
+                >
+                  Front End UI Developer
+                </span>
+              </div>
+              <button
+                disabled={false}
+                href={undefined}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseOut={[Function]}
+                onTouchStart={[Function]}
+                style={
+                  Object {
+                    "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
+                    "background": "none",
+                    "border": 10,
+                    "bottom": 0,
+                    "boxSizing": "border-box",
+                    "cursor": "pointer",
+                    "display": "inline-block",
+                    "fontFamily": "Roboto, sans-serif",
+                    "fontSize": 0,
+                    "fontWeight": "inherit",
+                    "height": 48,
+                    "margin": "auto",
+                    "muiPrepared": true,
+                    "outline": "none",
+                    "overflow": "visible",
+                    "padding": 12,
+                    "position": "absolute",
+                    "right": 4,
+                    "textDecoration": "none",
+                    "top": 0,
+                    "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                    "verticalAlign": null,
+                    "width": 48,
+                    "zIndex": 1,
+                  }
+                }
+                tabIndex={0}
+                type="button"
+              >
+                <div
+                  onMouseDown={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseUp={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchStart={[Function]}
+                >
+                  <svg
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
+                    style={
+                      Object {
+                        "color": "rgba(0, 0, 0, 0.87)",
+                        "display": "inline-block",
+                        "fill": "currentColor",
+                        "height": 24,
+                        "muiPrepared": true,
+                        "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                        "userSelect": "none",
+                        "width": 24,
+                      }
+                    }
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+                    />
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
-`;
-
-exports[`Snapshots List should render fakeData Jobs 1`] = `
-<div>
-  <li>
-    UI Developer
-     at 
-    Vlocity
-  </li>
-  <li>
-    Front End Developer
-     at 
-    RHLA Technology
-  </li>
-  <li>
-    Front End UI Developer
-     at 
-    Ladeeda
-  </li>
 </div>
 `;
