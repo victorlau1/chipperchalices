@@ -53,7 +53,7 @@ exports.up = function (knex, Promise) {
 
 exports.down = function(knex, Promise) {
   return Promise.all([
-    knex.raw('DROP TABLE posts CASCADE'),
+    knex.raw('DROP TABLE cards CASCADE'),
     knex.raw('DROP TABLE location CASCADE'),
     knex.raw('DROP TABLE companies CASCADE'),
     knex.raw('DROP TABLE news CASCADE'),
