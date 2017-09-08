@@ -9,8 +9,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 import DatePicker from 'material-ui/DatePicker';
 import TimePicker from 'material-ui/TimePicker';
 
-// var moment = require('moment');
-
 class JobForm extends React.Component {
   constructor(props) {
     super(props);
@@ -20,6 +18,8 @@ class JobForm extends React.Component {
       company: '',
       date: null,
       status: '',
+      notes: '',
+      url: '',
       value: 0
     };
 
@@ -29,6 +29,8 @@ class JobForm extends React.Component {
     this.handleDate = this.handleDate.bind(this);
     this.handleStatus = this.handleStatus.bind(this);
     this.saveJob = this.saveJob.bind(this);
+    this.handleNotes = this.handleNotes.bind(this);
+    this.handleURL = this.handleURL.bind(this);
   }
 
   handleClick () {
@@ -49,32 +51,57 @@ class JobForm extends React.Component {
     });
   }
 
+
+  handleNotes (e) {
+    this.setState({
+      notes: e.target.value
+    });
+  }
+
+  handleURL (e) {
+    this.setState({
+      url: e.target.value
+    });
+  }
+
   handleStatus (event, index, value) {
     this.setState({
-      status: value,
-      value: index
+      status: event.target.textContent,
+      value: value,
     });
   }
 
   saveJob () {
+    var form = this;
+    console.log(this.state);
     axios.post('/card', {
       job: {
         title: this.state.title,
         company: this.state.company,
+        notes: this.state.notes,
+        url: this.state.url
+      },
+      status: {
         date: this.state.date,
         status: this.state.status
       }
     })
       .then(function(response) {
-        this.setState({
-          open: false
+        form.setState({
+          open: false,
+          value: 0
         });
         console.log('sent to server');
       })
       .catch(function(error) {
+        form.setState({
+          open: false,
+          value: 0
+        });
         console.log('error', error);
       });
   }
+
 
   handleDate (e, date) {
     this.setState({
@@ -97,8 +124,8 @@ class JobForm extends React.Component {
         onClick={this.saveJob}
       />
     ];
-    const values = ['What is the status of this application?', 'Interested', 'Applied', 'Interview Scheduled', 'Interviewed'];
-    const items = values.map(function(val, i) { return <MenuItem value={i} key ={i} primaryText = {val} />; });
+    const values = ['What is the status of this application?', 'Interested', 'Applied', 'Interview Scheduled', 'Interviewed', 'No response', 'Rejected', 'Offer made', 'Archived'];
+    const items = values.map(function(val, i) { return <MenuItem value={i} key={i} primaryText = {val} />; });
     return (
       <div>
         <RaisedButton label='Add a job' onClick={this.handleClick}/>
@@ -109,12 +136,15 @@ class JobForm extends React.Component {
           open={this.state.open}
           onRequestClose={this.handleClick}
         >
-          <TextField onChange={this.handleTitle} hintText="Job title"/><br/>
-          <TextField onChange={this.handleCompany} hintText="Company"/><br/>
+          <TextField onChange={this.handleTitle} hintText="Job title" errorText="This field is required"/><br/>
+          <TextField onChange={this.handleCompany} hintText="Company" errorText="This field is required"/><br/>
           <DropDownMenu maxHeight={300} value={this.state.value} onChange={this.handleStatus}>
             {items}
           </DropDownMenu><br/>
           <DatePicker onChange={this.handleDate} value ={this.state.date} hintText="When did you apply?"/><br/>
+
+          <TextField onChange={this.handleURL} hintText="Application link"/><br/>
+          <TextField onChange={this.handleNotes} multiLine = {true} rows={2} rowsMax={10} hintText="Anything else we should know?"/><br/>
         </Dialog>
       </div>
     );

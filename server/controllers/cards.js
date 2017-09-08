@@ -1,4 +1,5 @@
 const models = require('../../db/models');
+const lifecycle = require ('./lifecycle.js');
 
 module.exports.getAll = (req, res) => {
   models.Card.fetchAll()
@@ -10,16 +11,22 @@ module.exports.getAll = (req, res) => {
     });
 };
 
-module.exports.create = (req, res) => {
+module.exports.create = (req, res, company) => {
   models.Card.forge({
-    username: req.body.username,
-    password: req.body.password })
+    position: req.body.job.title,
+    position_url: req.body.job.url,
+    description: null,
+    notes: req.body.job.notes,
+    company_id: company.id,
+    user_id: req.user.id
+  })
     .save()
     .then(result => {
-      res.status(201).send(result);
+      lifecycle.create(req, res, result);
+      console.log('card saved');
     })
     .catch(err => {
-      res.status(500).send(err);
+      console.log('card err', err);
     });
 };
 

@@ -1,5 +1,6 @@
 const db = require('../');
 
+
 const Card = db.Model.extend({
   tableName: 'cards',
   lifecycle: function() {
@@ -22,7 +23,7 @@ const Company = db.Model.extend({
 });
 
 const Lifecycle = db.Model.extend({
-  tableName: 'lifecycles',
+  tableName: 'lifecycle',
   post: function() {
     return this.belongsTo(Card);
   }
@@ -35,10 +36,10 @@ const Lifecycle = db.Model.extend({
 // const Interaction = db.Model.extend({
 //   tableName: 'interactions',
 // });
+module.exports = {
+  Card: db.model('Card', Card),
+  Location: db.model('Location', Location),
+  Company: db.model('Company', Company),
+  Lifecycle: db.model('Lifecycle', Lifecycle)
+};
 
-module.exports = db.model('Card', Card);
-module.exports = db.model('Location', Location);
-module.exports = db.model('Company', Company);
-module.exports = db.model('Lifecycle', Lifecycle);
-// module.exports = db.model('News', News);
-// module.exports = db.model('Interaction', Interaction);
