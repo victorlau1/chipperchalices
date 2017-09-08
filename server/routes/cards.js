@@ -6,6 +6,7 @@ const CompanyController = require('../controllers').Companies;
 const LifecycleController = require('../controllers').Lifecycles;
 
 router.route('/')
+
   //handle get request from client to retrieve all job cards from db
   .get(CardController.getAll)
 
