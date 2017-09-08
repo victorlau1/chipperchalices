@@ -23,6 +23,7 @@ class JobCard extends Component {
   }
   render() {
     const job = this.props.job;
+
     return (
       <Card className='job-card' expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
         <CardHeader
