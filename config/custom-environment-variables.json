@@ -13,9 +13,9 @@
     },
 
     "Twitter": {
-      "consumerKey": "FILL_ME_IN",
-      "consumerSecret": "FILL_ME_IN",
-      "callbackURL": "http://FILL_ME_IN/auth/twitter/callback"
+      "consumerKey": "TWITTER_CLIENT_ID",
+      "consumerSecret": "TWITTER_CLIENT_SECRET",
+      "callbackURL": "TWITTER_CALLBACK_URL"
     }
   }
 }
