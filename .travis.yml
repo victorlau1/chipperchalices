@@ -1,7 +1,7 @@
 language: node_js
 env:
   - NODE_ENV=test
-services: 
+services:
   - postgresql
 addons:
   postgresql: "9.6"
@@ -9,7 +9,7 @@ cache: yarn
 before_script:
   - psql -c 'create database thesis_test;' -U postgres
   - yarn knex migrate:latest
-script: 
+script:
   - 'yarn server-test'
 deploy:
   provider: heroku
@@ -19,4 +19,3 @@ node_js:
   - "8"
   - "7"
   - "6"
-  - "5"
