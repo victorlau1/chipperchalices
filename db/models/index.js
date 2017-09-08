@@ -1,7 +1,7 @@
 module.exports.Auth = require('./auths');
 module.exports.Profile = require('./profiles');
-module.exports.Card = require('./cards').Card;
-module.exports.Company = require('./cards').Company;
-module.exports.Lifecycle = require('./cards').Lifecycle;
-
+module.exports.Card = require('./cards');
+module.exports.Company = require('./companies');
+module.exports.Lifecycle = require('./lifecycle');
+module.exports.Location = require('./locations');
 

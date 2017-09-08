@@ -7,14 +7,14 @@
 
   "passport": {
     "Google": {
-      "clientID": "lawl",
-      "clientSecret": "nope",
+      "clientID": "FILL_ME_IN",
+      "clientSecret": "FILL_ME_IN",
       "callbackURL": "http://FILL_ME_IN/auth/google/callback"
     },
 
     "Facebook": {
-      "clientID": "yo",
-      "clientSecret": "sup?",
+      "clientID": "FILL_ME_IN",
+      "clientSecret": "FILL_ME_IN",
       "callbackURL": "http://FILL_ME_IN/auth/facebook/callback"
     },
 
