@@ -24,7 +24,7 @@ class LifecycleBoard extends Component {
         <Grid>
           <Col xs={6} sm={3}>
             <Paper style={style} zDepth={4}>
-              <h2>Interest</h2>
+              <h2>Interested</h2>
             </Paper>
             <br />
             <InterestList />
@@ -38,14 +38,14 @@ class LifecycleBoard extends Component {
           </Col>
           <Col xs={6} sm={3}>
             <Paper style={style} zDepth={4}>
-              <h2>Interview</h2>
+              <h2>Interview Scheduled</h2>
             </Paper>
             <br />
             <InterviewList />
           </Col>
           <Col xs={6} sm={3}>
             <Paper style={style} zDepth={4}>
-              <h2>Post-Interview</h2>
+              <h2>Interviewed</h2>
             </Paper>
             <br />
             <PostInterviewList />

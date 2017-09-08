@@ -4,7 +4,7 @@ export default function() {
   // use dummy data for cards for now
   return [
     {
-      id: 1,
+      id: 10,
       company: {
         id: 33,
         name: 'Pinterest',
@@ -16,7 +16,7 @@ export default function() {
       position: 'Fullstack Apprentice',
       // applicationUrl: 'https://www.linkedin.com/jobs/view/383180342/'
       applicationUrl: 'https://boards.greenhouse.io/vlocity/jobs/781103',
-      currentStatus: 4,
+      currentStatus: 'Interviewed',
       date: '2017-09-05',
       notes: 'Was really nervous during the on-site tech assessment, may not have given the best impression.'
     }
