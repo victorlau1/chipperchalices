@@ -1,15 +1,15 @@
 {
   "passport": {
     "Google": {
-      "clientID": "143480102315-sj7aj1bdd9e182g3767u655rgm2u4r3g.apps.googleusercontent.com",
-      "clientSecret": "u_n9ir15Hk44z8cTW-i6yJcP",
-      "callbackURL": "http://localhost:3000/auth/google/callback"
+      "clientID": "GOOGLE_CLIENT_ID",
+      "clientSecret": "GOOGLE_CLIENT_SECRET",
+      "callbackURL": "GOOGLE_CALLBACK_URL"
     },
 
     "Facebook": {
-      "clientID": "904964696319719",
-      "clientSecret": "211bc1f8f78e28077ba1498c7c388c14",
-      "callbackURL": "http://localhost:3000/auth/facebook/callback"
+      "clientID": "FACEBOOK_CLIENT_ID",
+      "clientSecret": "FACEBOOK_CLIENT_SECRET",
+      "callbackURL": "FACEBOOK_CALLBACK_URL"
     },
 
     "Twitter": {
