@@ -3,6 +3,7 @@ const request = require('supertest');
 const express = require('express');
 const expect = require('chai').expect;
 const app = require('../app.js');
+const models = require('../../db/models');
 
 describe('basic server', function() {
   it('sends back hello world', function(done) {
