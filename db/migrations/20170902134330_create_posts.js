@@ -25,7 +25,7 @@ exports.up = function (knex, Promise) {
       table.string('name', 100).index();
       table.string('industry', 100).nullable();
       table.string('logo_url', 255).nullable();
-      table.string('linkedin_url', 255).nullable();
+      table.string('company_url', 255).nullable();
       table.string('description', 500).nullable();
       table.bigInteger('location_id').unsigned().index().references('id').inTable('location').onDelete('CASCADE').nullable();
     }),
