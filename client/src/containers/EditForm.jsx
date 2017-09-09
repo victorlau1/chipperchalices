@@ -105,7 +105,7 @@ class JobForm extends React.Component {
   saveJob () {
     //If change then saveJob
     if (!this.state.change) {
-      console.log('No Changes')
+      console.log('No Changes');
       return;
     }
     //Is an action instead of a CB
@@ -125,18 +125,18 @@ class JobForm extends React.Component {
     };
 
     axios.put('/card/update', content)
-    .then(function(response) {
-      form.setState({
-        open: false,
+      .then(function(response) {
+        form.setState({
+          open: false,
+        });
+        console.log('sent to server');
+      })
+      .catch(function(error) {
+        form.setState({
+          open: false,
+        });
+        console.log('error', error);
       });
-      console.log('sent to server');
-    })
-    .catch(function(error) {
-      form.setState({
-        open: false,
-      });
-      console.log('error', error);
-    });
   }
 
   render() {
@@ -181,10 +181,10 @@ class JobForm extends React.Component {
           <DatePicker onChange={this.handleDate} value={this.state.date}/><br/>
           <TextField onChange={this.handleURL} defaultValue={this.state.url}/><br/>
           <TextField onChange={this.handleNotes} 
-                    defaultValue={this.state.notes} 
-                    multiLine={this.state.notes === 'null' ? true : false} 
-                    rows={1} rowsMax={10} 
-                    hintText={'Notes'}/><br/>
+            defaultValue={this.state.notes} 
+            multiLine={this.state.notes === 'null' ? true : false} 
+            rows={1} rowsMax={10} 
+            hintText={'Notes'}/><br/>
         </Dialog>
       </div>
     );
