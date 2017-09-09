@@ -51,7 +51,7 @@ router.route('/')
 router.route('/update')
 
   //handle post request from client to update status on a job card
-  .post(CardController.update);
+  .put(CardController.update);
 
 
 module.exports = router;

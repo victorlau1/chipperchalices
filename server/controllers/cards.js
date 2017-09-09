@@ -1,14 +1,10 @@
 const models = require('../../db/models');
 const lifecycle = require ('./lifecycle.js');
 
-//ping db for all card info
+//ping db for cards on page load
 module.exports.getAll = (req, res) => {
   console.log('getall is working')
   return models.Card.fetchAll()
-  //({withRelated: ['companies']})
-  // .then(card) => {
-  //   console.log('card related', card.related('companies'));
-  // }
   .then(cards => {
     res.send(cards);
 
@@ -68,6 +64,7 @@ module.exports.create = (req, res, company) => {
     });
 };
 
+//job card update initiated by user's edits
 module.exports.update = (req, res) => {
   models.Card.where({ id: req.params.id }).fetch()
     .then(card => {
