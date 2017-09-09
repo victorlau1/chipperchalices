@@ -9,8 +9,9 @@ const Glassdoor = require('node-glassdoor').initGlassdoor({
 
 
 models.Company.findOrCreate = function(req, res) {
+
   var isNew = false;
-  var cloned = new models.Company({        
+  var cloned = new models.Company({
     name: req.body.job.company,
     industry: null,
     logo_url: null,
@@ -20,7 +21,7 @@ models.Company.findOrCreate = function(req, res) {
   });
   return cloned.fetch()
     .then(function(result, err) {
-      if (result === null) { 
+      if (result === null) {
         isNew = true;
         return cloned.save()
           .then(result =>{
@@ -44,12 +45,12 @@ models.Company.findOrCreate = function(req, res) {
 };
 
 models.Company.getGlassdoorInfo = function (req, res, company) {
-  return Glassdoor.findOneCompany(company.attributes.name, 
+  return Glassdoor.findOneCompany(company.attributes.name,
     {
       country: 'US'
     })
     .then(function (data) {
-      return company.save ({          
+      return company.save ({
         industry: data.industryName,
         logo_url: data.squareLogo,
         company_url: data.website,

@@ -1,14 +1,28 @@
 const models = require('../../db/models');
 const lifecycle = require ('./lifecycle.js');
 
+//ping db for all card info
 module.exports.getAll = (req, res) => {
-  models.Card.fetchAll()
-    .then(cards => {
-      res.status(200).send(cards);
-    })
-    .catch(err => {
-      res.status(503).send(err);
-    });
+  console.log('getall is working')
+  return models.Card.fetchAll()
+  //({withRelated: ['companies']})
+  // .then(card) => {
+  //   console.log('card related', card.related('companies'));
+  // }
+  .then(cards => {
+    res.send(cards);
+
+  })
+  .catch(err => {
+    res.status(503).send(err);
+  })
+  // models.Card.fetchAll()
+  //   .then(cards => {
+  //     res.status(200).send(cards);
+  //   })
+  //   .catch(err => {
+  //     res.status(503).send(err);
+  //   });
 };
 
 module.exports.create = (req, res, company) => {
