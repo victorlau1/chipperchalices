@@ -26,3 +26,14 @@ describe('basic server', function() {
       .end(done);
   });
 });
+
+// describe('/card', function(){
+//   it('accepts POST requests', function(done){
+
+//   });
+
+//   it('sends client information to the database', function(){
+
+//   });
+  
+// });

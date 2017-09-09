@@ -20,6 +20,7 @@ models.Company.findOrCreate = function(req, res) {
   });
   return cloned.fetch()
     .then(function(result, err) {
+      console.log('fetched');
       if (result === null) { 
         isNew = true;
         return cloned.save(); 
