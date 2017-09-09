@@ -20,45 +20,47 @@ models.Company.findOrCreate = function(req, res) {
   });
   return cloned.fetch()
     .then(function(result, err) {
-      console.log('fetched');
       if (result === null) { 
         isNew = true;
-        return cloned.save(); 
+        return cloned.save()
+          .then(result =>{
+            return result;
+          })
+          .catch(err=>{
+            console.log(err);
+          });
       }
       return result;
     })
     .then(result => {
       if (isNew) {
-        console.log('going to glassdoor');
-        return models.Company.getGlassdoorInfo(result);
+        return models.Company.getGlassdoorInfo(req, res, result);
       }
       return result;
-    })
-    .then(result => {
-      card.create(req, res, result);
-      res.sendStatus(201);    
     })
     .catch(err => {
       res.status(500).send(err);
     });
 };
 
-models.Company.getGlassdoorInfo = function (company) {
-  console.log(company);
-  Glassdoor.findOneCompany(company.attributes.name, 
+models.Company.getGlassdoorInfo = function (req, res, company) {
+  return Glassdoor.findOneCompany(company.attributes.name, 
     {
       country: 'US'
     })
     .then(function (data) {
-      console.log('success', data);
       return company.save ({          
         industry: data.industryName,
         logo_url: data.squareLogo,
         company_url: data.website,
         description: data.featuredReview.headline
-      });
+      })
+        .then(result =>{
+          console.log(result);
+          card.create(req, res, result);
+        });
     })
-    .catch(function (err) {
+    .catch(err => {
       console.error(err);
     });
 };
