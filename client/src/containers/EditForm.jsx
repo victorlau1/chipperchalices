@@ -9,7 +9,7 @@ import {DatePicker, TimePicker} from 'material-ui';
 import fakeData from '../dummy_data.js';
 
 
-class JobForm extends React.Component {
+class EditForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -105,8 +105,7 @@ class JobForm extends React.Component {
   saveJob () {
     //If change then saveJob
     if (!this.state.change) {
-      console.log('No Changes');
-      return;
+      return 'No Changes';
     }
     //Is an action instead of a CB
     var form = this;
@@ -124,7 +123,7 @@ class JobForm extends React.Component {
       }
     };
 
-    axios.put('/card/update', content)
+    return axios.put('/card/update', content)
       .then(function(response) {
         form.setState({
           open: false,
@@ -165,7 +164,7 @@ class JobForm extends React.Component {
     const items = values.map(function(val, i) { return <MenuItem value={i} key={i} primaryText = {val} />; });
     return (
       <div>
-        <FlatButton style={style} labelStyle={{fontSize: '9px'}} label='Edit Info' onClick={this.handleClick}/>
+        <FlatButton style={style} labelStyle={{fontSize: '9px'}} label='Edit' onClick={this.handleClick}/>
         <Dialog
           title="Edit Form"
           actions={actions}
@@ -199,4 +198,4 @@ class JobForm extends React.Component {
 
 // }
 
-export default JobForm;
+export default EditForm;
