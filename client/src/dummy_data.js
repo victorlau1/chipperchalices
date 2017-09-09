@@ -157,3 +157,5 @@ const data = [
     notes: 'Was really nervous during the on-site tech assessment, may not have given the best impression.'
   }
 ];
+
+export default data;
