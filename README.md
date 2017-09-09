@@ -5,13 +5,13 @@ The project description
 ## Team
 
 - Rebecca Chen
-- Matthew Nicolaou
 - Victor Lau
+- Matthew Nicolaou
 - Ting Wang
 
 ## Roadmap
 
-View the project roadmap [here](LINK_TO_DOC)
+View the project roadmap [here](https://docs.google.com/document/d/1PzqFVBraeDwosZVFKMCzPxMBdwVf_fWSmrDPNqdvBns/edit?usp=sharing)
 
 ## Contributing
 
@@ -99,7 +99,9 @@ To run webpack build: `yarn run build`
 
 To run server: `yarn run start`
 
-To run tests: `yarn run test`
+To run tests:
+- (frontend) 'yarn run front-test'
+- (server) 'yarn run server-test'
 
 To run your redis server for the session store `redis-server`
 
