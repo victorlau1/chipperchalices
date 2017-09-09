@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot (EditForm) EditForm should render using fakeData (enzyme) 1`] = `
+<EditForm
+  job={
+    Object {
+      "applicationUrl": "https://boards.greenhouse.io/vlocity/jobs/781103",
+      "company": Object {
+        "description": "Vlocity is a leading industry cloud software company that delivers award winning industry-specific applications on the Salesforce platform.",
+        "id": 12,
+        "location": "San Francisco, CA",
+        "logoUrl": "https://tinyurl.com/ya54jrkq",
+        "name": "Vlocity",
+      },
+      "currentStatus": "Interested",
+      "date": "2017-09-02",
+      "id": 1,
+      "notes": null,
+      "position": "UI Developer",
+    }
+  }
+/>
+`;
+
+exports[`Snapshot (EditForm) EditForm should render using fakeData 1`] = `
+<EditForm
+  job={
+    Object {
+      "applicationUrl": "https://boards.greenhouse.io/vlocity/jobs/781103",
+      "company": Object {
+        "description": "Vlocity is a leading industry cloud software company that delivers award winning industry-specific applications on the Salesforce platform.",
+        "id": 12,
+        "location": "San Francisco, CA",
+        "logoUrl": "https://tinyurl.com/ya54jrkq",
+        "name": "Vlocity",
+      },
+      "currentStatus": "Interested",
+      "date": "2017-09-02",
+      "id": 1,
+      "notes": null,
+      "position": "UI Developer",
+    }
+  }
+/>
+`;
