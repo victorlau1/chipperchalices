@@ -4,12 +4,16 @@ const express = require('express');
 const expect = require('chai').expect;
 const app = require('../app.js');
 const models = require('../../db/models');
+var chai = require("chai");
+var sinonChai = require("sinon-chai");
 const config = require ('../../config/glassdoor.js');
 const Glassdoor = require('node-glassdoor').initGlassdoor({
   partnerId: config.config.partnerId,
   partnerKey: config.config.key
 });
 const CompanyController = require('../controllers').Companies;
+
+chai.use(sinonChai);
 
 
 describe('basic server', function() {
@@ -87,7 +91,7 @@ describe('/card', function() {
       .end(done);
   });
 
-  it('does not createa new company if one already exists in database', function(done) {
+  it('does not create a new company if one already exists in database', function(done) {
     var cloned = new models.Company({        
       name: 'google',
       industry: null,
