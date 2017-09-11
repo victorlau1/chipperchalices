@@ -6,12 +6,30 @@ const lifecycle = require ('./lifecycle.js');
 //get card id for that lifecycle id -> card info
 //get company id for that card
 module.exports.getAll = (req, res) => {
-  //res.send('hi');
-  return models.Lifecycle.forge().fetchAll({withRelated: ['card', 'company']})
-  .then(cards => {
-    res.send(cards);
+  return models.Lifecycle.forge().where({ card_id: 1 }).fetchAll({
+    withRelated: ['card', 'company']
   })
+  .then((lifecycles) => {
+    res.send(lifecycles);
+  })
+
+  // return models.Lifecycle.forge().query((qb) => {
+  //     qb
+  //     .leftJoin('lifecycle1', () => {
+  //       this.on('lifecycle1.card_id', '=', 'lifecycle2.card_id')
+  //           .andOn('lifecycle1.id', '<', 'lifecycle2.id')
+  //     })
+  //     .where('lifecycle2.id', '=', 'null')
+  // }).fetchAll({withRelated: ['card', 'company']})
+  // .then(cards => {
+  //   res.send(cards);
+  // })
 }
+
+// SELECT l1.*
+// FROM lifecycle l1 LEFT JOIN lifecycle l2
+//  ON (l1.card_id = l2.card_id AND l1.id < l2.id)
+// WHERE l2.id IS NULL;
 // module.exports.getAll = (req, res) => {
 //   console.log('getall is working')
 
