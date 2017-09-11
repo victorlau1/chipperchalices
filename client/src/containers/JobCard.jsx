@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
+import EditForm from './EditForm.jsx';
 
 class JobCard extends Component {
   constructor(props) {
@@ -10,15 +11,18 @@ class JobCard extends Component {
     };
 
     this.handleExpandChange = this.handleExpandChange.bind(this);
+    this.updateJob = this.updateJob.bind(this);
   }
 
   handleExpandChange(expanded) {
-    this.setState({expanded: expanded});
+    this.setState({expanded});
   }
 
+  updateJob(data) {
+    console.log(data);
+  }
   render() {
     const job = this.props.job;
-
     return (
       <Card className='job-card' expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
         <CardHeader
@@ -34,6 +38,7 @@ class JobCard extends Component {
           <br/>
           <a href={job.applicationUrl}>Job Description</a>
         </CardText>
+        <EditForm job={job} updateJob={this.updateJob}/>
       </Card>
     );
   }

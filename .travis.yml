@@ -11,6 +11,7 @@ before_script:
   - yarn knex migrate:latest
 script:
   - 'yarn server-test'
+  - 'yarn front-test'
 deploy:
   provider: heroku
   api_key:
