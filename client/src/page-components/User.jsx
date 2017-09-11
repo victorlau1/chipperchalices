@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import HTML5Backend from 'react-dnd-html5-backend';
-import { DragDropContext } from 'react-dnd';
 
 import LifecycleBoard from '../containers/LifecycleBoard.jsx';
 import JobForm from '../components/jobForm.jsx';
@@ -19,4 +17,4 @@ class User extends Component {
   }
 }
 
-export default DragDropContext(HTML5Backend)(User);
+export default User;

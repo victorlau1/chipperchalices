@@ -2,10 +2,6 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import expect from 'expect';
 import { shallow } from 'enzyme';
-import JobCard from '../src/containers/JobCard.jsx';
-import LifecycleBoard from '../src/containers/LifecycleBoard.jsx';
-import { InterestList } from '../src/containers/InterestList.jsx';
-
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import fakeData from '../src/dummy_data.js';
@@ -13,14 +9,27 @@ import { lightBaseTheme, MuiThemeProvider, getMuiTheme } from 'material-ui/style
 //Material UI
 //Wrap each MaterialUI component with MuiTheme
 
+import LifecycleBoard from '../src/containers/LifecycleBoard.jsx';
+import { InterestList } from '../src/containers/InterestList.jsx';
+import JobCard from '../src/containers/JobCard.jsx';
+
+
 
 describe('Snapshots', () => {
   const mockStore = configureStore();
-  const initialStore = { 
-    interestJobs: fakeData,
-    appliedJobs: fakeData,
-    postInterviewJobs: fakeData,
-    interviewJobs: fakeData
+  const initialStore = {
+    cards: {
+      interested: [],
+      applied: [],
+      interviewScheduled: [],
+      interviewed: []
+    },
+    cardsHasErrored: false,
+    cardsAreFetched: false,
+    // interestJobs: fakeData,
+    // appliedJobs: fakeData,
+    // postInterviewJobs: fakeData,
+    // interviewJobs: fakeData
   };
   const store = mockStore(initialStore);
 
@@ -29,17 +38,21 @@ describe('Snapshots', () => {
     const json = component.toJSON();
     expect(json).toMatchSnapshot();
   });
+
   it('LifeCycleBoard renders 4 Columns and Calls Subcomponents', () => {
     const component = renderer.create(<Provider store={store}><MuiThemeProvider><LifecycleBoard /></MuiThemeProvider></Provider>);
     const json = component.toJSON();
     expect(json).toMatchSnapshot();
   });
+
+
   // it('List should render fakeData Jobs', () => {
   //   const component = renderer.create(<MuiThemeProvider><InterestList interestJobs={fakeData}/></MuiThemeProvider>);
   //   const json = component.toJSON();
   //   expect(json).toMatchSnapshot();
   // });
 });
+
 
 describe('JobCard', () => {
   let card;

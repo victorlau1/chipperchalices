@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import { Grid, Row, Col, Clearfix } from 'react-bootstrap';
 import Paper from 'material-ui/Paper';
 // import Grid from 'material-ui/Grid';
+import HTML5Backend from 'react-dnd-html5-backend';
+import { DragDropContext } from 'react-dnd';
+
 
 import InterestList from './InterestList.jsx';
 import AppliedList from './AppliedList.jsx';
@@ -79,4 +82,6 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
+LifecycleBoard = DragDropContext(HTML5Backend)(LifecycleBoard);
 export default connect(mapStateToProps, mapDispatchToProps)(LifecycleBoard);
+
