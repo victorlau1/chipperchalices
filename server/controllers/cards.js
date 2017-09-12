@@ -2,7 +2,8 @@ const models = require('../../db/models');
 const lifecycle = require ('./lifecycle.js');
 
 module.exports.getAll = (req, res) => {
-  //console.log(req.user);
+  // console.log(req.body);
+  // res.send(req.user)
   models.Card.forge().where({
     user_id: req.user.id
   }).fetchAll({withRelated: ['company']})
