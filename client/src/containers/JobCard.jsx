@@ -77,7 +77,7 @@ class JobCard extends Component {
           <CardText expandable={true}>
             {job.company.description}
             <br/>
-            <a href={job.applicationUrl}>Job Description</a>
+            <a href={job.positionUrl}>Job Description</a>
           </CardText>
           <EditForm job={job} updateJob={this.updateJob}/>
         </Card>

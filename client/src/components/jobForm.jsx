@@ -92,7 +92,8 @@ class JobForm extends React.Component {
       }
     })
       .then(function(response) {
-        form.props.addCardToList(form.state.status, response.data[0]);
+        console.log('new card response from jobForm', response.data);
+        form.props.addCardToList(form.state.status, response.data);
       })
       .then(() => {
         form.setState({
