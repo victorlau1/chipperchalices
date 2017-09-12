@@ -2,16 +2,49 @@ const models = require('../../db/models');
 const lifecycle = require ('./lifecycle.js');
 
 //ping db for cards on page load
+//query lifecycle table for max id for each unique card id
+//get card id for that lifecycle id -> card info
+//get company id for that card
 module.exports.getAll = (req, res) => {
-  console.log('getall is working')
-  return models.Card.fetchAll()
+  //res.send('hi');
+  return models.Lifecycle.forge().fetchAll({withRelated: ['card', 'company']})
   .then(cards => {
     res.send(cards);
+  })
+}
+// module.exports.getAll = (req, res) => {
+//   console.log('getall is working')
 
-  })
-  .catch(err => {
-    res.status(503).send(err);
-  })
+  //res.send('hi there');
+
+  // return models.Card.forge().fetchAll()
+  // .then(lifecycles => {
+  //   res.send(lifecycles);
+  // })
+  // return models.Lifecycle.forge()
+  //   .query()
+
+
+  // fetchAll()
+  // .then(lifecycles => {
+
+  //   lifecycles = lifecycles.models.map(lc=>{
+  //     return lc.attributes;
+  //   })
+  //   console.log(lifecycles);
+
+  //   models.cards.forge
+  //   res.send('ok lifecycles');
+
+  // return models.Card.forge().fetchAll({withRelated: ['company', 'lifecycle']})
+  // .then(cards => {
+  //   res.json({error: false, status: 200, data: cards.toJSON()});
+    //res.send(cards);
+
+
+  // .catch(err => {
+  //   res.status(503).send(err);
+  // })
   // models.Card.fetchAll()
   //   .then(cards => {
   //     res.status(200).send(cards);
@@ -19,7 +52,7 @@ module.exports.getAll = (req, res) => {
   //   .catch(err => {
   //     res.status(503).send(err);
   //   });
-};
+
 
 module.exports.create = (req, res, company) => {
   models.Card.forge({

@@ -7,6 +7,9 @@ const Company = db.Model.extend({
   },
   card: function() {
     return this.hasMany('Card');
+  },
+  lifecycle: function() {
+    return this.hasMany('Lifecycle').through('Card')
   }
 });
 

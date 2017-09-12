@@ -7,7 +7,6 @@ const Glassdoor = require('node-glassdoor').initGlassdoor({
   partnerKey: config.config.key
 });
 
-
 models.Company.findOrCreate = function(req, res) {
 
   var isNew = false;
