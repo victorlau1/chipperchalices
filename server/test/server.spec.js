@@ -87,6 +87,11 @@ describe('/card', function() {
     cloned.fetch()
       .then(function(result, err) {
         expect(result.name).to.equal('google');
+        expect(result.logo_url).to.be.null;
+        expect(result.industry).to.be.null;
+        expect(result.company_url).to.be.null;
+        expect(result.description).to.be.null;
+        expect(result.location_id).to.be.null;
       })
       .end(done);
   });
