@@ -63,7 +63,7 @@ export const cardsHasErrored = (bool) => {
 // dispatch(action): this is the only way to trigger a state change. The return value will be considered the next state
 
 export const fetchCards = (status) => {
-  console.log('sstatus from ACTION CREATOR', status);
+  console.log('status from ACTION CREATOR', status);
   return (dispatch) => {
     dispatch(cardsAreFetched(true));
 
@@ -97,6 +97,21 @@ export const fetchCards = (status) => {
       });
   };
 };
+
+export const addCardToList = (status, jobCard) => {
+  let stateStatus = '';
+  status === 'Interested' ? stateStatus = 'interested' :
+    status === 'Applied' ? stateStatus = 'applied' :
+      status === 'Interview Scheduled' ? stateStatus = 'interviewScheduled' :
+        status === 'Interviewed' ? stateStatus = 'interviewed' : stateStatus;
+
+  return {
+    type: 'ADD_CARD',
+    newCardStatus: stateStatus,
+    newCard: jobCard
+  };
+};
+
 
 export const selectJobCard = (jobCard) => {
   return {
