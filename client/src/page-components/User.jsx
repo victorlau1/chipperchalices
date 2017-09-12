@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-//import Grid from 'material-ui/Grid';
+
 import LifecycleBoard from '../containers/LifecycleBoard.jsx';
 import JobForm from '../components/jobForm.jsx';
 
-export default class User extends Component {
+class User extends Component {
 
   render() {
     return (
@@ -16,3 +16,5 @@ export default class User extends Component {
     );
   }
 }
+
+export default User;

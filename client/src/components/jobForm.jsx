@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 import axios from 'axios';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
@@ -10,6 +11,8 @@ import DatePicker from 'material-ui/DatePicker';
 import TimePicker from 'material-ui/TimePicker';
 const moment = require('moment');
 
+
+import { addCardToList } from '../actions/index.js';
 
 class JobForm extends React.Component {
   constructor(props) {
@@ -92,6 +95,8 @@ class JobForm extends React.Component {
   saveJob () {
     var form = this;
     console.log(this.state);
+    //this.props.addCardToList(this.state.status);
+
     axios.post('/card', {
       job: {
         title: this.state.title,
@@ -107,6 +112,10 @@ class JobForm extends React.Component {
       }
     })
       .then(function(response) {
+        console.log('new card response from jobForm', response.data);
+        form.props.addCardToList(form.state.status, response.data);
+      })
+      .then(() => {
         form.setState({
           open: false,
           value: 0
@@ -172,8 +181,11 @@ class JobForm extends React.Component {
   }
 }
 
-// function mapStateToProps () {
 
-// }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addCardToList: (status, jobCard) => dispatch(addCardToList(status, jobCard))
+  };
+};
 
-export default JobForm;
+export default connect(null, mapDispatchToProps)(JobForm);

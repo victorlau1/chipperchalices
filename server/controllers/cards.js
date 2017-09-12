@@ -24,13 +24,30 @@ module.exports.create = (req, res, company) => {
   })
     .save()
     .then(result => {
+
       var card = {
-        job: result,
-        company: company
+        id: result.id,
+        company: {
+          id: company.id,
+          name: company.attributes.name,
+          industry: company.attributes.industry,
+          logoUrl: company.attributes.logo_url,
+          companyUrl: company.attributes.company_url,
+          description: company.attributes.description,
+          // TODO: location: company.location_id
+          location: 'San Francisco, CA'
+        },
+        position: result.attributes.position,
+        positionUrl: result.attributes.position_url,
+        currentStatus: req.body.status.status,
+        statusDate: req.body.status.date,
+        notes: result.attributes.notes,
+        recruiterName: result.attributes.recruiter_name,
+        recruiterEmail: result.attributes.recruiter_name,
       };
+      res.status(201).send(card);
       lifecycle.create(req, res, result);
       console.log('card saved');
-      res.status(201).send(card);
     })
     .catch(err => {
       console.log('card err', err);
