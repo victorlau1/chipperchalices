@@ -2,11 +2,12 @@ const models = require('../../db/models');
 const lifecycle = require ('./lifecycle.js');
 
 module.exports.getAll = (req, res) => {
+  //console.log(req.user);
   models.Card.forge().where({
     user_id: req.user.id
-  }).fetchAll({withRelated: ''})
-    .then(cards => {
-      res.status(200).send(cards);
+  }).fetchAll({withRelated: ['company']})
+    .then(result => {
+      res.status(200).send(result);
     })
     .catch(err => {
       res.status(503).send(err);
