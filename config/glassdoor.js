@@ -1,6 +1,6 @@
 glassdoorAPI = {
-  partnerId: 'fill',
-  key: 'fill'
+  partnerId: 'testing',
+  key: 'blah'
 };
 
 module.exports.config = glassdoorAPI;
