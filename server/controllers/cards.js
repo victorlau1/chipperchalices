@@ -19,13 +19,14 @@ module.exports.create = (req, res, company) => {
     notes: req.body.job.notes,
     company_id: company.id,
     user_id: req.user.id,
-    // recruiter_id:
-    // recruiter_email:
+    recruiter_name: req.body.job.recruiter_name,
+    recruiter_email: req.body.job.recruiter_email
   })
     .save()
     .then(result => {
 
       var card = {
+<<<<<<< HEAD
         id: result.id,
         company: {
           id: company.id,
@@ -44,6 +45,11 @@ module.exports.create = (req, res, company) => {
         notes: result.attributes.notes,
         // recruiterName:
         // recruiterEmail:
+=======
+        job: result,
+        company: company,
+        date: req.body.status.date
+>>>>>>> updating form
       };
       res.status(201).send(card);
       lifecycle.create(req, res, result);
