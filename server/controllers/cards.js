@@ -27,7 +27,6 @@ module.exports.create = (req, res, company) => {
       var card = {
         job: result,
         company: company,
-        date: req.body.status.date
       };
       lifecycle.create(req, res, result);
       console.log('card saved');
