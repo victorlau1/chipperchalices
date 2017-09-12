@@ -60,10 +60,10 @@ module.exports.create = (req, res, company) => {
 
 //job card update initiated by user's edits
 module.exports.update = (req, res) => {
-  models.Card.where({ id: req.params.id }).fetch()
+  models.Card.forge().where({ user_id: req.user.id }).fetch()
     .then(card => {
-      if (!profile) {
-        throw profile;
+      if (!card) {
+        throw card;
       }
       return card.save(req.body, { method: 'update' });
     })
@@ -77,3 +77,15 @@ module.exports.update = (req, res) => {
       res.sendStatus(404);
     });
 };
+
+
+
+// new model({
+//     // The query will match these parameters
+//     'id': 1
+//     // Will return row with ID 1
+// }).save({
+//     // These updates will be made
+//     'name': 'Joe'
+//     // Record's name will be updated to 'Joe'
+// }).function(updatedModel) { ... }).catch(function(err) { ... });
