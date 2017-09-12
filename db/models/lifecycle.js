@@ -7,9 +7,6 @@ const Lifecycle = db.Model.extend({
   },
   company: function() {
     return this.belongsTo('Company').through('Card');
-  },
-  currentCards: function() {
-    return this.where('card_id', '1');
   }
 });
 
