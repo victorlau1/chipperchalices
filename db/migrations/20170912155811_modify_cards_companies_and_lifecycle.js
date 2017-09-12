@@ -1,10 +1,10 @@
 exports.up = function(knex, Promise) {
   return Promise.all([
-    knex.schema.table('cards', function(table) {
+    knex.schema.table('companies', function(table) {
       table.string('rating', 100).nullable();
       table.timestamps();
     }),
-    knex.schema.table('companies', function(table) {
+    knex.schema.table('cards', function(table) {
       table.string('current_status', 100).nullable();
       table.string('recruiter_name', 100).nullable();
       table.string('recruiter_email', 100).nullable();
@@ -19,11 +19,11 @@ exports.up = function(knex, Promise) {
 
 exports.down = function(knex, Promise) {
   return Promise.all([
-    knex.schema.table('cards', function(table) {
+    knex.schema.table('companies', function(table) {
       table.dropColumn('rating');
       table.dropTimestamps();
     }),
-    knex.schema.table('companies', function(table) {
+    knex.schema.table('cards', function(table) {
       table.dropColumn('current_status');
       table.dropColumn('recruiter_name');
       table.dropColumn('recruiter_email');
@@ -35,4 +35,3 @@ exports.down = function(knex, Promise) {
     })
   ]);
 };
-
