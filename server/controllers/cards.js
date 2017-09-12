@@ -26,7 +26,6 @@ module.exports.create = (req, res, company) => {
     .then(result => {
 
       var card = {
-<<<<<<< HEAD
         id: result.id,
         company: {
           id: company.id,
@@ -43,13 +42,6 @@ module.exports.create = (req, res, company) => {
         currentStatus: req.body.status.status,
         statusDate: req.body.status.date,
         notes: result.attributes.notes,
-        // recruiterName:
-        // recruiterEmail:
-=======
-        job: result,
-        company: company,
-        date: req.body.status.date
->>>>>>> updating form
       };
       res.status(201).send(card);
       lifecycle.create(req, res, result);
