@@ -26,7 +26,7 @@ module.exports.create = (req, res, company) => {
     .then(result => {
       var card = {
         job: result,
-        company: company,
+        company: company
       };
       lifecycle.create(req, res, result);
       console.log('card saved');
