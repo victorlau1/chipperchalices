@@ -112,16 +112,16 @@ class JobForm extends React.Component {
   render() {
     const actions = [
       <FlatButton
-        label="Cancel"
-        //primary={true}
-        //keyboardFocused={true}
-        onClick={this.handleClick}
-      />,
-      <FlatButton
         label="Save"
         //primary={true}
         //keyboardFocused={true}
         onClick={this.saveJob}
+      />,
+      <FlatButton
+        label="Cancel"
+        //primary={true}
+        //keyboardFocused={true}
+        onClick={this.handleClick}
       />
     ];
     const values = ['What is the status of this application?', 'Interested', 'Applied', 'Interview Scheduled', 'Interviewed', 'No response', 'Rejected', 'Offer made', 'Archived'];
