@@ -4,8 +4,8 @@ const express = require('express');
 const expect = require('chai').expect;
 const app = require('../app.js');
 const models = require('../../db/models');
-var chai = require("chai");
-var sinonChai = require("sinon-chai");
+var chai = require('chai');
+var sinonChai = require('sinon-chai');
 const config = require ('../../config/glassdoor.js');
 const Glassdoor = require('node-glassdoor').initGlassdoor({
   partnerId: config.config.partnerId,
