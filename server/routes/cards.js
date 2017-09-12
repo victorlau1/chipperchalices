@@ -42,7 +42,7 @@ router.route('/')
 
   //handle get request from client to retrieve all job cards from db
 
-  // .get(CardController.getAll)
+  //.get(CardController.getAll)
   .get((req, res) => res.send(dummyData))
 
   //handle post request from client to create new job card
