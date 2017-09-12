@@ -88,16 +88,16 @@ export default class ExpandedModal extends Component {
           contentStyle={dStyle}
           autoScrollBodyContent={true}
         > 
-        <Avatar style={logoStyle} size={45} src={this.state.job.company.logoUrl}/><br/>
-        <TextField disabled={this.state.status} inputStyle={textInputStyle} style={textStyle} floatingLabelText={'Company Name'} id={'companyName'} value={this.state.job.company.name} /><br/>
-        <TextField disabled={this.state.status} inputStyle={textInputStyle} style={textStyle} floatingLabelText={'Company Location'} id={'companyLocation'} value={this.state.job.company.location} /><br/>
-        <TextField disabled={this.state.status} inputStyle={textInputStyle} style={textStyle} floatingLabelText={'Job Position'} id={'position'} value={this.state.job.position} /><br/>
-        <TextField disabled={this.state.status} inputStyle={textInputStyle} style={textStyle} floatingLabelText={'Position Url'} id={'positionUrl'} value={this.state.job.applicationUrl} /><br/>
-        <TextField disabled={this.state.status} inputStyle={textInputStyle} style={textStyle} multiLine={true} rows={4} floatingLabelText={'Company Description'} id={'companyDescription'} value={this.state.job.company.description} /><br/>
-        <TextField disabled={this.state.status} inputStyle={textInputStyle} style={textStyle} floatingLabelText={'Status Date'} id={'date'} value={this.state.job.statusdate} /><br/>
-        <TextField disabled={this.state.status} inputStyle={textInputStyle} style={textStyle} floatingLabelText={'Recruiter Name'} id={'recruiterName'} value={this.state.job.recruitername} /><br/>
-        <TextField disabled={this.state.status} inputStyle={textInputStyle} style={textStyle} floatingLabelText={'Recruiter Email'} id={'recruiterEmail'} value={this.state.job.recruiteremail} /><br/>
-        <TextField disabled={this.state.status} inputStyle={textInputStyle} style={textStyle} multiLine={true} rows={4} floatingLabelText={'Notes'} id={'notes'} value={this.state.job.notes} /><br/>
+          <Avatar style={logoStyle} size={45} src={this.state.job.company.logoUrl}/><br/>
+          <TextField disabled={this.state.status} inputStyle={textInputStyle} style={textStyle} floatingLabelText={'Company Name'} id={'companyName'} value={this.state.job.company.name} /><br/>
+          <TextField disabled={this.state.status} inputStyle={textInputStyle} style={textStyle} floatingLabelText={'Company Location'} id={'companyLocation'} value={this.state.job.company.location} /><br/>
+          <TextField disabled={this.state.status} inputStyle={textInputStyle} style={textStyle} floatingLabelText={'Job Position'} id={'position'} value={this.state.job.position} /><br/>
+          <TextField disabled={this.state.status} inputStyle={textInputStyle} style={textStyle} floatingLabelText={'Position Url'} id={'positionUrl'} value={this.state.job.applicationUrl} /><br/>
+          <TextField disabled={this.state.status} inputStyle={textInputStyle} style={textStyle} multiLine={true} rows={4} floatingLabelText={'Company Description'} id={'companyDescription'} value={this.state.job.company.description} /><br/>
+          <TextField disabled={this.state.status} inputStyle={textInputStyle} style={textStyle} floatingLabelText={'Status Date'} id={'date'} value={this.state.job.statusdate} /><br/>
+          <TextField disabled={this.state.status} inputStyle={textInputStyle} style={textStyle} floatingLabelText={'Recruiter Name'} id={'recruiterName'} value={this.state.job.recruitername} /><br/>
+          <TextField disabled={this.state.status} inputStyle={textInputStyle} style={textStyle} floatingLabelText={'Recruiter Email'} id={'recruiterEmail'} value={this.state.job.recruiteremail} /><br/>
+          <TextField disabled={this.state.status} inputStyle={textInputStyle} style={textStyle} multiLine={true} rows={4} floatingLabelText={'Notes'} id={'notes'} value={this.state.job.notes} /><br/>
         </Dialog>
       </div>  
     );
