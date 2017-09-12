@@ -2,6 +2,7 @@ const db = require('../');
 
 const Company = db.Model.extend({
   tableName: 'companies',
+  hasTimestamps: true,
   location: function() {
     return this.hasOne('Location');
   },

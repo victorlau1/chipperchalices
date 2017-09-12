@@ -2,6 +2,7 @@ const db = require('../');
 
 const Lifecycle = db.Model.extend({
   tableName: 'lifecycle',
+  hasTimestamps: true,
   card: function() {
     return this.belongsTo('Card');
   },
