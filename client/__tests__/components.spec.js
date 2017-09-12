@@ -61,6 +61,6 @@ describe('InterestList', () => {
   });
 
   it('Should have all the data mapped', () => {
-    expect(list.props().interestJobs.length).toEqual(3);
+    expect(list.props().interestJobs.length).toEqual(10);
   });
 });
