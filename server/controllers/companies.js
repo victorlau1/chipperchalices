@@ -38,6 +38,9 @@ models.Company.findOrCreate = function(req, res) {
       }
       return result;
     })
+    .then(result => {
+      res.sendStatus(201);
+    })
     .catch(err => {
       res.status(500).send(err);
     });
