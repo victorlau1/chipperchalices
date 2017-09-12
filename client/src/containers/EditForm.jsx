@@ -6,7 +6,6 @@ import {Dialog} from 'material-ui';
 import {RaisedButton, FlatButton} from 'material-ui';
 import {MenuItem, DropDownMenu} from 'material-ui';
 import {DatePicker, TimePicker} from 'material-ui';
-import fakeData from '../dummy_data.js';
 
 
 class EditForm extends React.Component {
