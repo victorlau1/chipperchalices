@@ -9,6 +9,7 @@ cache: yarn
 before_script:
   - psql -c 'create database thesis_test;' -U postgres
   - yarn knex migrate:latest
+  - yarn knex seed:run
 script:
   - 'yarn server-test'
   - 'yarn front-test'
@@ -20,3 +21,5 @@ node_js:
   - "8"
   - "7"
   - "6"
+after_script:
+  - yarn knex migrate:rollback
