@@ -70,3 +70,5 @@ module.exports.create = (req, res) => {
   return models.Company.findOrCreate(req, res);
 };
 
+module.exports.getGlassdoorInfo = models.Company.getGlassdoorInfo;
+
