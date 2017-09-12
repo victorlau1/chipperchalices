@@ -18,13 +18,16 @@ module.exports.create = (req, res, company) => {
     description: null,
     notes: req.body.job.notes,
     company_id: company.id,
-    user_id: req.user.id
+    user_id: req.user.id,
+    recruiter_name: req.body.job.recruiter_name,
+    recruiter_email: req.body.job.recruiter_email
   })
     .save()
     .then(result => {
       var card = {
         job: result,
-        company: company
+        company: company,
+        date: req.body.status.date
       };
       lifecycle.create(req, res, result);
       console.log('card saved');

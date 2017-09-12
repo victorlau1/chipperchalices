@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import EditForm from './EditForm.jsx';
+const moment = require('moment');
 
 class JobCard extends Component {
   constructor(props) {
@@ -8,6 +9,7 @@ class JobCard extends Component {
 
     this.state = {
       expanded: false,
+      age: moment().diff('days', moment(this.props.job.date))
     };
 
     this.handleExpandChange = this.handleExpandChange.bind(this);

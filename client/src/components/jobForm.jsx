@@ -8,6 +8,8 @@ import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
 import DatePicker from 'material-ui/DatePicker';
 import TimePicker from 'material-ui/TimePicker';
+const moment = require('moment');
+
 
 class JobForm extends React.Component {
   constructor(props) {
@@ -20,6 +22,8 @@ class JobForm extends React.Component {
       status: '',
       notes: '',
       url: '',
+      recruiter_name: '',
+      recruiter_email: '',
       value: 0
     };
 
@@ -31,6 +35,8 @@ class JobForm extends React.Component {
     this.saveJob = this.saveJob.bind(this);
     this.handleNotes = this.handleNotes.bind(this);
     this.handleURL = this.handleURL.bind(this);
+    this.handleRecruiter = this.handleRecruiter.bind(this);
+    this.handleEmail = this.handleEmail.bind(this);
   }
 
   handleClick () {
@@ -64,6 +70,18 @@ class JobForm extends React.Component {
     });
   }
 
+  handleRecruiter (e) {
+    this.setState({
+      recruiter_name: e.target.value
+    });
+  }
+
+  handleEmail (e) {
+    this.setState({
+      recruiter_email: e.target.value
+    });
+  }
+
   handleStatus (event, index, value) {
     this.setState({
       status: event.target.textContent,
@@ -79,7 +97,9 @@ class JobForm extends React.Component {
         title: this.state.title,
         company: this.state.company,
         notes: this.state.notes,
-        url: this.state.url
+        url: this.state.url,
+        recruiter_name: this.state.recruiter_name,
+        recruiter_email: this.state.recruiter_email
       },
       status: {
         date: this.state.date,
@@ -142,8 +162,9 @@ class JobForm extends React.Component {
             {items}
           </DropDownMenu><br/>
           <DatePicker onChange={this.handleDate} value ={this.state.date} hintText="When did you apply?"/><br/>
-
           <TextField onChange={this.handleURL} hintText="Application link"/><br/>
+          <TextField onChange={this.handleRecruiter} hintText="Recruiter"/>
+          <TextField onChange={this.handleEmail} hintText="Email address"/><br/>
           <TextField onChange={this.handleNotes} multiLine = {true} rows={2} rowsMax={10} hintText="Anything else we should know?"/><br/>
         </Dialog>
       </div>

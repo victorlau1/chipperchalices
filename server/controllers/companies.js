@@ -16,7 +16,8 @@ models.Company.findOrCreate = function(req, res) {
     logo_url: null,
     company_url: null,
     description: null,
-    location_id: null
+    location_id: null,
+    rating: null
   });
   return cloned.fetch()
     .then(function(result, err) {
@@ -49,11 +50,13 @@ models.Company.getGlassdoorInfo = function (req, res, company) {
       country: 'US'
     })
     .then(function (data) {
+      console.log(data);
       return company.save ({          
         industry: data.industryName,
         logo_url: data.squareLogo,
         company_url: data.website,
-        description: data.featuredReview.headline
+        description: data.featuredReview.headline,
+        rating: data.overallRating
       })
         .then(result =>{
           console.log(result);
