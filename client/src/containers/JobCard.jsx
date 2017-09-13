@@ -101,7 +101,7 @@ class JobCard extends Component {
           <CardHeader
             title={job.company.name}
             subtitle={job.position}
-            avatar={job.company.logoUrl}
+            avatar={job.company.logo_url}
             actAsExpander={true}
             showExpandableButton={true}
           />
@@ -109,7 +109,7 @@ class JobCard extends Component {
           <CardText expandable={true}>
             {job.company.description}
             <br/>
-            <a href={job.positionUrl}>Job Description</a>
+            <a href={job.position_url}>Application Link</a>
           </CardText>
           <EditForm job={job} updateJob={this.updateJob}/>
           <ExpandedForm job={job} />
