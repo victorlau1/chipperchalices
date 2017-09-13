@@ -10,7 +10,7 @@ import { lightBaseTheme, MuiThemeProvider, getMuiTheme } from 'material-ui/style
 import fakeData from '../../src/dummy_data.js';
 import JobCard from '../../src/containers/JobCard.jsx';
 
-
+// Obtain the reference to the component before React DnD wrapping (DecoratedComponent static property available on any class wrapped with React DnD)
 const OriginalJobCard = JobCard.DecoratedComponent;
 
 describe('Snapshot (JobCard without DnD wrapping)', () => {
@@ -79,7 +79,7 @@ describe('JobCard Props', () => {
 
 
 // describe('Job Card Component', function() {
-//   // Obtain the reference to the component before React DnD wrapping
+//
 
 //   let originalJobCard;
 //   beforeEach(() => {

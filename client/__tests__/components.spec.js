@@ -44,16 +44,7 @@ describe('Snapshots', () => {
     const json = component.toJSON();
     expect(json).toMatchSnapshot();
   });
-
-
-  // it('List should render fakeData Jobs', () => {
-  //   const component = renderer.create(<MuiThemeProvider><InterestList interestJobs={fakeData}/></MuiThemeProvider>);
-  //   const json = component.toJSON();
-  //   expect(json).toMatchSnapshot();
-  // });
 });
-
-
 
 
 describe('InterestList', () => {
