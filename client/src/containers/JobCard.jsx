@@ -5,6 +5,19 @@ import { DragSource } from 'react-dnd';
 import EditForm from './EditForm.jsx';
 const moment = require('moment');
 
+const now = moment();
+
+const colors = {
+  Green: '#8CC152',
+  darkGreen: '#008000',
+  Red: '#E9573F',
+  Yellow: '#F6BB42',
+  chartreuse: '#7fff00',
+  greenYellow: '#adff2f',
+  salmon: '#ffa07a',
+  orange: '#ffa500'
+};
+
 const Types = {
   CARD: 'card'
 };
@@ -42,8 +55,7 @@ class JobCard extends Component {
     super(props);
 
     this.state = {
-      expanded: false,
-      age: moment().diff('days', moment(this.props.job.date))
+      expanded: false
     };
 
     this.handleExpandChange = this.handleExpandChange.bind(this);
@@ -59,15 +71,31 @@ class JobCard extends Component {
   }
   render() {
     const job = this.props.job;
-    console.log('Newly rendered company name:', job.company.name);
-
+    //console.log('Newly rendered company name:', job.company.name);
+    const start = moment(job.date).format('YYYY-MM-DD');
     const { id } = this.props;
     const { isDragging, connectDragSource } = this.props;
 
+    var age = now.diff(moment(start), 'days');
+    var styles =  function() {
+      if (age <= 4) {
+        return colors.darkGreen;
+      } else if (age <=8) {
+        return colors.green;
+      // } else if (age <=11){
+      //   return colors.greenYellow;
+      } else if (age <= 14) {
+        return colors.Yellow;
+      } else if (age <= 17 ) {
+        return colors.orange;
+      } else {
+        return colors.Red;
+      }
+    };
     return connectDragSource(
       <div>
         {isDragging}
-        <Card className='job-card' expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
+        <Card className='job-card' expanded={this.state.expanded} onExpandChange={this.handleExpandChange} style={{backgroundColor: styles()}}>
           <CardHeader
             title={job.company.name}
             subtitle={job.position}
