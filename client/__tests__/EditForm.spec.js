@@ -24,7 +24,7 @@ describe('Snapshot (EditForm)', () => {
     const result = renderer.getRenderOutput();
     expect(result).toMatchSnapshot();
   });
-  
+
   it('EditForm should render using fakeData (enzyme)', () => {
     const wrapper = shallow(
       <MuiThemeProvider>
@@ -41,9 +41,9 @@ describe('Editform Props ', () => {
   beforeEach(()=> {
     form = shallow(<MuiThemeProvider><EditForm job={fakeData[0]}/></MuiThemeProvider>);
   });
-  
+
   it('should Receive All Props', () => {
-    expect(Object.keys(form.props().job).length).toEqual(7);
+    expect(Object.keys(form.props().job).length).toEqual(9);
   });
 
   it('should have position', () => {
@@ -63,17 +63,17 @@ describe('Editform Props ', () => {
   });
 
   it('should have date', () => {
-    expect(form.props().job.date).toEqual('2017-09-02');
+    expect(form.props().job.statusDate).toEqual('2017-09-02');
   });
 
-  it('should have application url', () => {
-    expect(form.props().job.applicationUrl).toEqual('https://boards.greenhouse.io/vlocity/jobs/781103');
+  it('should have position url', () => {
+    expect(form.props().job.positionUrl).toEqual('https://boards.greenhouse.io/vlocity/jobs/781103');
   });
-  
+
 });
 
 // describe('Editform State Should Render Items', () => {
-  
+
 //   let form;
 //   const muiTheme = getMuiTheme();
 //   beforeEach(() => {
@@ -86,7 +86,7 @@ describe('Editform Props ', () => {
 //   // });
 
 //   it('should call componentDidMount once', () => {
-    
+
 //     sinon.spy(EditForm.prototype, 'componentDidMount');
 //     expect(EditForm.prototype.componentDidMount.calledOnce).toEqual(true);
 //   });
@@ -97,7 +97,7 @@ describe('Editform Props ', () => {
 // });
 
 describe('EditForm Update Button and Function', () => {
-  
+
   let form;
   const muiTheme = getMuiTheme();
   beforeEach(() => {
@@ -121,7 +121,7 @@ describe('EditForm Update Button and Function', () => {
     expect(toJson(form.state().job)).toEqual(toJson(fakeData));
     expect(result).toEqual('No Changes');
   });
-  
+
   //Can potentially refactor to use stub API mocking
   it('should send new items if change', () => {
     expect(toJson(form.state().job)).toEqual(toJson(fakeData));
@@ -146,9 +146,9 @@ describe('Editform handle functions should change state', () => {
   it('should change state to be clicked', () => {
     expect(toJson(form.state())).toEqual(toJson(fakeData));
     expect(form.state().change).toEqual(false);
-    
+
     form.instance().handleClick();
-    
+
     expect(form.state().change).toEqual(false);
     expect(form.state().open).toEqual(true);
     expect(toJson(form.state())).toEqual(toJson(fakeData));
@@ -158,9 +158,9 @@ describe('Editform handle functions should change state', () => {
     expect(toJson(form.state())).toEqual(toJson(fakeData));
     expect(form.state().change).toEqual(false);
     expect(form.state().title).not.toEqual('Booga Booga');
-    
+
     form.instance().handleTitle({target: {value: 'Booga Booga'}});
-    
+
     expect(form.state().change).toEqual(true);
     expect(form.state().title).toEqual('Booga Booga');
   });
@@ -170,9 +170,9 @@ describe('Editform handle functions should change state', () => {
     expect(toJson(form.state())).toEqual(toJson(fakeData));
     expect(form.state().change).toEqual(false);
     expect(form.state().company).not.toEqual('Constantinople');
-    
+
     form.instance().handleCompany({target: {value: 'Constantinople'}});
-    
+
     expect(form.state().change).toEqual(true);
     expect(form.state().company).toEqual('Constantinople');
   });
@@ -181,9 +181,9 @@ describe('Editform handle functions should change state', () => {
     expect(toJson(form.state())).toEqual(toJson(fakeData));
     expect(form.state().change).toEqual(false);
     expect(form.state.notes).not.toEqual('What a test!');
-    
+
     form.instance().handleNotes({target: {value: 'What a test!'}});
-    
+
     expect(form.state().change).toEqual(true);
     expect(form.state().notes).toEqual('What a test!');
   });
@@ -192,9 +192,9 @@ describe('Editform handle functions should change state', () => {
     expect(toJson(form.state())).toEqual(toJson(fakeData));
     expect(form.state().change).toEqual(false);
     expect(form.state.url).not.toEqual('www.google.com/req/id/5000');
-    
+
     form.instance().handleURL({target: {value: 'www.google.com/req/id/5000'}});
-    
+
     expect(form.state().change).toEqual(true);
     expect(form.state().url).toEqual('www.google.com/req/id/5000');
   });
@@ -206,7 +206,7 @@ describe('Editform handle functions should change state', () => {
     expect(form.state().value).not.toEqual(3);
 
     form.instance().handleStatus({target: {textContent: 'Interviewed'}}, 3, 3);
-    
+
     expect(form.state().change).toEqual(true);
     expect(form.state().status).toEqual('Interviewed');
     expect(form.state().value).toEqual(3);
@@ -218,7 +218,7 @@ describe('Editform handle functions should change state', () => {
     expect(form.state().date.toISOString().split('T')[0]).not.toEqual('2049-01-01');
 
     form.instance().handleDate({target: {value: 'BladeRunner 2049'}}, '2049-01-01');
-  
+
     expect(form.state().change).toEqual(true);
     expect(form.state().date.toISOString().split('T')[0]).toEqual('2049-01-01');
   });

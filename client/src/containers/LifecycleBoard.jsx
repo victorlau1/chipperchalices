@@ -19,7 +19,8 @@ const style = {
   textAlign: 'center',
 };
 
-class LifecycleBoard extends Component {
+// Use named export for unconnected component (for tests)
+export class LifecycleBoard extends Component {
 
   componentDidMount() {
     this.props.fetchCards('Interested');

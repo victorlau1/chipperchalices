@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot (JobCard without DnD wrapping) JobCard should render using fakeData 1`] = `
+<JobCard
+  job={
+    Object {
+      "company": Object {
+        "companyUrl": "www.vlocity.com",
+        "description": "Vlocity is a leading industry cloud software company that delivers award winning industry-specific applications on the Salesforce platform.",
+        "id": 12,
+        "industry": "Internet",
+        "location": "San Francisco, CA",
+        "logoUrl": "https://tinyurl.com/ya54jrkq",
+        "name": "Vlocity",
+        "ratings": "3.8",
+      },
+      "currentStatus": "Interested",
+      "id": 1,
+      "notes": null,
+      "position": "UI Developer",
+      "positionUrl": "https://boards.greenhouse.io/vlocity/jobs/781103",
+      "recruiterEmail": "123@gmail.com",
+      "recruiterName": "Jane Smith",
+      "statusDate": "2017-09-02",
+    }
+  }
+/>
+`;
