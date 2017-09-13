@@ -33,28 +33,16 @@ describe('Snapshots', () => {
   };
   const store = mockStore(initialStore);
 
-  // it('JobCard renders a JobCard', () => {
-  //   const component = renderer.create(<MuiThemeProvider><JobCard job={fakeData[0]} /></MuiThemeProvider>);
-  //   const json = component.toJSON();
-  //   expect(json).toMatchSnapshot();
-  // });
 
-  it('LifeCycleBoard renders 4 Columns and Calls Subcomponents', () => {
-    const component = renderer.create(<Provider store={store}><MuiThemeProvider><LifecycleBoard /></MuiThemeProvider></Provider>);
-    const json = component.toJSON();
-    expect(json).toMatchSnapshot();
-  });
-});
+  describe('InterestList', () => {
+    let list;
 
+    beforeEach(() => {
+      list = shallow(<MuiThemeProvider><InterestList interestJobs={fakeData}/></MuiThemeProvider>);
+    });
 
-describe('InterestList', () => {
-  let list;
-
-  beforeEach(() => {
-    list = shallow(<MuiThemeProvider><InterestList interestJobs={fakeData}/></MuiThemeProvider>);
-  });
-
-  it('Should have all the data mapped', () => {
-    expect(list.props().interestJobs.length).toEqual(10);
+    it('Should have all the data mapped', () => {
+      expect(list.props().interestJobs.length).toEqual(10);
+    });
   });
 });
