@@ -1,5 +1,6 @@
 const models = require('../../db/models');
 const lifecycle = require ('./lifecycle.js');
+const company = require('./companies.js');
 
 module.exports.getAll = (req, res) => {
   models.Card.forge().where({user_id: req.user.id}).fetchAll({withRelated: ['company']})
@@ -57,12 +58,32 @@ module.exports.create = (req, res, company) => {
 
 //job card update initiated by user's edits
 module.exports.update = (req, res) => {
+  console.log('UPDATE USER ID: ', req.user.id)
   models.Card.forge().where({ user_id: req.user.id }).fetch()
     .then(card => {
       if (!card) {
         throw card;
       }
-      return card.save(req.body, { method: 'update' });
+      card.save({
+        position: req.body.job.title,
+        position_url: req.body.job.url,
+        description: null,
+        notes: req.body.job.notes,
+        //company_id: company.id,
+        //user_id: req.user.id,
+        current_status: req.body.status.status,
+        recruiter_name: req.body.job.recruiter_name,
+        recruiter_email: req.body.job.recruiter_email
+      }, { method: 'update' });
+    })
+    .then(result => {
+      console.log('HERES THE CARD: ', card);
+      //res.status(201).send(result);
+      lifecycle.update(req, res, result);
+      console.log('card updated in db');
+    })
+    .then(() => {
+      company.update(req, res);
     })
     .then(() => {
       res.sendStatus(201);
@@ -71,6 +92,7 @@ module.exports.update = (req, res) => {
       res.status(500).send(err);
     })
     .catch(() => {
+      console.log('CARD CONTROLLER UPDATE 404')
       res.sendStatus(404);
     });
 };

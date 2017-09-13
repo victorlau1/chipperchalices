@@ -73,4 +73,29 @@ module.exports.create = (req, res) => {
   return models.Company.findOrCreate(req, res);
 };
 
+module.exports.update = (req, res) => {
+  return models.Company.forge().where({ name: req.body.job.company}).fetch()
+    .then(company => {
+      if (company) {
+        res.send('That company already exists in db!');
+      }
+      return company.save({
+        name: req.body.job.company
+      }, { method: 'update' });
+    })
+    .then(result => {
+      return models.Company.getGlassdoorInfo(req, res, result);
+    })
+    .then(() => {
+      res.sendStatus(201);
+    })
+    .error(err => {
+      res.status(500).send(err);
+    })
+    .catch(err => {
+        res.sendStatus(404);
+    });
+};
+
+
 module.exports.getGlassdoorInfo = models.Company.getGlassdoorInfo;
