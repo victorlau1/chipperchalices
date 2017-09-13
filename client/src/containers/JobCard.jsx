@@ -3,6 +3,7 @@ import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'm
 import { DragSource } from 'react-dnd';
 
 import EditForm from './EditForm.jsx';
+const moment = require('moment');
 
 const Types = {
   CARD: 'card'
@@ -42,6 +43,7 @@ class JobCard extends Component {
 
     this.state = {
       expanded: false,
+      age: moment().diff('days', moment(this.props.job.date))
     };
 
     this.handleExpandChange = this.handleExpandChange.bind(this);

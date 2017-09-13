@@ -2,9 +2,7 @@ const models = require('../../db/models');
 const lifecycle = require ('./lifecycle.js');
 
 module.exports.getAll = (req, res) => {
-  // console.log(req.body);
-  // res.send(req.user)
-  models.Card.forge().fetchAll({withRelated: ['company']})
+  models.Card.forge().where({user_id: req.user.id}).fetchAll({withRelated: ['company']})
     .then(result => {
       res.status(200).send(result);
     })
@@ -21,8 +19,9 @@ module.exports.create = (req, res, company) => {
     notes: req.body.job.notes,
     company_id: company.id,
     user_id: req.user.id,
-    // recruiter_id:
-    // recruiter_email:
+    current_status: req.body.status.status,
+    recruiter_name: req.body.job.recruiter_name,
+    recruiter_email: req.body.job.recruiter_email
   })
     .save()
     .then(result => {
@@ -36,7 +35,7 @@ module.exports.create = (req, res, company) => {
           logoUrl: company.attributes.logo_url,
           companyUrl: company.attributes.company_url,
           description: company.attributes.description,
-          // location: company.location_id
+          // TODO: location: company.location_id
           location: 'San Francisco, CA'
         },
         position: result.attributes.position,
@@ -44,8 +43,8 @@ module.exports.create = (req, res, company) => {
         currentStatus: req.body.status.status,
         statusDate: req.body.status.date,
         notes: result.attributes.notes,
-        // recruiterName:
-        // recruiterEmail:
+        recruiterName: result.attributes.recruiter_name,
+        recruiterEmail: result.attributes.recruiter_email
       };
       res.status(201).send(card);
       lifecycle.create(req, res, result);
@@ -75,15 +74,3 @@ module.exports.update = (req, res) => {
       res.sendStatus(404);
     });
 };
-
-
-
-// new model({
-//     // The query will match these parameters
-//     'id': 1
-//     // Will return row with ID 1
-// }).save({
-//     // These updates will be made
-//     'name': 'Joe'
-//     // Record's name will be updated to 'Joe'
-// }).function(updatedModel) { ... }).catch(function(err) { ... });
