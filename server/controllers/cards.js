@@ -64,7 +64,7 @@ module.exports.update = (req, res) => {
       if (!card) {
         throw card;
       }
-      card.save({
+      return card.save({
         position: req.body.job.title,
         position_url: req.body.job.url,
         description: null,
@@ -77,7 +77,7 @@ module.exports.update = (req, res) => {
       }, { method: 'update' });
     })
     .then(result => {
-      console.log('HERES THE CARD: ', card);
+      console.log('HERES THE CARD: ', result);
       //res.status(201).send(result);
       lifecycle.update(req, res, result);
       console.log('card updated in db');
