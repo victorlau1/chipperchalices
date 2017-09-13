@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import { DragSource } from 'react-dnd';
 
+import ExpandedForm from './ExpandedForm.jsx';
 import EditForm from './EditForm.jsx';
 const moment = require('moment');
 
@@ -110,6 +111,7 @@ class JobCard extends Component {
             <a href={job.positionUrl}>Job Description</a>
           </CardText>
           <EditForm job={job} updateJob={this.updateJob}/>
+          <ExpandedForm job={job} />
         </Card>
       </div>
     );
