@@ -56,12 +56,8 @@ class JobCard extends Component {
     super(props);
 
     this.state = {
-<<<<<<< 07ea01c485d6cae8ed0ba92c82142f1849a3d962
-      expanded: false
-=======
       expanded: false,
       age: moment().diff('days', moment(this.props.job.date))
->>>>>>> fetch all of user's cards on page load
     };
 
     this.handleExpandChange = this.handleExpandChange.bind(this);
