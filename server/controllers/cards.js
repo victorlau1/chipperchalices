@@ -1,6 +1,7 @@
 const models = require('../../db/models');
 const lifecycle = require ('./lifecycle.js');
 const company = require('./companies.js');
+const Promise = require('bluebird');
 
 module.exports.getAll = (req, res) => {
   models.Card.forge().where({user_id: req.user.id}).fetchAll({withRelated: ['company']})
@@ -33,14 +34,14 @@ module.exports.create = (req, res, company) => {
           id: company.id,
           name: company.attributes.name,
           industry: company.attributes.industry,
-          logoUrl: company.attributes.logo_url,
+          logo_url: company.attributes.logo_url,
           companyUrl: company.attributes.company_url,
           description: company.attributes.description,
           // TODO: location: company.location_id
           location: 'San Francisco, CA'
         },
         position: result.attributes.position,
-        positionUrl: result.attributes.position_url,
+        position_url: result.attributes.position_url,
         currentStatus: req.body.status.status,
         statusDate: req.body.status.date,
         notes: result.attributes.notes,
@@ -56,10 +57,10 @@ module.exports.create = (req, res, company) => {
     });
 };
 
-//job card update initiated by user's edits
 module.exports.update = (req, res) => {
-  console.log('UPDATE USER ID: ', req.user.id)
-  models.Card.forge().where({ user_id: req.user.id }).fetch()
+  var updatedCard = models.Card.forge().where({
+    user_id: req.user.id,
+    id: req.body.id }).fetch()
     .then(card => {
       if (!card) {
         throw card;
@@ -69,30 +70,55 @@ module.exports.update = (req, res) => {
         position_url: req.body.job.url,
         description: null,
         notes: req.body.job.notes,
-        //company_id: company.id,
-        //user_id: req.user.id,
         current_status: req.body.status.status,
         recruiter_name: req.body.job.recruiter_name,
         recruiter_email: req.body.job.recruiter_email
       }, { method: 'update' });
+    });
+    var updatedCompany = updatedCard.then(savedCard => {
+      lifecycle.createIfUpdated(req, res, savedCard);
+      return company.createIfUpdated(req, res, savedCard);
+    })
+    return Promise.join(updatedCard, updatedCompany, (cardData, companyData) => {
+      var card = {
+        id: cardData.attributes.id,
+        company: {
+          id: companyData.attributes.id,
+          name: companyData.attributes.name,
+          industry: companyData.attributes.industry,
+          logo_url: companyData.attributes.logo_url,
+          companyUrl: companyData.attributes.company_url,
+          description: companyData.attributes.description,
+          //TODO: location: company.location_id
+          location: 'San Francisco, CA'
+        },
+        position: cardData.attributes.position,
+        position_url: cardData.attributes.position_url,
+        currentStatus: cardData.attributes.current_status,
+        statusDate: req.body.status.date,
+        notes: cardData.attributes.notes,
+        company_id: companyData.attributes.id,
+        recruiterName: cardData.attributes.recruiter_name,
+        recruiterEmail: cardData.attributes.recruiter_email
+      };
+      return card;
     })
     .then(result => {
-      console.log('HERES THE CARD: ', result);
-      //res.status(201).send(result);
-      lifecycle.update(req, res, result);
-      console.log('card updated in db');
-    })
-    .then(() => {
-      company.update(req, res);
-    })
-    .then(() => {
-      res.sendStatus(201);
+      models.Card.forge().where({
+        user_id: req.user.id,
+        id: result.id
+      }).fetch()
+      .then(card => {
+        card.save({
+          company_id: result.company.id
+        }, { method: 'update'});
+      })
+      res.status(201).send(result);
     })
     .error(err => {
       res.status(500).send(err);
     })
     .catch(() => {
-      console.log('CARD CONTROLLER UPDATE 404')
       res.sendStatus(404);
     });
 };
