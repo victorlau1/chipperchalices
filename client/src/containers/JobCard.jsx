@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 //import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import { DragSource } from 'react-dnd';
 import { Button, Icon, Card, Image, Grid } from 'semantic-ui-react'
+
 import ExpandedForm from './ExpandedForm.jsx';
 import EditForm from './EditForm.jsx';
 import ScheduleForm from './ScheduleForm.jsx';
@@ -17,38 +18,6 @@ const colors = {
   greenYellow: '#adff2f',
   salmon: '#ffa07a',
   orange: '#ffa500'
-};
-
-const Types = {
-  CARD: 'card'
-};
-
-const cardSource = {
-  beginDrag(props) {
-    const item = { id: props.id };
-    return item;
-  },
-
-  endDrag(props, monitor, component) {
-    if (!monitor.didDrop()) {
-      return;
-    }
-
-    // When dropped on a compatible target, do something
-    const item = monitor.getItem();
-    const dropResult = monitor.getDropResult();
-    CardActions.moveCardToList(item.id, dropResult.listId);
-  }
-};
-
-const collect = (connect, monitor) => {
-  return {
-    // Call this function inside render()
-    // to let React DnD handle the drag events:
-    connectDragSource: connect.dragSource(),
-    // You can ask the monitor about the current drag state:
-    isDragging: monitor.isDragging()
-  };
 };
 
 class JobCard extends Component {
@@ -75,16 +44,15 @@ class JobCard extends Component {
 
   render() {
     const job = this.props.job;
-    //console.log('Newly rendered company name:', job.company.name);
+    console.log('Newly rendered company name:', job.company.name);
     const start = moment(job.date).format('YYYY-MM-DD');
     const { id } = this.props;
-    const { isDragging, connectDragSource } = this.props;
 
     var age = now.diff(moment(start), 'days');
-    var styles =  function() {
+    var styles = function() {
       if (age <= 4) {
         return colors.darkGreen;
-      } else if (age <=8) {
+      } else if (age <= 8) {
         return colors.green;
       // } else if (age <=11){
       //   return colors.greenYellow;
@@ -108,7 +76,6 @@ class JobCard extends Component {
 
     return connectDragSource(
       <div>
-        {isDragging}
         <Grid centered>
         <Grid.Row>
         <Card className='job-card' expanded={this.state.expanded} onExpandChange={this.handleExpandChange} >
@@ -130,4 +97,4 @@ class JobCard extends Component {
   }
 }
 
-export default DragSource(Types.CARD, cardSource, collect)(JobCard);
+export default JobCard;
