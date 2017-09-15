@@ -13,10 +13,13 @@ const cardSource = {
   beginDrag(props, monitor, component) {
     // return the data describing the dragged item
     const item = {
+      // need to set x & y (x = list index, y = index within list)
+      x: props.x,
+      y: props.y,
       id: props.job.id,
       status: props.job.currentStatus
     };
-    console.log('hello within BeginDrag! ID:', item.id);
+    console.log('hello within BeginDrag! ID:', item.x);
     return item;
   },
 
