@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Card, CardHeader, CardTitle, CardText } from 'material-ui/Card';
 
-import JobCard from './JobCard.jsx';
+import JobCard from './DraggableJobCard.jsx';
 
 class InterestList extends Component {
 
