@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
+//import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import { DragSource } from 'react-dnd';
-
+import { Button, Icon, Card, Image } from 'semantic-ui-react'
 import ExpandedForm from './ExpandedForm.jsx';
 import EditForm from './EditForm.jsx';
+import ScheduleForm from './ScheduleForm.jsx';
 const moment = require('moment');
-
 const now = moment();
 
 const colors = {
@@ -71,6 +71,31 @@ class JobCard extends Component {
   updateJob(data) {
     console.log(data);
   }
+
+
+   // <div>
+   //      {isDragging}
+   //      <Card className='job-card' expanded={this.state.expanded} onExpandChange={this.handleExpandChange} style={{backgroundColor: styles()}}>
+   //        <CardHeader
+   //          title={job.company.name}
+   //          subtitle={job.position}
+   //          avatar={job.company.logo_url}
+   //          actAsExpander={true}
+   //          showExpandableButton={true}
+   //        />
+   //        <CardTitle title={job.company.name} subtitle={job.company.location} expandable={true} />
+   //        <CardText expandable={true}>
+   //          {job.company.description}
+   //          <br/>
+   //          <a href={job.position_url}>Application Link</a>
+   //        </CardText>
+   //        <EditForm job={job} updateJob={this.updateJob}/>
+   //        <ExpandedForm job={job} />
+   //        <ScheduleForm  />
+   //      </Card>
+   //    </div>
+
+
   render() {
     const job = this.props.job;
     //console.log('Newly rendered company name:', job.company.name);
@@ -94,29 +119,28 @@ class JobCard extends Component {
         return colors.Red;
       }
     };
+
+
+
+
+
     return connectDragSource(
       <div>
         {isDragging}
         <Card className='job-card' expanded={this.state.expanded} onExpandChange={this.handleExpandChange} style={{backgroundColor: styles()}}>
-          <CardHeader
-            title={job.company.name}
-            subtitle={job.position}
-            avatar={job.company.logo_url}
-            actAsExpander={true}
-            showExpandableButton={true}
-          />
-          <CardTitle title={job.company.name} subtitle={job.company.location} expandable={true} />
-          <CardText expandable={true}>
-            {job.company.description}
-            <br/>
-            <a href={job.position_url}>Application Link</a>
-          </CardText>
-          <EditForm job={job} updateJob={this.updateJob}/>
-          <ExpandedForm job={job} />
+          <Card.Content>
+            <Image floated='left' size='mini' src={job.company.logo_url} />
+            <Card.Header>{job.company.name}</Card.Header>
+            <Card.Meta>{job.position}</Card.Meta>
+            <Card.Description><ScheduleForm /></Card.Description>
+          </Card.Content>
+
         </Card>
       </div>
     );
   }
 }
+
+
 
 export default DragSource(Types.CARD, cardSource, collect)(JobCard);
