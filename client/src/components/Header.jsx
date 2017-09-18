@@ -9,6 +9,8 @@ export default class Header extends Component {
           <Link to='/'>User Page </Link>
           /
           <Link to='/about'> About</Link>
+          /
+          <Link to='/test'> Test </Link>
         </header>
       </div>
     );

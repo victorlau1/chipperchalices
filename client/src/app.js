@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Header from './components/Header.jsx';
 import Landing from './page-components/Landing.jsx';
+import Dashboard from './page-components/Dashboard.jsx';
 import User from './page-components/User.jsx';
 import store from './store';
 
@@ -16,7 +17,8 @@ const App = () => (
     <main>
       <Switch>
         <Route exact path='/' component={User} />
-        <Route path='/about' component= {Landing}/>
+        <Route path='/about' component={Landing}/>
+        <Route path='/test' component={Dashboard}/>
       </Switch>
     </main>
   </div>
