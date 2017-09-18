@@ -25,5 +25,5 @@ app.use('/api', routes.api);
 app.use('/api/profiles', routes.profiles);
 app.use('/card', routes.cards);
 app.use('/calendar', routes.calendar);
-
+app.use('/data', routes.analytic);
 module.exports = app;
