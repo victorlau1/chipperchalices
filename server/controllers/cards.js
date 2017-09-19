@@ -35,18 +35,18 @@ module.exports.create = (req, res, company) => {
           name: company.attributes.name,
           industry: company.attributes.industry,
           logo_url: company.attributes.logo_url,
-          companyUrl: company.attributes.company_url,
+          company_url: company.attributes.company_url,
           description: company.attributes.description,
           // TODO: location: company.location_id
           location: 'San Francisco, CA'
         },
         position: result.attributes.position,
         position_url: result.attributes.position_url,
-        currentStatus: req.body.status.status,
+        current_status: req.body.status.status,
         statusDate: req.body.status.date,
         notes: result.attributes.notes,
-        recruiterName: result.attributes.recruiter_name,
-        recruiterEmail: result.attributes.recruiter_email
+        recruiter_name: result.attributes.recruiter_name,
+        recruiter_email: result.attributes.recruiter_email
       };
       res.status(201).send(card);
       lifecycle.create(req, res, result);
@@ -58,6 +58,7 @@ module.exports.create = (req, res, company) => {
 };
 
 module.exports.update = (req, res) => {
+  console.log('UPDATE CARD req body:', req.body);
   var updatedCard = models.Card.forge().where({
     user_id: req.user.id,
     id: req.body.id }).fetch()
@@ -75,44 +76,45 @@ module.exports.update = (req, res) => {
         recruiter_email: req.body.job.recruiter_email
       }, { method: 'update' });
     });
-    var updatedCompany = updatedCard.then(savedCard => {
-      lifecycle.createIfUpdated(req, res, savedCard);
-      return company.createIfUpdated(req, res, savedCard);
-    })
-    return Promise.join(updatedCard, updatedCompany, (cardData, companyData) => {
-      var card = {
-        id: cardData.attributes.id,
-        company: {
-          id: companyData.attributes.id,
-          name: companyData.attributes.name,
-          industry: companyData.attributes.industry,
-          logo_url: companyData.attributes.logo_url,
-          companyUrl: companyData.attributes.company_url,
-          description: companyData.attributes.description,
-          //TODO: location: company.location_id
-          location: 'San Francisco, CA'
-        },
-        position: cardData.attributes.position,
-        position_url: cardData.attributes.position_url,
-        currentStatus: cardData.attributes.current_status,
-        statusDate: req.body.status.date,
-        notes: cardData.attributes.notes,
-        company_id: companyData.attributes.id,
-        recruiterName: cardData.attributes.recruiter_name,
-        recruiterEmail: cardData.attributes.recruiter_email
-      };
-      return card;
-    })
+  var updatedCompany = updatedCard.then(savedCard => {
+    lifecycle.createIfUpdated(req, res, savedCard);
+    return company.createIfUpdated(req, res, savedCard);
+  });
+  return Promise.join(updatedCard, updatedCompany, (cardData, companyData) => {
+    var card = {
+      id: cardData.attributes.id,
+      company: {
+        id: companyData.attributes.id,
+        name: companyData.attributes.name,
+        industry: companyData.attributes.industry,
+        logo_url: companyData.attributes.logo_url,
+        company_url: companyData.attributes.company_url,
+        description: companyData.attributes.description,
+        //TODO: location: company.location_id
+        location: 'San Francisco, CA'
+      },
+      position: cardData.attributes.position,
+      position_url: cardData.attributes.position_url,
+      current_status: cardData.attributes.current_status,
+      statusDate: req.body.status.date,
+      notes: cardData.attributes.notes,
+      company_id: companyData.attributes.id,
+      recruiter_name: cardData.attributes.recruiter_name || '',
+      recruiter_email: cardData.attributes.recruiter_email || ''
+    };
+    return card;
+  })
     .then(result => {
       models.Card.forge().where({
         user_id: req.user.id,
         id: result.id
       }).fetch()
-      .then(card => {
-        card.save({
-          company_id: result.company.id
-        }, { method: 'update'});
-      })
+        .then(card => {
+          card.save({
+            company_id: result.company.id
+          }, { method: 'update'});
+        });
+      console.log('result from update card', result);
       res.status(201).send(result);
     })
     .error(err => {
