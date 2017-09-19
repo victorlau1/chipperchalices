@@ -57,7 +57,8 @@ class JobCard extends Component {
 
     this.state = {
       expanded: false,
-      age: moment().diff('days', moment(this.props.job.date))
+      age: moment().diff('days', moment(this.props.job.date)),
+      status: this.props.job.current_status
     };
 
     this.handleExpandChange = this.handleExpandChange.bind(this);
@@ -124,6 +125,13 @@ class JobCard extends Component {
 
     const googleLink = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=Interview+at+${job.company.name}`;
 
+    var calendar;
+      if (this.state.status === 'Interview Scheduled') {
+        calendar = <Button href={googleLink} size='mini' floated='right' color='yellow' circular icon='add to calendar'/>;
+      } else {
+        calendar = null;
+      }
+
     return connectDragSource(
       <div>
         {isDragging}
@@ -136,7 +144,7 @@ class JobCard extends Component {
             <Card.Meta>{job.position}</Card.Meta>
             <Card.Description>
               <ExpandedForm job={job} />
-              <Button href={googleLink} size='mini' floated='right' color='yellow' circular icon='add to calendar'/>
+              {calendar}
               <ScheduleForm />
             </Card.Description>
           </Card.Content>
