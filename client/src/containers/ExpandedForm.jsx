@@ -6,39 +6,18 @@ import {Dialog, Avatar} from 'material-ui';
 import {IconButton, FontIcon} from 'material-ui';
 import {DatePicker, TimePicker} from 'material-ui';
 import AllOut from 'material-ui/svg-icons/action/all-out';
+import { Button, Header, Image, Modal } from 'semantic-ui-react'
 
 export default class ExpandedModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
       open: false,
-      job: {
-        id: 2,
-        company: {
-          id: 3,
-          name: 'RHLA Technology',
-          description: 'RHLA Technology is a leading provider of technology professionals on a project and full-time basis.',
-          logoUrl: 'https://tinyurl.com/y8z3pajs',
-          location: 'San Francisco, CA'
-        },
-        position: 'Front End Developer',
-        applicationUrl: 'https://www.linkedin.com/jobs/view/430047268/',
-        currentStatus: 'Interested',
-        statusdate: '2017-08-22',
-        notes: 'Recruiter reached out to me.',
-        recruiter: 'Bob',
-        recruiteremail: 'Bob@msft.com'
-      },
+      job: this.props.job,
       status: true
     };
 
     this.handleClick = this.handleClick.bind(this);
-  }
-
-  componentDidMount() {
-    this.setState({
-      job: this.props.job
-    });
   }
 
   handleClick() {
@@ -48,7 +27,29 @@ export default class ExpandedModal extends Component {
   }
 
   render() {
-    //Dialog Width
+
+    return (
+      <Modal trigger={<Button size='mini' floated='right' color='blue' circular icon='expand' onClick={this.handleClick}/>}
+        open={this.state.open}
+        onClose={this.handleClick}
+        size='small'
+      >
+        <Modal.Header>{this.state.job.position} at {this.state.job.company.name}</Modal.Header>
+        <Modal.Content image>
+          <Image wrapped size='medium' src={this.state.job.company.logo_url} />
+          <Modal.Description>
+            <Header>Recruiter: {this.state.job.recruiter_name}</Header>
+            <p>Recruiter Email: {this.state.job.recruiter_email}</p>
+            <p>Application: {this.state.job.position_url}</p>
+            <p>Personal Notes: {this.state.job.notes}</p>
+          </Modal.Description>
+        </Modal.Content>
+      </Modal>
+    );
+  }
+}
+   /*PREVIOUS CODE (INCLUDED FOR UI REFACTOR REFERENCING)
+    Dialog Width
     const dStyle = {
       width: '90%',
       height: '75%'
@@ -73,8 +74,12 @@ export default class ExpandedModal extends Component {
         <AllOut />
       </IconButton>
     ];
+    */
 
-    return (
+
+/*PREVIOUS CODE (INCLUDED FOR UI REFACTOR REFERENCING)*/
+/***************************************************************************************************
+return (
       <div>
         <IconButton tooltip="See More Info" onClick={this.handleClick}>
           <AllOut />
@@ -101,7 +106,6 @@ export default class ExpandedModal extends Component {
         </Dialog>
       </div>
     );
-  }
-}
+    *********************************************************************************************/
 
 

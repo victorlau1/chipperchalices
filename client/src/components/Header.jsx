@@ -6,11 +6,9 @@ export default class Header extends Component {
     return (
       <div>
         <header>
-          <Link to='/'>User Page </Link>
+          <Link to='/'>Dashboard</Link>
           /
-          <Link to='/about'> About</Link>
-          /
-          <Link to='/cal'> Calendar</Link>
+          <Link to='/landing'>Landing</Link>
         </header>
       </div>
     );

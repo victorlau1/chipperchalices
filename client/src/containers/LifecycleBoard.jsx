@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-//import { Grid, Row, Col, Clearfix } from 'react-bootstrap';
-import { Grid, Image, Card, Header, Icon } from 'semantic-ui-react';
+import { Grid, Image, Card, Header, Icon, Segment } from 'semantic-ui-react';
 import Paper from 'material-ui/Paper';
 // import Grid from 'material-ui/Grid';
 import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContext } from 'react-dnd';
-
-
 import InterestList from './InterestList.jsx';
 import AppliedList from './AppliedList.jsx';
 import InterviewList from './InterviewList.jsx';
@@ -32,36 +29,29 @@ export class LifecycleBoard extends Component {
 
     return (
       <div>
-        <Grid divided>
-          <Grid.Column width={4}>
-            <Header as='h2'>
-              <Icon name='plus' />
-              <Header.Content>
-                Interested
-              </Header.Content>
-            </Header>
-            <br />
+        <Grid centered columns={4} padded='horizontally'>
+          <Grid.Column width={3.5}>
+            <Segment raised textAlign='center' size='huge' color='blue'>
+              Interested
+            </Segment>
             <InterestList />
           </Grid.Column>
-          <Grid.Column width={4}>
-            <Paper style={style} zDepth={4}>
-              <h2>Applied</h2>
-            </Paper>
-            <br />
+          <Grid.Column width={3.5}>
+            <Segment raised textAlign='center' size='huge' color='blue'>
+              Applied
+            </Segment>
             <AppliedList />
           </Grid.Column>
-          <Grid.Column width={4}>
-            <Paper style={style} zDepth={4}>
-              <h2>Interview Scheduled</h2>
-            </Paper>
-            <br />
+          <Grid.Column width={3.5}>
+            <Segment raised textAlign='center' size='huge' color='blue'>
+              Interview Scheduled
+            </Segment>
             <InterviewList />
           </Grid.Column>
-          <Grid.Column width={4}>
-            <Paper style={style} zDepth={4}>
-              <h2>Interviewed</h2>
-            </Paper>
-            <br />
+          <Grid.Column width={3.5}>
+            <Segment raised textAlign='center' size='huge' color='blue'>
+              Interviewed
+            </Segment>
             <PostInterviewList />
           </Grid.Column>
         </Grid>
@@ -70,41 +60,43 @@ export class LifecycleBoard extends Component {
   }
 }
 
-
-// return (
-//       <div>
-//         <Grid>
-//           <Col xs={6} sm={3}>
-//             <Paper style={style} zDepth={4}>
-//               <h2>Interested</h2>
-//             </Paper>
-//             <br />
-//             <InterestList />
-//           </Col>
-//           <Col xs={6} sm={3}>
-//             <Paper style={style} zDepth={4}>
-//               <h2>Applied</h2>
-//             </Paper>
-//             <br />
-//             <AppliedList />
-//           </Col>
-//           <Col xs={6} sm={3}>
-//             <Paper style={style} zDepth={4}>
-//               <h2>Interview Scheduled</h2>
-//             </Paper>
-//             <br />
-//             <InterviewList />
-//           </Col>
-//           <Col xs={6} sm={3}>
-//             <Paper style={style} zDepth={4}>
-//               <h2>Interviewed</h2>
-//             </Paper>
-//             <br />
-//             <PostInterviewList />
-//           </Col>
-//         </Grid>
-//       </div>
-//     );
+/*PREVIOUS CODE (INCLUDED FOR UI REFACTOR REFERENCING)
+***************************************************************************************************
+return (
+      <div>
+        <Grid>
+          <Col xs={6} sm={3}>
+            <Paper style={style} zDepth={4}>
+              <h2>Interested</h2>
+            </Paper>
+            <br />
+            <InterestList />
+          </Col>
+          <Col xs={6} sm={3}>
+            <Paper style={style} zDepth={4}>
+              <h2>Applied</h2>
+            </Paper>
+            <br />
+            <AppliedList />
+          </Col>
+          <Col xs={6} sm={3}>
+            <Paper style={style} zDepth={4}>
+              <h2>Interview Scheduled</h2>
+            </Paper>
+            <br />
+            <InterviewList />
+          </Col>
+          <Col xs={6} sm={3}>
+            <Paper style={style} zDepth={4}>
+              <h2>Interviewed</h2>
+            </Paper>
+            <br />
+            <PostInterviewList />
+          </Col>
+        </Grid>
+      </div>
+    );
+***************************************************************************************************/
 
 /* REDUX: everytime the application state changes, the container will re-render and update the props */
 

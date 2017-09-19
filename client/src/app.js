@@ -7,7 +7,6 @@ import Header from './components/Header.jsx';
 import Landing from './page-components/Landing.jsx';
 import User from './page-components/User.jsx';
 import store from './store';
-import Calendar from './page-components/Calendar.jsx';
 
 import { lightBaseTheme, MuiThemeProvider, getMuiTheme } from 'material-ui/styles';
 
@@ -17,8 +16,7 @@ const App = () => (
     <main>
       <Switch>
         <Route exact path='/' component={User} />
-        <Route path='/about' component= {Landing}/>
-        <Route path='/cal' component= {Calendar}/>
+        <Route path='/landing' component= {Landing}/>
       </Switch>
     </main>
   </div>
