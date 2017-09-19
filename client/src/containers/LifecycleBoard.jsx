@@ -29,7 +29,7 @@ export class LifecycleBoard extends Component {
 
     return (
       <div>
-        <Grid centered columns={4} padded='horizontally'>
+        <Grid divided centered columns={4} padded='horizontally'>
           <Grid.Column width={3.5}>
             <Segment raised textAlign='center' size='huge' color='blue'>
               Interested

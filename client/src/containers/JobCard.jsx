@@ -127,7 +127,7 @@ class JobCard extends Component {
 
     var calendar;
       if (this.state.status === 'Interview Scheduled') {
-        calendar = <Button href={googleLink} size='mini' floated='right' color='yellow' circular icon='add to calendar'/>;
+        calendar = <Button target='_blank' href={googleLink} size='mini' floated='right' color='yellow' circular icon='add to calendar'/>;
       } else {
         calendar = null;
       }
@@ -144,8 +144,8 @@ class JobCard extends Component {
             <Card.Meta>{job.position}</Card.Meta>
             <Card.Description>
               <ExpandedForm job={job} />
+              <EditForm job={job} />
               {calendar}
-              <ScheduleForm />
             </Card.Description>
           </Card.Content>
         </Card>

@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Menu, Dropdown } from 'semantic-ui-react'
 
 export default class Header extends Component {
   render() {
     return (
-      <div>
-        <header>
-          <Link to='/'>Dashboard</Link>
-          /
-          <Link to='/landing'>Landing</Link>
-        </header>
-      </div>
+      <Menu color='blue'>
+        <Menu.Item header>Elevate</Menu.Item>
+        <Menu.Item><Link to='/'>Applications</Link></Menu.Item>
+        <Menu.Item position='right'><Link to='/landing'>Logout</Link></Menu.Item>
+      </Menu>
     );
   }
 }
