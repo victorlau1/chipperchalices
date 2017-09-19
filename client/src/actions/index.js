@@ -20,29 +20,6 @@ export const fetchCardsSuccess = (interested, applied, interviewScheduled, inter
   };
 };
 
-// wordier method:
-
-// export const fetchCardsSuccess = (interested, applied, interviewScheduled, interviewed) => {
-//   return function(dispatch) {
-//     dispatch({
-//       type: 'UPDATE_INTERESTED_LIST',
-//       interested
-//     });
-//     dispatch({
-//       type: 'UPDATE_APPLIED_LIST',
-//       applied
-//     });
-//     dispatch({
-//       type: 'UPDATE_INTERVIEW_SCHEDULED_LIST',
-//       interviewScheduled
-//     });
-//     dispatch({
-//       type: 'UPDATE_INTERVIEWED_LIST',
-//       interviewed
-//     });
-//   };
-// };
-
 export const cardsAreFetched = (bool) => {
   return {
     type: 'CARDS_ARE_FETCHED',
@@ -112,10 +89,14 @@ export const addCardToList = (status, jobCard) => {
   };
 };
 
-
-export const selectJobCard = (jobCard) => {
+export const moveCard = (job, lastStatus, lastX, nextStatus, nextX) => {
+  // console.log('within moveCard action JOB',job, 'lastStatus:', lastStatus, lastX, nextStatus)
   return {
-    type: 'JOBCARD_SELECTED',
-    payload: jobCard
+    type: 'MOVE_CARD',
+    job,
+    lastStatus,
+    lastX,
+    nextStatus,
+    nextX
   };
 };

@@ -15,11 +15,12 @@ const cardSource = {
     const item = {
       // need to set x & y (x = list index, y = index within list)
       x: props.x,
-      y: props.y,
+      // y: props.y,
       id: props.job.id,
-      status: props.job.currentStatus
+      job: props.job,
+      status: props.status
     };
-    console.log('hello within BeginDrag! ID:', item.x);
+    console.log('hello within BeginDrag! ITEM:', item);
     return item;
   },
 
@@ -30,8 +31,10 @@ const cardSource = {
     // When dropped on a compatible target, do something
     const item = monitor.getItem();
     const dropResult = monitor.getDropResult();
+    console.log('DROP RESULT: ', dropResult);
+    console.log('dropped Item!', item);
     // TODO: change dropResult --> listStatus?
-    CardActions.moveCardToList(item.id, dropResult.listId);
+    // CardActions.moveCardToList(item.id, dropResult.listId);
   },
 
   // Because the component gets unmounted while dragging, this function is used to retain the dragged appearance

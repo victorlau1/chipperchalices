@@ -44,7 +44,6 @@ class JobCard extends Component {
 
   render() {
     const job = this.props.job;
-    console.log('Newly rendered company name:', job.company.name);
     const start = moment(job.date).format('YYYY-MM-DD');
     const { id } = this.props;
 
