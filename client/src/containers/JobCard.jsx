@@ -122,6 +122,7 @@ class JobCard extends Component {
       }
     };
 
+    const googleLink = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=Interview+at+${job.company.name}`;
 
     return connectDragSource(
       <div>
@@ -135,6 +136,7 @@ class JobCard extends Component {
             <Card.Meta>{job.position}</Card.Meta>
             <Card.Description>
               <ExpandedForm job={job} />
+              <Button href={googleLink} size='mini' floated='right' color='yellow' circular icon='add to calendar'/>
               <ScheduleForm />
             </Card.Description>
           </Card.Content>
