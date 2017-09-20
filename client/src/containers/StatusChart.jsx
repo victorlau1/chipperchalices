@@ -3,37 +3,45 @@ import axios from 'axios';
 import { Chart, Bars, Cloud, Dots, Labels, Lines, Pies, RadialLines, Ticks, Title, Layer, Animate, Transform, Handlers, DropShadow, Gradient, helpers} from 'rumble-charts';
 
 
-class AnalyticsBoard extends Component {
+class StatusChart extends Component {
   constructor(props) {
     super(props);
     this.state = {series: [{
-      date: ['2017-01-01', '2017-01-02', '2017-01-03', '2017-01-04', '2017-02-05'],
-      data: [10, 20, 0, 100, 250]
-    }]};
+      status: ['2017-09-18', '2017-09-19', '2017-09-20', '2017-09-21'],
+      data: [5, 7, 10, 15, 20]
+    }],
+    count: 0};
     this.updateSeries = this.updateSeries.bind(this);
   }
 
-  updateSeries(param) {
-    console.log(this.getData(params));
-    this.getData(params)
+  updateSeries() {
+    this.getData('status')
       .then((results) => {
-        console.log(results.data);
-        this.setState({series});
+        var status = [];
+        var data = [];
+        var count = this.state.count + 1;
+        results.data.forEach((record) => {
+          status.push(record.status);
+          data.push(parseInt(record.status_count));
+        });
+        this.setState({ series: [{
+          status: status,
+          data: data
+        }],
+        count: count 
+        });
       });
   }
 
   getData(param) {
+    var url = `/data/${param}`;
     var options = {      
     };
-    return axios.get(`/data/${param}`, options);
-  }
-
-  componentDidMount() {
-    this.updateSeries('users');
+    return axios.get(url, options);
   }
 
   render() {
-    return <Chart onClick={this.updateSeries} width={400} height={400} series={this.state.series} minY={0}>
+    return <div style={{fontFamily:'sans-serif',fontSize:'3em'}}><Chart onClick={this.updateSeries} width={800} height={400} series={this.state.series} minY={0}>
       <Layer width='80%' height='80%' position='middle center'>
         <Animate _ease='bounce' _ease='elastic'>
           <Ticks
@@ -48,17 +56,11 @@ class AnalyticsBoard extends Component {
           />
           <Ticks
             axis='x'
-            label={({index, props}) => props.series[0].date[index]}
+            label={({index, props}) => props.series[0].status[index]}
             labelStyle={{textAnchor:'middle',alignmentBaseline:'before-edge',fontSize:'0.5em',fill:'lightgray'}}
             labelAttributes={{y: 3}}
           />
-          <Bars
-            groupPadding='3%'
-            innerPadding='0.5%'
-          />
-          <Lines/>
-          <Dots
-          />
+          <Bars/>
           <Labels
             label={({point}) => Math.round(point.y)}
             dotStyle={{
@@ -68,8 +70,8 @@ class AnalyticsBoard extends Component {
           />
         </Animate>
       </Layer>
-    </Chart>;
+    </Chart></div>;
   }
 }
 
-export default AnalyticsBoard;
+export default StatusChart;

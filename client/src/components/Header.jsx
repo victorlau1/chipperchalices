@@ -10,7 +10,7 @@ export default class Header extends Component {
           /
           <Link to='/about'> About</Link>
           /
-          <Link to='/test'> Test </Link>
+          <Link to='/analytic'> Analytics </Link>
         </header>
       </div>
     );

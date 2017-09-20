@@ -24,5 +24,5 @@ app.use('/', routes.auth);
 app.use('/api', routes.api);
 app.use('/api/profiles', routes.profiles);
 app.use('/card', routes.cards);
-app.use('/data', routes.dashboard);
+app.use('/data', routes.analytic);
 module.exports = app;
