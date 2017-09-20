@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 //import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import { DragSource } from 'react-dnd';
-import { Button, Icon, Card, Image, Grid } from 'semantic-ui-react'
+import { Button, Icon, Card, Image, Grid } from 'semantic-ui-react';
 
 import ExpandedForm from './ExpandedForm.jsx';
 import EditForm from './EditForm.jsx';
@@ -67,29 +67,29 @@ class JobCard extends Component {
     const googleLink = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=Interview+at+${job.company.name}`;
 
     var calendar;
-      if (this.state.status === 'Interview Scheduled') {
-        calendar = <Button target='_blank' href={googleLink} size='mini' floated='right' color='yellow' circular icon='add to calendar'/>;
-      } else {
-        calendar = null;
-      }
+    if (this.state.status === 'Interview Scheduled') {
+      calendar = <Button target='_blank' href={googleLink} size='mini' floated='right' color='yellow' circular icon='add to calendar'/>;
+    } else {
+      calendar = null;
+    }
 
-    return connectDragSource(
+    return (
       <div>
         <Grid centered>
-        <Grid.Row>
-        <Card className='job-card' expanded={this.state.expanded} onExpandChange={this.handleExpandChange} >
-          <Card.Content>
-            <Image floated='left' size='mini' src={job.company.logo_url} />
-            <Card.Header>{job.company.name}</Card.Header>
-            <Card.Meta>{job.position}</Card.Meta>
-            <Card.Description>
-              {calendar}
-              <ExpandedForm job={job} />
-              <EditForm job={job} />
-            </Card.Description>
-          </Card.Content>
-        </Card>
-        </Grid.Row>
+          <Grid.Row>
+            <Card className='job-card' expanded={this.state.expanded} onExpandChange={this.handleExpandChange} >
+              <Card.Content>
+                <Image floated='left' size='mini' src={job.company.logo_url} />
+                <Card.Header>{job.company.name}</Card.Header>
+                <Card.Meta>{job.position}</Card.Meta>
+                <Card.Description>
+                  {calendar}
+                  <ExpandedForm job={job} />
+                  <EditForm job={job} />
+                </Card.Description>
+              </Card.Content>
+            </Card>
+          </Grid.Row>
         </Grid>
       </div>
     );
