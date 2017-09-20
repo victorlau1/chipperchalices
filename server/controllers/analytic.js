@@ -7,7 +7,7 @@ const dataUsers = (req, res) => {
       return knex('user_count').insert(result).returning('id');
     })
     .then(result => {
-      return knex('user_count').select('date', 'user_count').whereBetween('date', [knex.raw('current_timestamp - Interval \'4 day\''), knex.fn.now()] ).groupBy('date', 'user_count').limit(6);
+      return knex('user_count').select('date', 'user_count').whereBetween('date', [knex.raw('current_timestamp - Interval \'4 day\''), knex.fn.now()] ).groupBy('date', 'user_count').orderByRaw('date asc').limit(6);
     })
     .then(result => {
       res.status(200).send(result);
@@ -23,7 +23,7 @@ const dataJobs = (req, res) => {
       return knex('job_count').insert(result);
     })
     .then(result => {
-      return knex('job_count').select('date', 'job_count').whereBetween('date', [knex.raw('current_timestamp - Interval \'4 day\''), knex.fn.now()] ).groupBy('date', 'job_count').limit(6);
+      return knex('job_count').select('date', 'job_count').whereBetween('date', [knex.raw('current_timestamp - Interval \'4 day\''), knex.fn.now()] ).groupBy('date', 'job_count').orderByRaw('date asc').limit(6);
     })
     .then(result => {
       res.status(200).send(result);
@@ -55,12 +55,12 @@ const dataCycles = (req, res) => {
 };
 
 const dataCompanies = (req, res) => {
-  knex('companies').select(knex.raw('current_date as date')).count('id as company_count').groupBy(knex.raw('current_date'))
+  knex('companies').select(knex.raw('current_date as date')).count('id as company_count').groupBy(knex.raw('current_date')).orderBy(knex.raw('current_date'))
     .then(result => {
       return knex('company_count').insert(result);
     })
     .then(result => {
-      return knex('company_count').select('date', 'company_count').whereBetween('date', [knex.raw('current_timestamp - Interval \'4 day\''), knex.fn.now()] ).groupBy('date', 'company_count').limit(6);
+      return knex('company_count').select('date', 'company_count').whereBetween('date', [knex.raw('current_timestamp - Interval \'4 day\''), knex.fn.now()] ).groupBy('date', 'company_count').orderByRaw('date asc').limit(6);
     })
     .then(result => {
       res.status(200).send(result);
