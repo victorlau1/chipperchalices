@@ -5,7 +5,7 @@ import { Menu, Dropdown } from 'semantic-ui-react'
 export default class Header extends Component {
   render() {
     return (
-      <Menu color='blue'>
+      <Menu fixed='top' color='blue'>
         <Menu.Item header>Elevate</Menu.Item>
         <Menu.Item><Link to='/'>Applications</Link></Menu.Item>
         <Menu.Item>Add a Job</Menu.Item>
