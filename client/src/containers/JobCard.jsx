@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
+//import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import { DragSource } from 'react-dnd';
-
+import { Button, Icon, Card, Image, Grid } from 'semantic-ui-react'
 import ExpandedForm from './ExpandedForm.jsx';
 import EditForm from './EditForm.jsx';
+import ScheduleForm from './ScheduleForm.jsx';
 const moment = require('moment');
-
 const now = moment();
 
 const colors = {
@@ -57,7 +57,8 @@ class JobCard extends Component {
 
     this.state = {
       expanded: false,
-      age: moment().diff('days', moment(this.props.job.date))
+      age: moment().diff('days', moment(this.props.job.date)),
+      status: this.props.job.current_status
     };
 
     this.handleExpandChange = this.handleExpandChange.bind(this);
@@ -71,6 +72,7 @@ class JobCard extends Component {
   updateJob(data) {
     console.log(data);
   }
+
   render() {
     const job = this.props.job;
     //console.log('Newly rendered company name:', job.company.name);
@@ -94,26 +96,35 @@ class JobCard extends Component {
         return colors.Red;
       }
     };
+
+    const googleLink = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=Interview+at+${job.company.name}`;
+
+    var calendar;
+      if (this.state.status === 'Interview Scheduled') {
+        calendar = <Button target='_blank' href={googleLink} size='mini' floated='right' color='yellow' circular icon='add to calendar'/>;
+      } else {
+        calendar = null;
+      }
+
     return connectDragSource(
       <div>
         {isDragging}
-        <Card className='job-card' expanded={this.state.expanded} onExpandChange={this.handleExpandChange} style={{backgroundColor: styles()}}>
-          <CardHeader
-            title={job.company.name}
-            subtitle={job.position}
-            avatar={job.company.logo_url}
-            actAsExpander={true}
-            showExpandableButton={true}
-          />
-          <CardTitle title={job.company.name} subtitle={job.company.location} expandable={true} />
-          <CardText expandable={true}>
-            {job.company.description}
-            <br/>
-            <a href={job.position_url}>Application Link</a>
-          </CardText>
-          <EditForm job={job} updateJob={this.updateJob}/>
-          <ExpandedForm job={job} />
+        <Grid centered>
+        <Grid.Row>
+        <Card className='job-card' expanded={this.state.expanded} onExpandChange={this.handleExpandChange} >
+          <Card.Content>
+            <Image floated='left' size='mini' src={job.company.logo_url} />
+            <Card.Header>{job.company.name}</Card.Header>
+            <Card.Meta>{job.position}</Card.Meta>
+            <Card.Description>
+              {calendar}
+              <ExpandedForm job={job} />
+              <EditForm job={job} />
+            </Card.Description>
+          </Card.Content>
         </Card>
+        </Grid.Row>
+        </Grid>
       </div>
     );
   }

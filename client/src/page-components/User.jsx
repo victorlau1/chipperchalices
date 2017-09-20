@@ -8,7 +8,6 @@ class User extends Component {
   render() {
     return (
       <div>
-        <h1>Application Lifecycle Board</h1>
         <JobForm/>
         <br/>
         <LifecycleBoard/>

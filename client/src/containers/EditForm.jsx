@@ -1,18 +1,15 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import moment from 'moment';
-import TextField from 'material-ui/TextField';
-import {Dialog} from 'material-ui';
-import {RaisedButton, FlatButton} from 'material-ui';
-import {MenuItem, DropDownMenu} from 'material-ui';
 import {DatePicker, TimePicker} from 'material-ui';
+import { Button, Header, Image, Modal, Icon, Form, Dropdown, TextArea } from 'semantic-ui-react'
 
 
 class EditForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false,
+      modalOpen: false,
       title: '',
       company: '',
       date: moment().toDate(),
@@ -20,10 +17,13 @@ class EditForm extends React.Component {
       notes: '',
       url: '',
       value: 0,
-      change: false
+      change: false,
+      recruiter: '',
+      recruiterEmail: ''
     };
 
-    this.handleClick = this.handleClick.bind(this);
+    this.handleOpen = this.handleOpen.bind(this);
+    this.handleClose = this.handleClose.bind(this);
     this.handleTitle = this.handleTitle.bind(this);
     this.handleCompany = this.handleCompany.bind(this);
     this.handleDate = this.handleDate.bind(this);
@@ -37,6 +37,7 @@ class EditForm extends React.Component {
   componentDidMount() {
     let dat = this.props.job;
     this.setState({
+      modalOpen: false,
       id: dat.id,
       title: dat.position,
       company: dat.company.name,
@@ -44,18 +45,22 @@ class EditForm extends React.Component {
       date: moment(dat.date).toDate(),
       status: dat.currentStatus,
       notes: dat.notes,
-      url: dat.applicationUrl,
-      value: 0
+      url: dat.position_url,
+      value: 0,
+      recruiter: dat.recruiterName,
+      recruiterEmail: dat.recruiterEmail
     });
   }
 
   //Move to Action/Reducer in Redux
   //TO DO: refactor into less functions
 
-  handleClick () {
-    this.setState({
-      open: !this.state.open
-    });
+  handleOpen() {
+    this.setState({ modalOpen: true })
+  }
+
+  handleClose() {
+    this.setState({ modalOpen: false })
   }
 
   handleTitle (e) {
@@ -102,6 +107,7 @@ class EditForm extends React.Component {
   }
 
   saveJob () {
+    this.handleClose();
     //If change then saveJob
     if (!this.state.change) {
       return 'No Changes';
@@ -139,53 +145,75 @@ class EditForm extends React.Component {
   }
 
   render() {
-    const actions = [
-      <FlatButton
-        label="Update"
-        //primary={true}
-        //keyboardFocused={true}
-        onClick={this.saveJob}
-      />,
-      <FlatButton
-        label="Cancel"
-        //primary={true}
-        //keyboardFocused={true}
-        onClick={this.handleClick}
-      />
-    ];
 
-    const style = {
-      margin: 1,
-      width: '10%',
-      height: '80%'
-    };
+    const options = [
+      { key: 'Interested', text: 'Interested', value: 'Interested' },
+      { key: 'Applied', text: 'Applied', value: 'Applied' },
+      { key: 'Interview Scheduled', text: 'Interview Scheduled', value: 'Interview Scheduled' },
+      { key: 'Interviewed', text: 'Interviewed', value: 'Interviewed' },
+      { key: 'Applied', text: 'Applied', value: 'Applied' },
+      { key: 'No response', text: 'No response', value: 'No response' },
+      { key: 'Rejected', text: 'Rejected', value: 'Rejected' },
+      { key: 'Offer made', text: 'Offer made', value: 'Offer made' },
+      { key: 'Archived', text: 'Archived', value: 'Archived' },
+    ]
 
-    const values = ['Interested', 'Applied', 'Interview Scheduled', 'Interviewed', 'No response', 'Rejected', 'Offer made', 'Archived'];
-    const items = values.map(function(val, i) { return <MenuItem value={i} key={i} primaryText = {val} />; });
     return (
-      <div>
-        <FlatButton style={style} labelStyle={{fontSize: '9px'}} label='Edit' onClick={this.handleClick}/>
-        <Dialog
-          title="Edit Form"
-          actions={actions}
-          modal={false}
-          open={this.state.open}
-          onRequestClose={this.handleClick}
-        >
-          <TextField onChange={this.handleTitle} defaultValue={this.state.title} errorText="This field is required"/><br/>
-          <TextField onChange={this.handleCompany} defaultValue={this.state.company} errorText="This field is required"/><br/>
-          <DropDownMenu maxHeight={300} value={this.state.value} onChange={this.handleStatus}>
-            {items}
-          </DropDownMenu><br/>
-          <DatePicker onChange={this.handleDate} value={this.state.date}/><br/>
-          <TextField onChange={this.handleURL} defaultValue={this.state.url}/><br/>
-          <TextField onChange={this.handleNotes}
-            defaultValue={this.state.notes}
-            multiLine={this.state.notes === 'null' ? true : false}
-            rows={1} rowsMax={10}
-            hintText={'Notes'}/><br/>
-        </Dialog>
-      </div>
+      <Modal trigger={<Button size='mini' floated='right' color='green' circular icon='write' onClick={this.handleOpen} />}
+        open={this.state.modalOpen}
+        onClose={this.handleClose}
+        size='large'>
+        <Modal.Header>Edit Application</Modal.Header>
+        <Modal.Content image>
+          <Image wrapped size='medium' src={this.props.job.company.logo_url} />
+          <Form>
+            <Form.Group widths='equal'>
+              <Form.Field>
+                <label>Position</label>
+                <input defaultValue={this.state.title} onChange={this.handleTitle}/>
+              </Form.Field>
+              <Form.Field>
+                <label>Company</label>
+                <input defaultValue={this.state.company} onChange={this.handleCompany}/>
+              </Form.Field>
+              <Form.Field>
+                <label>Application Link</label>
+                <input defaultValue={this.state.url} onChange={this.handleURL}/>
+              </Form.Field>
+            </Form.Group>
+            <Form.Group widths='equal'>
+              <Form.Field>
+                <label>Recruiter Name</label>
+                <input defaultValue={this.state.title} onChange={this.handleTitle}/>
+              </Form.Field>
+              <Form.Field>
+                <label>Recruiter Email</label>
+                <input defaultValue={this.state.company} onChange={this.handleCompany}/>
+              </Form.Field>
+            </Form.Group>
+            <Form.Group>
+              <Form.Field>
+                <Button.Group color='teal'>
+                <Button>Status</Button>
+                <Dropdown onChange={this.handleStatus} options={options} floating button />
+                </Button.Group>
+              </Form.Field>
+              <Form.Field>
+                <DatePicker onChange={this.handleDate} defaultValue={this.state.date} value={this.state.date}/>
+              </Form.Field>
+            </Form.Group>
+              <Form.Field>
+                <label>Notes</label>
+                <TextArea defaultValue={this.state.notes} onChange={this.handleNotes} />
+              </Form.Field>
+          </Form>
+        </Modal.Content>
+        <Modal.Actions>
+          <Button color='teal' onClick={this.saveJob}>
+            <Icon name='checkmark' /> Update
+          </Button>
+        </Modal.Actions>
+      </Modal>
     );
   }
 }

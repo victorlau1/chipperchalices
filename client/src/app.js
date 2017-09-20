@@ -7,6 +7,7 @@ import Header from './components/Header.jsx';
 import Landing from './page-components/Landing.jsx';
 import User from './page-components/User.jsx';
 import store from './store';
+import JobForm from './components/jobForm.jsx';
 
 import { lightBaseTheme, MuiThemeProvider, getMuiTheme } from 'material-ui/styles';
 
@@ -16,7 +17,8 @@ const App = () => (
     <main>
       <Switch>
         <Route exact path='/' component={User} />
-        <Route path='/about' component= {Landing}/>
+        <Route path='/landing' component= {Landing}/>
+        <Route path='/add' component= {JobForm}/>
       </Switch>
     </main>
   </div>

@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Grid, Row, Col, Clearfix } from 'react-bootstrap';
+import { Grid, Image, Card, Header, Icon, Segment } from 'semantic-ui-react';
 import Paper from 'material-ui/Paper';
 // import Grid from 'material-ui/Grid';
 import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContext } from 'react-dnd';
-
-
 import InterestList from './InterestList.jsx';
 import AppliedList from './AppliedList.jsx';
 import InterviewList from './InterviewList.jsx';
@@ -31,35 +29,31 @@ export class LifecycleBoard extends Component {
 
     return (
       <div>
-        <Grid>
-          <Col xs={6} sm={3}>
-            <Paper style={style} zDepth={4}>
-              <h2>Interested</h2>
-            </Paper>
-            <br />
+        <Grid divided centered columns={4} padded='horizontally'>
+          <Grid.Column width={3.5}>
+            <Segment raised textAlign='center' size='huge' color='blue'>
+              Interested
+            </Segment>
             <InterestList />
-          </Col>
-          <Col xs={6} sm={3}>
-            <Paper style={style} zDepth={4}>
-              <h2>Applied</h2>
-            </Paper>
-            <br />
+          </Grid.Column>
+          <Grid.Column width={3.5}>
+            <Segment raised textAlign='center' size='huge' color='blue'>
+              Applied
+            </Segment>
             <AppliedList />
-          </Col>
-          <Col xs={6} sm={3}>
-            <Paper style={style} zDepth={4}>
-              <h2>Interview Scheduled</h2>
-            </Paper>
-            <br />
+          </Grid.Column>
+          <Grid.Column width={3.5}>
+            <Segment raised textAlign='center' size='huge' color='blue'>
+              Interview Scheduled
+            </Segment>
             <InterviewList />
-          </Col>
-          <Col xs={6} sm={3}>
-            <Paper style={style} zDepth={4}>
-              <h2>Interviewed</h2>
-            </Paper>
-            <br />
+          </Grid.Column>
+          <Grid.Column width={3.5}>
+            <Segment raised textAlign='center' size='huge' color='blue'>
+              Interviewed
+            </Segment>
             <PostInterviewList />
-          </Col>
+          </Grid.Column>
         </Grid>
       </div>
     );
