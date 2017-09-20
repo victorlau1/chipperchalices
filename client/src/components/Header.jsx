@@ -8,6 +8,7 @@ export default class Header extends Component {
       <Menu color='blue'>
         <Menu.Item header>Elevate</Menu.Item>
         <Menu.Item><Link to='/'>Applications</Link></Menu.Item>
+        <Menu.Item>Add a Job</Menu.Item>
         <Menu.Item position='right'><Link to='/landing'>Logout</Link></Menu.Item>
       </Menu>
     );

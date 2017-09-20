@@ -218,10 +218,6 @@ class EditForm extends React.Component {
   }
 }
 
-
-
-
-
 // function mapDispatchToProps () {
 
 //}
@@ -231,32 +227,3 @@ class EditForm extends React.Component {
 // }
 
 export default EditForm;
-
-
-/*PREVIOUS CODE
-return (
-      <div>
-        <FlatButton style={style} labelStyle={{fontSize: '9px'}} label='Edit' onClick={this.handleClick}/>
-        <Dialog
-          title="Edit Form"
-          actions={actions}
-          modal={false}
-          open={this.state.open}
-          onRequestClose={this.handleClick}
-        >
-          <TextField onChange={this.handleTitle} defaultValue={this.state.title} errorText="This field is required"/><br/>
-          <TextField onChange={this.handleCompany} defaultValue={this.state.company} errorText="This field is required"/><br/>
-          <DropDownMenu maxHeight={300} value={this.state.value} onChange={this.handleStatus}>
-            {items}
-          </DropDownMenu><br/>
-          <DatePicker onChange={this.handleDate} value={this.state.date}/><br/>
-          <TextField onChange={this.handleURL} defaultValue={this.state.url}/><br/>
-          <TextField onChange={this.handleNotes}
-            defaultValue={this.state.notes}
-            multiLine={this.state.notes === 'null' ? true : false}
-            rows={1} rowsMax={10}
-            hintText={'Notes'}/><br/>
-        </Dialog>
-      </div>
-    );
-  */

@@ -73,32 +73,6 @@ class JobCard extends Component {
     console.log(data);
   }
 
-/*PREVIOUS CODE (INCLUDED FOR UI REFACTOR REFERENCING)
-***************************************************************************************************
-   <div>
-        {isDragging}
-        <Card className='job-card' expanded={this.state.expanded} onExpandChange={this.handleExpandChange} style={{backgroundColor: styles()}}>
-          <CardHeader
-            title={job.company.name}
-            subtitle={job.position}
-            avatar={job.company.logo_url}
-            actAsExpander={true}
-            showExpandableButton={true}
-          />
-          <CardTitle title={job.company.name} subtitle={job.company.location} expandable={true} />
-          <CardText expandable={true}>
-            {job.company.description}
-            <br/>
-            <a href={job.position_url}>Application Link</a>
-          </CardText>
-          <EditForm job={job} updateJob={this.updateJob}/>
-          <ExpandedForm job={job} />
-          <ScheduleForm  />
-        </Card>
-      </div>
-  ***************************************************************************************************/
-
-
   render() {
     const job = this.props.job;
     //console.log('Newly rendered company name:', job.company.name);
@@ -143,9 +117,9 @@ class JobCard extends Component {
             <Card.Header>{job.company.name}</Card.Header>
             <Card.Meta>{job.position}</Card.Meta>
             <Card.Description>
+              {calendar}
               <ExpandedForm job={job} />
               <EditForm job={job} />
-              {calendar}
             </Card.Description>
           </Card.Content>
         </Card>
