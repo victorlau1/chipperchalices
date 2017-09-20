@@ -7,10 +7,10 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContext } from 'react-dnd';
 
 import ListContainer from './ListContainer.jsx';
-import InterestList from './InterestList.jsx';
-import AppliedList from './AppliedList.jsx';
-import InterviewList from './InterviewList.jsx';
-import PostInterviewList from './PostInterviewList.jsx';
+// import InterestList from './InterestList.jsx';
+// import AppliedList from './AppliedList.jsx';
+// import InterviewList from './InterviewList.jsx';
+// import PostInterviewList from './PostInterviewList.jsx';
 import { fetchCards, moveCard } from '../actions/index.js';
 
 
@@ -68,7 +68,7 @@ export class LifecycleBoard extends Component {
             <Segment raised textAlign='center' size='huge' color='blue'>
               Interviewed
             </Segment>
-             <ListContainer
+            <ListContainer
               jobs={interviewedJobs}
               moveCard={this.props.moveCard}
               status='interviewed'

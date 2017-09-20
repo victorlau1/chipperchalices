@@ -13,14 +13,12 @@ const cardSource = {
   beginDrag(props, monitor, component) {
     // return the data describing the dragged item
     const item = {
-      // need to set x & y (x = list index, y = index within list)
       x: props.x,
-      // y: props.y,
       id: props.job.id,
       job: props.job,
       status: props.status
     };
-    console.log('hello within BeginDrag! ITEM:', item);
+    // console.log('hello within BeginDrag! item:', item);
     return item;
   },
 
@@ -28,13 +26,9 @@ const cardSource = {
     if (!monitor.didDrop()) {
       return;
     }
-    // When dropped on a compatible target, do something
+
     const item = monitor.getItem();
     const dropResult = monitor.getDropResult();
-    console.log('DROP RESULT: ', dropResult);
-    console.log('dropped Item!', item);
-    // TODO: change dropResult --> listStatus?
-    // CardActions.moveCardToList(item.id, dropResult.listId);
   },
 
   // Because the component gets unmounted while dragging, this function is used to retain the dragged appearance

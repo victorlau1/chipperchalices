@@ -58,7 +58,7 @@ const spec = {
   }
 };
 
-// specifies which props to inject into the component
+// specifies which props to inject into the component (TODO utilize offset to get placeholder index)
 const collect = (connect, monitor) => {
   return {
     // call connectDropTarget inside render() to let reactDnD handle drag events:
