@@ -98,8 +98,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchCards: (status) => dispatch(fetchCards(status)),
-    moveCard: (item, lastStatus, lastX, nextStatus, nextX) =>
-      dispatch(moveCard(item, lastStatus, lastX, nextStatus, nextX))
+    moveCard: (item, lastStatus, nextStatus, lastX, nextX) =>
+      dispatch(moveCard(item, lastStatus, nextStatus, lastX, nextX))
   };
 };
 

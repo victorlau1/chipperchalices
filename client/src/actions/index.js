@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { fromStatus } from '../helpers/status.js';
 
 // These functions are Action Creators that each return an Action object with two properties:
 // 1. type property: always uppercase string
@@ -63,8 +64,6 @@ export const fetchCards = (status) => {
                 status === 'Interviewed' ? interviewed.push(jobCard) : jobCard;
         });
 
-        console.log('interestedArr from actions.index', interested);
-
         dispatch(fetchCardsSuccess(interested, applied, interviewScheduled, interviewed));
       })
       .catch(error => {
@@ -75,28 +74,38 @@ export const fetchCards = (status) => {
   };
 };
 
-export const addCardToList = (status, jobCard) => {
-  let stateStatus = '';
-  status === 'Interested' ? stateStatus = 'interested' :
-    status === 'Applied' ? stateStatus = 'applied' :
-      status === 'Interview Scheduled' ? stateStatus = 'interviewScheduled' :
-        status === 'Interviewed' ? stateStatus = 'interviewed' : stateStatus;
 
+export const addCardToList = (status, jobCard) => {
+
+  //let stateStatus = fromStatus(status);
   return {
     type: 'ADD_CARD',
-    newCardStatus: stateStatus,
+    newCardStatus: fromStatus(status),
     newCard: jobCard
   };
 };
 
-export const moveCard = (job, lastStatus, lastX, nextStatus, nextX) => {
+export const moveCard = (job, lastStatus, nextStatus, lastX, nextX) => {
   // console.log('within moveCard action JOB',job, 'lastStatus:', lastStatus, lastX, nextStatus)
+  return (dispatch) => {
+    axios.put('/card/update', job)
+      .then(function(response) {
+        console.log('axios PUT update response from action creator!', response.data);
+        dispatch(moveCardStatus(response.data, lastStatus, nextStatus, lastX));
+      })
+      .catch(function(error) {
+        console.log('error from action creator moveCard axios PUT', error);
+      });
+  };
+};
+
+export const moveCardStatus = (job, lastStatus, nextStatus, lastX) => {
+  console.log('within moveCardStatus', job, lastStatus, nextStatus);
   return {
     type: 'MOVE_CARD',
     job,
     lastStatus,
-    lastX,
     nextStatus,
-    nextX
+    lastX
   };
 };
