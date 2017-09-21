@@ -9,7 +9,7 @@ export default class Header extends Component {
     return (
       <Menu fixed='top' size='large' inverted color='teal'>
         <Menu.Item>
-          <Image src={logo}/>
+          <Image />
         </Menu.Item>
         <Menu.Item header>Elevate</Menu.Item>
         <Menu.Item><Link to='/'><Button basic inverted color='yellow'>Job Board</Button></Link></Menu.Item>

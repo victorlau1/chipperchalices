@@ -42,7 +42,7 @@ router.route('/logout')
   });
 
 router.get('/auth/google', middleware.passport.authenticate('google', {
-  scope: ['email', 'profile', 'calendar']
+  scope: ['email', 'profile']
 }));
 
 router.get('/auth/google/callback', middleware.passport.authenticate('google', {
