@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 //import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import { DragSource } from 'react-dnd';
-import { Button, Icon, Card, Image, Grid, Modal } from 'semantic-ui-react'
+import { Button, Icon, Card, Image, Grid, Modal, Segment, Label } from 'semantic-ui-react'
 import ExpandedForm from './ExpandedForm.jsx';
 import EditForm from './EditForm.jsx';
 import ScheduleForm from './ScheduleForm.jsx';
@@ -61,7 +61,7 @@ class JobCard extends Component {
 
     var calendar;
     if (this.state.status === 'Interview Scheduled') {
-      calendar = <Button target='_blank' href={googleLink} size='mini' floated='right' color='yellow' circular icon='add to calendar'/>;
+      calendar = <Button target='_blank' href={googleLink} size='mini' floated='right' color='green' circular icon='add to calendar'/>;
     } else {
       calendar = null;
     }
@@ -71,15 +71,18 @@ class JobCard extends Component {
         <Grid centered>
           <Grid.Row>
             <Card className='job-card'>
-              <Card.Content>
-                <Image floated='left' size='mini' src={job.company.logo_url} />
+
+              <Card.Content >
+                <Image floated='left' size='tiny' src={job.company.logo_url} />
                 <Card.Header>{job.company.name}</Card.Header>
-                <Card.Meta>{job.position}</Card.Meta>
-                <Card.Description>
-                  {calendar}
+                <Card.Meta>
+                {job.position}
+                <br/><br/>
+                <Label circular color='blue' inverted><Icon name='time' /> 2  days</Label>
+                {calendar}
                   <ExpandedForm job={job} />
                   <EditForm job={job} />
-                </Card.Description>
+                </Card.Meta>
               </Card.Content>
             </Card>
           </Grid.Row>

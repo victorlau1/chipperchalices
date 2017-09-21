@@ -175,7 +175,7 @@ class EditForm extends React.Component {
     ]
 
     return (
-      <Modal trigger={<Button size='mini' floated='right' color='green' circular icon='write' onClick={this.handleOpen} />}
+      <Modal trigger={<Button size='mini' floated='right' color='white' circular icon='write' onClick={this.handleOpen} />}
         open={this.state.modalOpen}
         onClose={this.handleClose}
         size='large'>

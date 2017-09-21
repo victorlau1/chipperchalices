@@ -5,7 +5,7 @@ class User extends Component {
 
   render() {
     return (
-      <div>
+      <div style={ {backgroundColor: "#F8F8F9"} }>
         <LifecycleBoard/>
       </div>
     );
@@ -13,3 +13,6 @@ class User extends Component {
 }
 
 export default User;
+
+//#232E72 navy #1E3364
+//"#FAF7F7" off white

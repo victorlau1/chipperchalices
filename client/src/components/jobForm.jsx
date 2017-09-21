@@ -151,7 +151,7 @@ class JobForm extends React.Component {
     ]
 
     return (
-      <Modal trigger={<Button basic inverted color='yellow' onClick={this.handleOpen}>Add Job</Button>}
+      <Modal trigger={<Button basic inverted color='teal' onClick={this.handleOpen}>Add Job</Button>}
         open={this.state.modalOpen}
         onClose={this.handleClose}
         size='large'>

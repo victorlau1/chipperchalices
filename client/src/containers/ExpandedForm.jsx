@@ -29,7 +29,7 @@ export default class ExpandedModal extends Component {
   render() {
 
     return (
-      <Modal trigger={<Button size='mini' floated='right' color='blue' circular icon='expand' onClick={this.handleClick}/>}
+      <Modal trigger={<Button size='mini' floated='right' color='white' circular icon='expand' onClick={this.handleClick}/>}
         open={this.state.open}
         onClose={this.handleClick}
         size='small'
