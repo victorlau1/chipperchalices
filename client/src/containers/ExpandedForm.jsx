@@ -42,7 +42,7 @@ export default class ExpandedModal extends Component {
           <Modal.Description>
             <Header>Recruiter: {this.state.job.recruiter_name}</Header>
             <p>Recruiter Email: {this.state.job.recruiter_email}</p>
-            <p>Application: <a href={appLink}>{this.state.job.position_url}</a></p>
+            <p>Application: <a target='_blank' href={appLink}>{this.state.job.position_url}</a></p>
             <p>Notes: {this.state.job.notes}</p>
           </Modal.Description>
         </Modal.Content>
