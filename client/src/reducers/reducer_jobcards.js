@@ -1,5 +1,12 @@
 //Note: each reducer is named after the resulting store's state property, with the action.type not necessarily needing to correspond. Each reducer will return a discrete property of the state, regardless of how many conditions are inside that reducer.
 
+const removeItem = (array, actionIndex) => {
+  return [
+    ...array.slice(0, actionIndex),
+    ...array.slice(actionIndex + 1)
+  ];
+};
+
 export const cards = (
   state = {
     interested: [],
@@ -21,6 +28,12 @@ export const cards = (
   case 'ADD_CARD':
     return Object.assign({}, state, {
       [action.newCardStatus]: state[action.newCardStatus].concat(action.newCard)
+    });
+
+  case 'MOVE_CARD':
+    return Object.assign({}, state, {
+      [action.nextStatus]: state[action.nextStatus].concat(action.job),
+      [action.lastStatus]: removeItem(state[action.lastStatus], action.lastX)
     });
 
   default:
