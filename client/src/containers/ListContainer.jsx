@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { DropTarget } from 'react-dnd';
 import { findDOMNode } from 'react-dom';
 
-// import List from './InterestList.jsx';
 import DraggableJobCard from './DraggableJobCard.jsx';
 import { toStatus } from '../helpers/status.js';
+import { moveCard } from '../actions/index.js';
 import { CARD_HEIGHT, CARD_MARGIN, OFFSET_HEIGHT } from '../constants.js';
 
 const Types = {
@@ -18,15 +18,15 @@ const spec = {
     // good place to fire redux actions
     // document.getElementById(monitor.getItem().id).style.display = 'block';
 
-    console.log('targetProps within drop', targetProps);
+    const { status, moveCard } = targetProps;
     let item = monitor.getItem();
-    console.log('item within drop spec', item);
-    const lastStatus = monitor.getItem().status;
+
+    const lastStatus = item.status;
     const lastX = item.x;
     const job = item.job;
-    const nextStatus = targetProps.status;
+    const nextStatus = status;
     // let nextX = TODO
-    let nextX = 1;
+    let nextX = '';
 
     var content = {
       id: job.id,
@@ -37,13 +37,13 @@ const spec = {
         url: job.position_url
       },
       status: {
-        date: '',
+        date: job.updated_at,
         status: toStatus(nextStatus)
       }
     };
+    //console.log('content sent to update card PUT', content);
 
-    console.log('After drop job', job, 'lastStatus', lastStatus, 'lastX', lastX, 'nextStatus', nextStatus, 'CONTENT QUACK', content);
-    targetProps.moveCard(content, lastStatus, nextStatus, lastX, nextX);
+    moveCard(content, lastStatus, nextStatus, lastX, nextX);
   },
 
   hover(targetProps, monitor, component) {
@@ -53,8 +53,7 @@ const spec = {
     // component.setState({ placeholderIndex });
 
     const sourceProps = monitor.getItem();
-    // document.getElementById(item.id)
-    console.log('dragging note sourceProps:', sourceProps, 'targetProps:', targetProps);
+    // console.log('dragging note sourceProps:', sourceProps, 'targetProps:', targetProps);
   }
 };
 
@@ -93,4 +92,12 @@ class ListContainer extends Component {
   }
 }
 
-export default DropTarget(Types.CARD, spec, collect)(ListContainer);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    moveCard: (item, lastStatus, nextStatus, lastX, nextX) =>
+      dispatch(moveCard(item, lastStatus, nextStatus, lastX, nextX))
+  };
+};
+
+ListContainer = DropTarget(Types.CARD, spec, collect)(ListContainer);
+export default connect(null, mapDispatchToProps)(ListContainer);

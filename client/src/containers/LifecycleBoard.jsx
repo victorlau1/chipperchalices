@@ -7,11 +7,7 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContext } from 'react-dnd';
 
 import ListContainer from './ListContainer.jsx';
-// import InterestList from './InterestList.jsx';
-// import AppliedList from './AppliedList.jsx';
-// import InterviewList from './InterviewList.jsx';
-// import PostInterviewList from './PostInterviewList.jsx';
-import { fetchCards, moveCard } from '../actions/index.js';
+import { fetchCards } from '../actions/index.js';
 
 
 const style = {
@@ -27,7 +23,7 @@ export class LifecycleBoard extends Component {
   }
 
   render() {
-    const { fetched, hasErrored, moveCard, interestedJobs, appliedJobs, interviewScheduledJobs, interviewedJobs } = this.props;
+    const { fetched, hasErrored, interestedJobs, appliedJobs, interviewScheduledJobs, interviewedJobs } = this.props;
 
     console.log('Fetched cards from lifecycleBoard!', fetched);
 
@@ -40,7 +36,6 @@ export class LifecycleBoard extends Component {
             </Segment>
             <ListContainer
               jobs={interestedJobs}
-              moveCard={this.props.moveCard}
               status='interested'
             />
           </Grid.Column>
@@ -50,7 +45,6 @@ export class LifecycleBoard extends Component {
             </Segment>
             <ListContainer
               jobs={appliedJobs}
-              moveCard={this.props.moveCard}
               status='applied'
             />
           </Grid.Column>
@@ -60,7 +54,6 @@ export class LifecycleBoard extends Component {
             </Segment>
             <ListContainer
               jobs={interviewScheduledJobs}
-              moveCard={this.props.moveCard}
               status='interviewScheduled'
             />
           </Grid.Column>
@@ -70,7 +63,6 @@ export class LifecycleBoard extends Component {
             </Segment>
             <ListContainer
               jobs={interviewedJobs}
-              moveCard={this.props.moveCard}
               status='interviewed'
             />
           </Grid.Column>
@@ -98,8 +90,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchCards: (status) => dispatch(fetchCards(status)),
-    moveCard: (item, lastStatus, nextStatus, lastX, nextX) =>
-      dispatch(moveCard(item, lastStatus, nextStatus, lastX, nextX))
   };
 };
 
