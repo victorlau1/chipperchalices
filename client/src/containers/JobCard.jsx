@@ -51,7 +51,7 @@ class JobCard extends Component {
       statusChange = <Label circular color='red' inverted><Icon name='time' /> >3 weeks</Label>
     }
 
-    const googleLink = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=Interview+at+${job.company.name}`;
+    const googleLink = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${job.position}+Interview+at+${job.company.name}`;
 
     var calendar;
     if (this.state.status === 'Interview Scheduled') {
@@ -68,7 +68,7 @@ class JobCard extends Component {
           <Grid.Row>
             <Card className='job-card'>
               <Card.Content >
-                <Image href={companyLink} floated='left' size='tiny' src={job.company.logo_url} />
+                <Image target='_blank' href={companyLink} floated='left' size='tiny' src={job.company.logo_url} />
                 <Card.Header>{job.company.name}</Card.Header>
                 <Card.Meta>
                   {job.position}
