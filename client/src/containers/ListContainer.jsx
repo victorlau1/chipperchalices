@@ -34,7 +34,9 @@ const spec = {
         title: job.position,
         company: job.company.name,
         notes: job.notes,
-        url: job.position_url
+        url: job.position_url,
+        recruiter_name: job.recruiter_name,
+        recruiter_email: job.recruiter_email
       },
       status: {
         date: job.updated_at,

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 //import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import { DragSource } from 'react-dnd';
-import { Button, Icon, Card, Image, Grid } from 'semantic-ui-react';
-
+import { Button, Icon, Card, Image, Grid, Modal } from 'semantic-ui-react'
 import ExpandedForm from './ExpandedForm.jsx';
 import EditForm from './EditForm.jsx';
 import ScheduleForm from './ScheduleForm.jsx';

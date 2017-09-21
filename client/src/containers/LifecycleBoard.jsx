@@ -31,7 +31,7 @@ export class LifecycleBoard extends Component {
       <div>
         <Grid divided centered columns={4} padded='horizontally'>
           <Grid.Column width={3.5}>
-            <Segment raised textAlign='center' size='huge' color='blue'>
+            <Segment raised textAlign='center' size='huge' color='teal'>
               Interested
             </Segment>
             <ListContainer
@@ -40,7 +40,7 @@ export class LifecycleBoard extends Component {
             />
           </Grid.Column>
           <Grid.Column width={3.5}>
-            <Segment raised textAlign='center' size='huge' color='blue'>
+            <Segment raised textAlign='center' size='huge' color='teal'>
               Applied
             </Segment>
             <ListContainer
@@ -49,7 +49,7 @@ export class LifecycleBoard extends Component {
             />
           </Grid.Column>
           <Grid.Column width={3.5}>
-            <Segment raised textAlign='center' size='huge' color='blue'>
+            <Segment raised textAlign='center' size='huge' color='teal'>
               Interview Scheduled
             </Segment>
             <ListContainer
@@ -58,7 +58,7 @@ export class LifecycleBoard extends Component {
             />
           </Grid.Column>
           <Grid.Column width={3.5}>
-            <Segment raised textAlign='center' size='huge' color='blue'>
+            <Segment raised textAlign='center' size='huge' color='teal'>
               Interviewed
             </Segment>
             <ListContainer
