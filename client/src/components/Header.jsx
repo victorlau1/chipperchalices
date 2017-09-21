@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, Dropdown, Button, Image } from 'semantic-ui-react';
+
 import JobForm from './jobForm.jsx';
 
 export default class Header extends Component {
@@ -12,7 +13,7 @@ export default class Header extends Component {
         </Menu.Item>
         <Menu.Item><JobForm /></Menu.Item>
         <Menu.Item><Button basic inverted color='teal'>Insights</Button></Menu.Item>
-        <Menu.Item position='right'><Link to='/landing'><Button basic inverted color='teal'>Logout</Button></Link></Menu.Item>
+        <Menu.Item position='right'><a href="/logout"><Button basic inverted color='teal'>Logout</Button></a></Menu.Item>
       </Menu>
     );
   }

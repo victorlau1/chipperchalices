@@ -38,7 +38,7 @@ router.route('/profile')
 router.route('/logout')
   .get((req, res) => {
     req.logout();
-    res.redirect('/');
+    res.redirect('/login');
   });
 
 router.get('/auth/google', middleware.passport.authenticate('google', {
