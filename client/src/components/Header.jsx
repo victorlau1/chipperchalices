@@ -6,7 +6,7 @@ import JobForm from './jobForm.jsx';
 export default class Header extends Component {
   render() {
     return (
-      <Menu fixed='top' size='large' inverted >
+      <Menu fixed='top' size='large' inverted>
         <Menu.Item header>
         <Link to='/'><Image src='https://i.imgur.com/IFOyk8I.png?1' /></Link>
         </Menu.Item>
@@ -17,7 +17,4 @@ export default class Header extends Component {
     );
   }
 }
-
-// src='https://i.imgur.com/IFOyk8I.png?1'
-//src='https://i.imgur.com/WS84Wsp.png?1'
 

@@ -13,6 +13,3 @@ class User extends Component {
 }
 
 export default User;
-
-//#232E72 navy #1E3364
-//"#FAF7F7" off white

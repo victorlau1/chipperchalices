@@ -1,19 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Grid, Image, Card, Header, Icon, Segment } from 'semantic-ui-react';
-import Paper from 'material-ui/Paper';
-// import Grid from 'material-ui/Grid';
 import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContext } from 'react-dnd';
-
 import ListContainer from './ListContainer.jsx';
 import { fetchCards } from '../actions/index.js';
 
-
-const style = {
-  padding: 3,
-  textAlign: 'center',
-};
 
 // Use named export for unconnected component (for tests)
 export class LifecycleBoard extends Component {
@@ -23,9 +15,8 @@ export class LifecycleBoard extends Component {
   }
 
   render() {
-    const { fetched, hasErrored, interestedJobs, appliedJobs, interviewScheduledJobs, interviewedJobs } = this.props;
 
-    console.log('Fetched cards from lifecycleBoard!', fetched);
+    const { fetched, hasErrored, interestedJobs, appliedJobs, interviewScheduledJobs, interviewedJobs } = this.props;
 
     return (
       <div>
