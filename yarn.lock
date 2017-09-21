@@ -1524,10 +1524,6 @@ commander@2.9.0:
   dependencies:
     graceful-readlink ">= 1.0.0"
 
-commander@^2.11.0, commander@^2.2.0, commander@^2.9.0:
-  version "2.11.0"
-  resolved "https://registry.yarnpkg.com/commander/-/commander-2.11.0.tgz#157152fd1e7a6c8d98a5b715cf376df928004563"
-
 commander@~2.8.1:
   version "2.8.1"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.8.1.tgz#06be367febfda0c330aa1e2a072d3dc9762425d4"
@@ -1793,6 +1789,14 @@ currently-unhandled@^0.4.1:
   resolved "https://registry.yarnpkg.com/currently-unhandled/-/currently-unhandled-0.4.1.tgz#988df33feab191ef799a61369dd76c17adf957ea"
   dependencies:
     array-find-index "^1.0.1"
+
+cwebp-bin@^3.1.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/cwebp-bin/-/cwebp-bin-3.2.0.tgz#ae02df453d8c15341b1d8d499a5226bcf3bf4a6f"
+  dependencies:
+    bin-build "^2.0.0"
+    bin-wrapper "^3.0.1"
+    logalot "^2.0.0"
 
 d3-array@1, d3-array@1.2.0, d3-array@^1.2.0:
   version "1.2.0"
@@ -8151,7 +8155,7 @@ xmlhttprequest@1:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/xmlhttprequest/-/xmlhttprequest-1.8.0.tgz#67fe075c5c24fef39f9d65f5f7b7fe75171968fc"
 
-xtend@^4.0.0, xtend@^4.0.1:
+"xtend@>=4.0.0 <4.1.0-0", xtend@^4.0.0, xtend@^4.0.1, xtend@~4.0.0, xtend@~4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.1.tgz#a5c6d532be656e23db820efb943a1f04998d63af"
 
