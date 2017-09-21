@@ -60,13 +60,15 @@ class JobCard extends Component {
       calendar = null;
     }
 
+    var companyLink = `http://${job.company.company_url}`;
+
     return (
       <div>
         <Grid centered>
           <Grid.Row>
             <Card className='job-card'>
               <Card.Content >
-                <Image floated='left' size='tiny' src={job.company.logo_url} />
+                <Image href={companyLink} floated='left' size='tiny' src={job.company.logo_url} />
                 <Card.Header>{job.company.name}</Card.Header>
                 <Card.Meta>
                   {job.position}
