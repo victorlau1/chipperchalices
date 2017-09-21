@@ -25,17 +25,11 @@ class JobCard extends Component {
     super(props);
 
     this.state = {
-      expanded: false,
       age: moment().diff('days', moment(this.props.job.date)),
       status: this.props.job.current_status
     };
 
-    this.handleExpandChange = this.handleExpandChange.bind(this);
     this.updateJob = this.updateJob.bind(this);
-  }
-
-  handleExpandChange(expanded) {
-    this.setState({expanded});
   }
 
   updateJob(data) {
@@ -77,7 +71,7 @@ class JobCard extends Component {
       <div>
         <Grid centered>
           <Grid.Row>
-            <Card className='job-card' expanded={this.state.expanded} onExpandChange={this.handleExpandChange} >
+            <Card className='job-card'>
               <Card.Content>
                 <Image floated='left' size='mini' src={job.company.logo_url} />
                 <Card.Header>{job.company.name}</Card.Header>
