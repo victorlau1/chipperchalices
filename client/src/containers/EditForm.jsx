@@ -49,8 +49,8 @@ class EditForm extends React.Component {
       notes: dat.notes,
       url: dat.position_url,
       value: 0,
-      recruiter: dat.recruiter_name,
-      recruiterEmail: dat.recruiter_email
+      recruiter_name: dat.recruiter_name,
+      recruiter_email: dat.recruiter_email
     });
   }
 
@@ -81,13 +81,13 @@ class EditForm extends React.Component {
 
   handleRecruiter (e) {
     this.setState({
-      recruiter: e.target.value
+      recruiter_name: e.target.value
     });
   }
 
   handleEmail (e) {
     this.setState({
-      recruiterEmail: e.target.value
+      recruiter_email: e.target.value
     });
   }
 
@@ -136,8 +136,8 @@ class EditForm extends React.Component {
         company: this.state.company,
         notes: this.state.notes,
         url: this.state.url,
-        recruiter_name: this.state.recruiter_name,
-        recruiter_email: this.state.recruiter_email
+        recruiter_name: this.state.recruiter,
+        recruiter_email: this.state.recruiterEmail
       },
       status: {
         date: this.state.date,
@@ -200,11 +200,11 @@ class EditForm extends React.Component {
             <Form.Group widths='equal'>
               <Form.Field>
                 <label>Recruiter Name</label>
-                <input defaultValue={this.state.recruiter} onChange={this.handleRecruiter}/>
+                <input defaultValue={this.state.recruiter_name} onChange={this.handleRecruiter}/>
               </Form.Field>
               <Form.Field>
                 <label>Recruiter Email</label>
-                <input defaultValue={this.state.recruiterEmail} onChange={this.handleEmail}/>
+                <input defaultValue={this.state.recruiter_email} onChange={this.handleEmail}/>
               </Form.Field>
             </Form.Group>
             <Form.Group>
