@@ -159,15 +159,15 @@ class JobForm extends React.Component {
         <Modal.Content>
           <Form>
             <Form.Group widths='equal'>
-              <Form.Field>
+              <Form.Field required>
                 <label>Position</label>
                 <input onChange={this.handleTitle}/>
               </Form.Field>
-              <Form.Field>
+              <Form.Field required>
                 <label>Company</label>
                 <input onChange={this.handleCompany}/>
               </Form.Field>
-              <Form.Field>
+              <Form.Field required>
                 <label>Application Link</label>
                 <input onChange={this.handleURL}/>
               </Form.Field>
@@ -183,14 +183,14 @@ class JobForm extends React.Component {
               </Form.Field>
             </Form.Group>
             <Form.Group>
-              <Form.Field>
+              <Form.Field required>
                 <Button.Group color='teal'>
                 <Button>Status</Button>
                 <Dropdown onChange={this.handleStatus} options={options} floating button />
                 </Button.Group>
               </Form.Field>
               <Form.Field>
-                <DatePicker onChange={this.handleDate} value={this.state.date}/>
+                <DatePicker onChange={this.handleDate} value={this.state.date} hintText="Date of Status"/>
               </Form.Field>
             </Form.Group>
               <Form.Field>
