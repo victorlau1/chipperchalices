@@ -31,6 +31,8 @@ class EditForm extends React.Component {
     this.saveJob = this.saveJob.bind(this);
     this.handleNotes = this.handleNotes.bind(this);
     this.handleURL = this.handleURL.bind(this);
+    this.handleRecruiter = this.handleRecruiter.bind(this);
+    this.handleEmail = this.handleEmail.bind(this);
   }
 
   //TO DO: Refactor State into Singular Object
@@ -47,8 +49,8 @@ class EditForm extends React.Component {
       notes: dat.notes,
       url: dat.position_url,
       value: 0,
-      recruiter: dat.recruiterName,
-      recruiterEmail: dat.recruiterEmail
+      recruiter: dat.recruiter_name,
+      recruiterEmail: dat.recruiter_email
     });
   }
 
@@ -74,6 +76,18 @@ class EditForm extends React.Component {
     this.setState({
       change: true,
       company: e.target.value
+    });
+  }
+
+  handleRecruiter (e) {
+    this.setState({
+      recruiter: e.target.value
+    });
+  }
+
+  handleEmail (e) {
+    this.setState({
+      recruiterEmail: e.target.value
     });
   }
 
@@ -121,7 +135,9 @@ class EditForm extends React.Component {
         title: this.state.title,
         company: this.state.company,
         notes: this.state.notes,
-        url: this.state.url
+        url: this.state.url,
+        recruiter_name: this.state.recruiter_name,
+        recruiter_email: this.state.recruiter_email
       },
       status: {
         date: this.state.date,
@@ -184,11 +200,11 @@ class EditForm extends React.Component {
             <Form.Group widths='equal'>
               <Form.Field>
                 <label>Recruiter Name</label>
-                <input defaultValue={this.state.title} onChange={this.handleTitle}/>
+                <input defaultValue={this.state.recruiter} onChange={this.handleRecruiter}/>
               </Form.Field>
               <Form.Field>
                 <label>Recruiter Email</label>
-                <input defaultValue={this.state.company} onChange={this.handleCompany}/>
+                <input defaultValue={this.state.recruiterEmail} onChange={this.handleEmail}/>
               </Form.Field>
             </Form.Group>
             <Form.Group>
