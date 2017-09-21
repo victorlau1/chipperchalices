@@ -112,8 +112,8 @@ passport.use('google', new GoogleStrategy({
   clientSecret: config.Google.clientSecret,
   callbackURL: config.Google.callbackURL
 },
-(accessToken, refreshToken, profile, done) => getOrCreateOAuthProfile('google', profile, done))
-);
+(accessToken, refreshToken, profile, done) => getOrCreateOAuthProfile('google', profile, done)
+));
 
 passport.use('facebook', new FacebookStrategy({
   clientID: config.Facebook.clientID,
@@ -156,7 +156,8 @@ const getOrCreateOAuthProfile = (type, oauthProfile, done) => {
         first: oauthProfile.name.givenName,
         last: oauthProfile.name.familyName,
         display: oauthProfile.displayName || `${oauthProfile.name.givenName} ${oauthProfile.name.familyName}`,
-        email: oauthProfile.emails[0].value
+        email: oauthProfile.emails[0].value,
+        photo_url: oauthProfile.photos[0].value
       };
 
       if (profile) {
