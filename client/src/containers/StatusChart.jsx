@@ -43,7 +43,7 @@ class StatusChart extends Component {
   }
 
   render() {
-    return <div style={{fontFamily:'sans-serif',fontSize:'3em'}}><Chart onClick={this.updateSeries} width={800} height={400} series={this.state.series} minY={0}>
+    return <div style={{fontFamily:'sans-serif',fontSize:'3em', wordWrap: 'break-word'}}><Chart onClick={this.updateSeries} width={800} height={400} series={this.state.series} minY={0}>
       <Layer width='80%' height='80%' position='middle center'>
         <Animate _ease='bounce' _ease='elastic'>
           <Ticks
