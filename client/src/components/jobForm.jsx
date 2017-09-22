@@ -190,7 +190,7 @@ class JobForm extends React.Component {
                 </Button.Group>
               </Form.Field>
               <Form.Field>
-                <DatePicker onChange={this.handleDate} value={this.state.date} hintText="Date of Status"/>
+                <DatePicker mode="landscape" onChange={this.handleDate} value={this.state.date} hintText="Date of Status"/>
               </Form.Field>
             </Form.Group>
               <Form.Field>

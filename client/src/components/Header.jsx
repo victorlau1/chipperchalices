@@ -37,7 +37,6 @@ export class Header extends Component {
         </Menu.Item>
         <Menu.Item><JobForm /></Menu.Item>
         <Menu.Item><Button basic inverted color='teal'>Insights</Button></Menu.Item>
-
         <Menu.Menu position='right'>
           <Menu.Item>{display}</Menu.Item>
           <Image src={photo_url} size='tiny' shape='circular'/>
