@@ -56,7 +56,6 @@ class EditForm extends React.Component {
       recruiter_name: dat.recruiter_name,
       recruiter_email: dat.recruiter_email
     });
-
   }
 
   //Move to Action/Reducer in Redux
@@ -163,7 +162,7 @@ class EditForm extends React.Component {
     // console.log('after componentDidMount daate', this.state.date)
     // const { job } = this.props;
     // let slicedDate = job.updated_at.slice(0, -14)
-    // console.log('MEOW date', job.updated_at, 'sliced', slicedDate)
+    // console.log('date', job.updated_at, 'sliced', slicedDate)
 
     const options = [
       { key: 'Interested', text: 'Interested', value: 'Interested' },
@@ -242,9 +241,5 @@ const mapDispatchToProps = (dispatch) => {
     moveCard: (card, lastStatus, nextStatus, lastX) => dispatch(moveCard(card, lastStatus, nextStatus, lastX))
   };
 };
-
-// function mapStateToProps () {
-
-// }
 
 export default connect(null, mapDispatchToProps)(EditForm);
