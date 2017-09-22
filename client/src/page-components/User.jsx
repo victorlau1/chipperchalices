@@ -5,7 +5,7 @@ class User extends Component {
 
   render() {
     return (
-      <div style={{paddingTop: '70px'}}>
+      <div style={{paddingTop: '30px'}}>
         <LifecycleBoard/>
       </div>
     );
