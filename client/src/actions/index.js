@@ -77,7 +77,6 @@ export const fetchCards = (status) => {
 
 export const addCardToList = (status, jobCard) => {
 
-  //let stateStatus = fromStatus(status);
   return {
     type: 'ADD_CARD',
     newCardStatus: fromStatus(status),
@@ -86,13 +85,17 @@ export const addCardToList = (status, jobCard) => {
 };
 
 export const moveCard = (job, lastStatus, nextStatus, lastX, nextX) => {
-  // console.log('within moveCard action JOB',job, 'lastStatus:', lastStatus, nextStatus, lastX)
+  console.log('within moveCard action JOB', job, 'lastStatus:', lastStatus, nextStatus, lastX);
 
   return (dispatch) => {
     axios.put('/card/update', job)
       .then(function(response) {
         console.log('axios PUT update response from action creator!', response.data);
-        dispatch(moveCardStatus(response.data, lastStatus, nextStatus, lastX));
+        if (lastStatus !== nextStatus) {
+          dispatch(moveCardStatus(response.data, lastStatus, nextStatus, lastX));
+        } else {
+          dispatch(updateCard(response.data, lastStatus, lastX));
+        }
       })
       .catch(function(error) {
         console.log('error from action creator moveCard axios PUT', error);
@@ -107,6 +110,17 @@ export const moveCardStatus = (job, lastStatus, nextStatus, lastX) => {
     job,
     lastStatus,
     nextStatus,
+    lastX
+  };
+};
+
+export const updateCard = (job, status, lastX) => {
+  console.log('update card is only called if status was not changed', job, status, lastX);
+
+  return {
+    type: 'UPDATE_CARD',
+    job,
+    status,
     lastX
   };
 };

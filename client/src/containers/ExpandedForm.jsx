@@ -6,18 +6,18 @@ import {Dialog, Avatar} from 'material-ui';
 import {IconButton, FontIcon} from 'material-ui';
 import {DatePicker, TimePicker} from 'material-ui';
 import AllOut from 'material-ui/svg-icons/action/all-out';
-import { Button, Header, Image, Modal } from 'semantic-ui-react'
+import { Button, Header, Image, Modal, Grid } from 'semantic-ui-react';
 
-export default class ExpandedModal extends Component {
+export default class ExpandedForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       open: false,
-      job: this.props.job,
       status: true
     };
 
     this.handleClick = this.handleClick.bind(this);
+    this.handleUrlLink = this.handleUrlLink.bind(this);
   }
 
   handleClick() {
@@ -26,9 +26,19 @@ export default class ExpandedModal extends Component {
     });
   }
 
-  render() {
+  handleUrlLink(url) {
+    let urlLink = url;
+    let httpCheck = url.slice(0, 4);
 
-    var appLink = `http://${this.state.job.position_url}`;
+    if (httpCheck !== 'http') {
+      urlLink = `http://${url}`;
+    }
+    return urlLink;
+  }
+
+  render() {
+    const { position, position_url, recruiter_name, recruiter_email, notes } = this.props.job;
+    const { name, logo_url, description, industry, rating, company_url } = this.props.job.company;
 
     return (
       <Modal trigger={<Button size='mini' floated='right' color='white' circular icon='expand' onClick={this.handleClick}/>}
@@ -36,14 +46,38 @@ export default class ExpandedModal extends Component {
         onClose={this.handleClick}
         size='small'
       >
-        <Modal.Header>{this.state.job.position} at {this.state.job.company.name}</Modal.Header>
-        <Modal.Content image>
-          <Image wrapped size='medium' src={this.state.job.company.logo_url} />
+        <Modal.Header style={{ fontSize: '2em' }}>{position} at {name}</Modal.Header>
+        <Modal.Content>
           <Modal.Description>
-            <Header>Recruiter: {this.state.job.recruiter_name}</Header>
-            <p>Recruiter Email: {this.state.job.recruiter_email}</p>
-            <p>Application: <a target='_blank' href={appLink}>{this.state.job.position_url}</a></p>
-            <p>Notes: {this.state.job.notes}</p>
+            <Grid columns='two' >
+              <Grid.Row columns={2} divided>
+                <Grid.Column width={6}>
+                  <Image href={this.handleUrlLink(company_url)} src={logo_url} />
+                </Grid.Column>
+                <Grid.Column style={{ paddingBottom: '2em', paddingTop: '2em' }}>
+                  <Header as='h3'>
+                    <b>Recruiter:</b> {recruiter_name}
+                  </Header>
+                  <p><b>Recruiter Email:</b> {recruiter_email}</p>
+                  <p><b>Application: </b><a target='_blank' href={this.handleUrlLink(position_url)}>{position_url}</a></p>
+                  <p><b>Notes:</b></p>
+                  {notes}
+                </Grid.Column>
+              </Grid.Row>
+
+              <Grid.Row columns={2} >
+                <Grid.Column>
+                  <p style={{ fontSize: '1.33em' }}>
+                    <b>Glassdoor rating:</b> {rating}
+                    <p/>
+                    <b>Industry:</b> {industry}
+                  </p>
+                </Grid.Column>
+                <Grid.Column floated='left' width={8}>
+                  <Header as='h3' style={{ fontSize: '2em' }}>"{description}"</Header>
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>
           </Modal.Description>
         </Modal.Content>
       </Modal>

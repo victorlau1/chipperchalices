@@ -21,8 +21,8 @@ class EditForm extends React.Component {
       url: '',
       value: 0,
       change: false,
-      recruiter: '',
-      recruiterEmail: ''
+      recruiter_name: '',
+      recruiter_email: ''
     };
 
     this.handleOpen = this.handleOpen.bind(this);
@@ -125,14 +125,11 @@ class EditForm extends React.Component {
   }
 
   saveJob (e) {
-    e.preventDefault();
+    //e.preventDefault();
     const { x, job, moveCard } = this.props;
 
     this.handleClose();
-    //If change then saveJob
-    if (!this.state.change) {
-      return 'No Changes';
-    }
+
     //Is an action instead of a CB
     var form = this;
     // Add more to object later
@@ -143,8 +140,8 @@ class EditForm extends React.Component {
         company: this.state.company,
         notes: this.state.notes,
         url: this.state.url,
-        recruiter_name: this.state.recruiter,
-        recruiter_email: this.state.recruiterEmail
+        recruiter_name: this.state.recruiter_name,
+        recruiter_email: this.state.recruiter_email
       },
       status: {
         date: this.state.date,
