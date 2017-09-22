@@ -1,6 +1,6 @@
-# Project Name
+# Elevate
 
-The project description
+A job search management tool that aggregates all relevant information needed throughout the job search process and allows users to track the status of their job applications.
 
 ## Team
 
