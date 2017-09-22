@@ -1,28 +1,27 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Chart, Bars, Cloud, Dots, Labels, Lines, Pies, RadialLines, Ticks, Title, Layer, Animate, Transform, Handlers, DropShadow, Gradient, helpers} from 'rumble-charts';
-
+import moment from 'moment';
 
 class CycleChart extends Component {
   constructor(props) {
     super(props);
     this.state = {series: [{
+      date: ['2017-09-20'],
       status: ['2017-09-18', '2017-09-19', '2017-09-20', '2017-09-21'],
       data: [2, 2, 2, 2, 2]
-    }],
-    count: 0};
+    }]};
     this.updateSeries = this.updateSeries.bind(this);
   }
 
   updateSeries() {
-    if (this.state.count > 5){
+    if (moment(this.state.series[0].date[this.state.series[0].date.length]).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY')){
       return;
     }
     this.getData('cycles')
       .then((results) => {
         var status = [];
         var data = [];
-        var count = this.state.count + 1;
         for (var key in results.data.rows[0]) {
           status.push(key);
           data.push(parseInt(results.data.rows[0][key]));
@@ -30,8 +29,7 @@ class CycleChart extends Component {
         this.setState({ series: [{
           status: status,
           data: data
-        }],
-        count: count 
+        }]
         });
       });
   }

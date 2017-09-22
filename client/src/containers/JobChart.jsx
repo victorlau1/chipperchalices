@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Chart, Bars, Cloud, Dots, Labels, Lines, Pies, RadialLines, Ticks, Title, Layer, Animate, Transform, Handlers, DropShadow, Gradient, helpers} from 'rumble-charts';
-
+import moment from 'moment';
 
 class JobChart extends Component {
   constructor(props) {
@@ -9,20 +9,18 @@ class JobChart extends Component {
     this.state = {series: [{
       date: ['2017-09-18', '2017-09-19', '2017-09-20', '2017-09-21'],
       data: [2, 2, 2, 2, 2]
-    }],
-    count: 0};
+    }]};
     this.updateSeries = this.updateSeries.bind(this);
   }
 
   updateSeries() {
-    if (this.count > 5) {
+    if (moment(this.state.series[0].date[this.state.series[0].date.length]).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY')){
       return;
     }
     this.getData('jobs')
       .then((results) => {
         var date = [];
         var data = [];
-        var count = this.state.count + 1;
         results.data.forEach((record) => {
           date.push(record.date.slice(0 ,10));
           data.push(parseInt(record.job_count));
@@ -30,8 +28,7 @@ class JobChart extends Component {
         this.setState({ series: [{
           date: date,
           data: data
-        }],
-        count: count 
+        }]
         });
       });
   }
