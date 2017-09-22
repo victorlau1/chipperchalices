@@ -5,6 +5,7 @@ import moment from 'moment';
 import {DatePicker, TimePicker} from 'material-ui';
 import { Button, Header, Image, Modal, Icon, Form, Dropdown, TextArea } from 'semantic-ui-react';
 
+import { fromStatus } from '../helpers/status.js';
 import { moveCard } from '../actions/index.js';
 
 class EditForm extends React.Component {
@@ -48,6 +49,7 @@ class EditForm extends React.Component {
       company: dat.company.name,
       company_id: dat.company.id,
       date: moment(dat.updated_at).toDate(),
+      //date: dat.updated_at,
       status: dat.current_status,
       notes: dat.notes,
       url: dat.position_url,
@@ -123,8 +125,9 @@ class EditForm extends React.Component {
     });
   }
 
-  saveJob () {
-    const { x, job } = this.props;
+  saveJob (e) {
+    e.preventDefault();
+    const { x, job, moveCard } = this.props;
 
     this.handleClose();
     //If change then saveJob
@@ -150,33 +153,10 @@ class EditForm extends React.Component {
       }
     };
 
-    // moveCard(content, job.current_status, this.state.status, x)
-    //   .then(function(response) {
-    //     form.setState({
-    //       open: false,
-    //     });
-    //     console.log('sent to server');
-    //   })
-    //   .catch(function(error) {
-    //     form.setState({
-    //       open: false,
-    //     });
-    //     console.log('error in editForm moveCard', error);
-    //   })
+    let lastStatus = fromStatus(job.current_status);
+    let nextStatus = fromStatus(this.state.status);
 
-    return axios.put('/card/update', content)
-      .then(function(response) {
-        form.setState({
-          open: false,
-        });
-        console.log('sent to server');
-      })
-      .catch(function(error) {
-        form.setState({
-          open: false,
-        });
-        console.log('error', error);
-      });
+    moveCard(content, lastStatus, nextStatus, x);
   }
 
   render() {
@@ -255,7 +235,7 @@ class EditForm extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    moveCard: (card, lastStatus, nextStatus, lastX, nextX) => dispatch(moveCard(card, lastStatus, nextStatus, lastX, nextX))
+    moveCard: (card, lastStatus, nextStatus, lastX) => dispatch(moveCard(card, lastStatus, nextStatus, lastX))
   };
 };
 
