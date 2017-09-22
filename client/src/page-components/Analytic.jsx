@@ -10,6 +10,9 @@ class Analytic extends Component {
   render() {
     return (
       <div>
+        <br/>
+        <br/>
+        <br/>
         <h1>Total User Cards</h1>
         <UserChart/>
         <h1>Total Jobs Cards </h1>
