@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 import axios from 'axios';
 import moment from 'moment';
 import {DatePicker, TimePicker} from 'material-ui';
-import { Button, Header, Image, Modal, Icon, Form, Dropdown, TextArea } from 'semantic-ui-react'
+import { Button, Header, Image, Modal, Icon, Form, Dropdown, TextArea } from 'semantic-ui-react';
 
+import { moveCard } from '../actions/index.js';
 
 class EditForm extends React.Component {
   constructor(props) {
@@ -38,14 +40,15 @@ class EditForm extends React.Component {
   //TO DO: Refactor State into Singular Object
   componentDidMount() {
     let dat = this.props.job;
+    console.log('this.props.job!!', dat);
     this.setState({
       modalOpen: false,
       id: dat.id,
       title: dat.position,
       company: dat.company.name,
       company_id: dat.company.id,
-      date: moment(dat.date).toDate(),
-      status: dat.currentStatus,
+      date: moment(dat.updated_at).toDate(),
+      status: dat.current_status,
       notes: dat.notes,
       url: dat.position_url,
       value: 0,
@@ -58,11 +61,11 @@ class EditForm extends React.Component {
   //TO DO: refactor into less functions
 
   handleOpen() {
-    this.setState({ modalOpen: true })
+    this.setState({ modalOpen: true });
   }
 
   handleClose() {
-    this.setState({ modalOpen: false })
+    this.setState({ modalOpen: false });
   }
 
   handleTitle (e) {
@@ -121,6 +124,8 @@ class EditForm extends React.Component {
   }
 
   saveJob () {
+    const { x, job } = this.props;
+
     this.handleClose();
     //If change then saveJob
     if (!this.state.change) {
@@ -144,6 +149,20 @@ class EditForm extends React.Component {
         status: this.state.status
       }
     };
+
+    // moveCard(content, job.current_status, this.state.status, x)
+    //   .then(function(response) {
+    //     form.setState({
+    //       open: false,
+    //     });
+    //     console.log('sent to server');
+    //   })
+    //   .catch(function(error) {
+    //     form.setState({
+    //       open: false,
+    //     });
+    //     console.log('error in editForm moveCard', error);
+    //   })
 
     return axios.put('/card/update', content)
       .then(function(response) {
@@ -172,7 +191,7 @@ class EditForm extends React.Component {
       { key: 'Rejected', text: 'Rejected', value: 'Rejected' },
       { key: 'Offer made', text: 'Offer made', value: 'Offer made' },
       { key: 'Archived', text: 'Archived', value: 'Archived' },
-    ]
+    ];
 
     return (
       <Modal trigger={<Button size='mini' floated='right' color='white' circular icon='write' onClick={this.handleOpen} />}
@@ -210,18 +229,18 @@ class EditForm extends React.Component {
             <Form.Group>
               <Form.Field>
                 <Button.Group color='teal'>
-                <Button>Status</Button>
-                <Dropdown onChange={this.handleStatus} options={options} floating button />
+                  <Button>Status</Button>
+                  <Dropdown onChange={this.handleStatus} options={options} floating button />
                 </Button.Group>
               </Form.Field>
               <Form.Field>
                 <DatePicker onChange={this.handleDate} defaultValue={this.state.date} value={this.state.date}/>
               </Form.Field>
             </Form.Group>
-              <Form.Field>
-                <label>Notes</label>
-                <TextArea defaultValue={this.state.notes} onChange={this.handleNotes} />
-              </Form.Field>
+            <Form.Field>
+              <label>Notes</label>
+              <TextArea defaultValue={this.state.notes} onChange={this.handleNotes} />
+            </Form.Field>
           </Form>
         </Modal.Content>
         <Modal.Actions>
@@ -234,12 +253,14 @@ class EditForm extends React.Component {
   }
 }
 
-// function mapDispatchToProps () {
-
-//}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    moveCard: (card, lastStatus, nextStatus, lastX, nextX) => dispatch(moveCard(card, lastStatus, nextStatus, lastX, nextX))
+  };
+};
 
 // function mapStateToProps () {
 
 // }
 
-export default EditForm;
+export default connect(null, mapDispatchToProps)(EditForm);

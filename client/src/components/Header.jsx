@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { Menu, Dropdown, Button, Image } from 'semantic-ui-react';
 
 import JobForm from './jobForm.jsx';
 
-export default class Header extends Component {
+// retain named export to test unconnected component
+export class Header extends Component {
+
   render() {
+    const { display, photo_url } = this.props;
+
     return (
       <Menu fixed='top' size='large' inverted>
         <Menu.Item header>
@@ -19,3 +24,12 @@ export default class Header extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  const { display, photo_url } = state.user;
+  return {
+    display,
+    photo_url
+  };
+};
+
+export default connect(mapStateToProps)(Header);

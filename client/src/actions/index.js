@@ -86,7 +86,8 @@ export const addCardToList = (status, jobCard) => {
 };
 
 export const moveCard = (job, lastStatus, nextStatus, lastX, nextX) => {
-  // console.log('within moveCard action JOB',job, 'lastStatus:', lastStatus, lastX, nextStatus)
+  // console.log('within moveCard action JOB',job, 'lastStatus:', lastStatus, nextStatus, lastX)
+
   return (dispatch) => {
     axios.put('/card/update', job)
       .then(function(response) {
