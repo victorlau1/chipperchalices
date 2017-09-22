@@ -6,7 +6,7 @@
     "node": "^8.2.1"
   },
   "scripts": {
-    "start": "nodemon server",
+    "start": "node server",
     "front-test": "jest client",
     "server-test": "mocha server/test",
     "build": "webpack --watch"
