@@ -2,8 +2,8 @@ const models = require('../../db/models');
 const card = require ('./cards.js');
 const lifecycle = require ('./lifecycle.js');
 const Glassdoor = require('node-glassdoor').initGlassdoor({
-  partnerId: process.env.GLASSDOOR_PARTNER_ID.toString(),
-  partnerKey: process.env.GLASSDOOR_PARTNER_KEY.toString()
+  partnerId: process.env.GLASSDOOR_PARTNER_ID,
+  partnerKey: process.env.GLASSDOOR_PARTNER_KEY
 });
 const Promise = require('bluebird');
 
