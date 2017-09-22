@@ -6,9 +6,9 @@ import {Dialog, Avatar} from 'material-ui';
 import {IconButton, FontIcon} from 'material-ui';
 import {DatePicker, TimePicker} from 'material-ui';
 import AllOut from 'material-ui/svg-icons/action/all-out';
-import { Button, Header, Image, Modal } from 'semantic-ui-react'
+import { Button, Header, Image, Modal } from 'semantic-ui-react';
 
-export default class ExpandedModal extends Component {
+export default class ExpandedForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -36,7 +36,7 @@ export default class ExpandedModal extends Component {
         onClose={this.handleClick}
         size='small'
       >
-        <Modal.Header>{this.state.job.position} at {this.state.job.company.name}</Modal.Header>
+        <Modal.Header>{this.state.job.position} MEOW at {this.state.job.company.name}</Modal.Header>
         <Modal.Content image>
           <Image wrapped size='medium' src={this.state.job.company.logo_url} />
           <Modal.Description>
