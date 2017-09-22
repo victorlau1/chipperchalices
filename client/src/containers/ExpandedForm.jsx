@@ -13,11 +13,11 @@ export default class ExpandedForm extends Component {
     super(props);
     this.state = {
       open: false,
-      job: this.props.job,
       status: true
     };
 
     this.handleClick = this.handleClick.bind(this);
+    this.handleAppLink = this.handleAppLink.bind(this);
   }
 
   handleClick() {
@@ -26,9 +26,21 @@ export default class ExpandedForm extends Component {
     });
   }
 
-  render() {
+  handleAppLink() {
+    const { position_url } = this.props.job;
+    let appLink = position_url;
+    let httpCheck = position_url.slice(0, 4);
 
-    var appLink = `http://${this.state.job.position_url}`;
+    if (httpCheck !== 'http') {
+      appLink = `http://${position_url}`;
+    }
+    return appLink;
+  }
+
+  render() {
+    const { position, position_url, recruiter_name, recruiter_email, notes } = this.props.job;
+    const { name, logo_url } = this.props.job.company;
+
 
     return (
       <Modal trigger={<Button size='mini' floated='right' color='white' circular icon='expand' onClick={this.handleClick}/>}
@@ -36,17 +48,19 @@ export default class ExpandedForm extends Component {
         onClose={this.handleClick}
         size='small'
       >
-        <Modal.Header>{this.state.job.position} MEOW at {this.state.job.company.name}</Modal.Header>
+        <Modal.Header><h2>{position} at {name}</h2></Modal.Header>
         <Modal.Content image>
-          <Image wrapped size='medium' src={this.state.job.company.logo_url} />
+          <Image wrapped size='medium' src={logo_url} />
           <Modal.Description>
-            <Header>Recruiter: {this.state.job.recruiter_name}</Header>
-            <p>Recruiter Email: {this.state.job.recruiter_email}</p>
-            <p>Application: <a target='_blank' href={appLink}>{this.state.job.position_url}</a></p>
-            <p>Notes: {this.state.job.notes}</p>
+
+            <Header>Recruiter: {recruiter_name}</Header>
+            <p>Recruiter Email: {recruiter_email}</p>
+            <p>Application: <a target='_blank' href={this.handleAppLink()}>{position_url}</a></p>
+            <p>Notes: {notes}</p>
           </Modal.Description>
         </Modal.Content>
       </Modal>
     );
   }
 }
+
