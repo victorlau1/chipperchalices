@@ -10,7 +10,7 @@
     "front-test": "jest client",
     "server-test": "mocha server/test",
     "build": "webpack --watch",
-    "prestart": "knex migrate:latest",
+    "prestart": "knex migrate:latest && webpack",
     "poststart": "knex seed:run"
   },
   "author": "Hack Reactor",
