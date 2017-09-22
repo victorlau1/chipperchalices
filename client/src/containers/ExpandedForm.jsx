@@ -6,7 +6,7 @@ import {Dialog, Avatar} from 'material-ui';
 import {IconButton, FontIcon} from 'material-ui';
 import {DatePicker, TimePicker} from 'material-ui';
 import AllOut from 'material-ui/svg-icons/action/all-out';
-import { Button, Header, Image, Modal } from 'semantic-ui-react';
+import { Button, Header, Image, Modal, Grid } from 'semantic-ui-react';
 
 export default class ExpandedForm extends Component {
   constructor(props) {
@@ -39,8 +39,7 @@ export default class ExpandedForm extends Component {
 
   render() {
     const { position, position_url, recruiter_name, recruiter_email, notes } = this.props.job;
-    const { name, logo_url } = this.props.job.company;
-
+    const { name, logo_url, description, industry, rating } = this.props.job.company;
 
     return (
       <Modal trigger={<Button size='mini' floated='right' color='white' circular icon='expand' onClick={this.handleClick}/>}
@@ -48,19 +47,41 @@ export default class ExpandedForm extends Component {
         onClose={this.handleClick}
         size='small'
       >
-        <Modal.Header><h2>{position} at {name}</h2></Modal.Header>
-        <Modal.Content image>
-          <Image wrapped size='medium' src={logo_url} />
+        <Modal.Header style={{ fontSize: '2em' }}>{position} at {name}</Modal.Header>
+        <Modal.Content>
           <Modal.Description>
+            <Grid columns='two' divided>
+              <Grid.Row columns={2} >
+                <Grid.Column width={6}>
+                  <Image src={logo_url} />
+                </Grid.Column>
+                <Grid.Column style={{ paddingBottom: '2em', paddingTop: '2em' }}>
+                  <Header as='h3'>
+                    <b>Recruiter:</b> {recruiter_name}
+                  </Header>
+                  <p><b>Recruiter Email:</b> {recruiter_email}</p>
+                  <p><b>Application: </b><a target='_blank' href={this.handleAppLink()}>{position_url}</a></p>
+                  <p><b>Notes:</b></p>
+                  {notes}
+                </Grid.Column>
+              </Grid.Row>
 
-            <Header>Recruiter: {recruiter_name}</Header>
-            <p>Recruiter Email: {recruiter_email}</p>
-            <p>Application: <a target='_blank' href={this.handleAppLink()}>{position_url}</a></p>
-            <p>Notes: {notes}</p>
+              <Grid.Row columns={2}>
+                <Grid.Column width={8}>
+                  <Header as='h3' style={{ fontSize: '2em' }}>"{description}"</Header>
+                </Grid.Column>
+                <Grid.Column>
+                  <p style={{ fontSize: '1.33em' }}>
+                    <b>Glassdoor rating:</b> {rating}
+                    <p/>
+                    <b>Industry:</b> {industry}
+                  </p>
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>
           </Modal.Description>
         </Modal.Content>
       </Modal>
     );
   }
 }
-
