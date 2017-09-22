@@ -1,10 +1,9 @@
 const models = require('../../db/models');
 const card = require ('./cards.js');
 const lifecycle = require ('./lifecycle.js');
-const config = require ('../../config/glassdoor.js');
 const Glassdoor = require('node-glassdoor').initGlassdoor({
-  partnerId: config.config.partnerId,
-  partnerKey: config.config.key
+  partnerId: "GLASSDOOR_PARTNER_ID",
+  partnerKey: "GLASSDOOR_PARTNER_KEY"
 });
 const Promise = require('bluebird');
 
@@ -97,7 +96,7 @@ module.exports.createIfUpdated = (req, res, result) => {
       if (!company) {
         return models.Company.forge({
           name: req.body.job.company
-        }).save()
+        }).save();
       }
       return company;
     })
