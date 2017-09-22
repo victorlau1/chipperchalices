@@ -28,7 +28,8 @@ class CycleChart extends Component {
         }
         this.setState({ series: [{
           status: status,
-          data: data
+          data: data,
+          date: moment().format('MM-DD-YYYY')
         }]
         });
       });

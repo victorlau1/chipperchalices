@@ -13,14 +13,14 @@ class Analytic extends Component {
       <div>
         <br/>
         <br/>
-        <Grid centered padded='horizontally'>
+        <Grid centered padded='horizontally'style={{paddingTop: '70px'}}>
           <Grid.Column width={12} >
             <Grid.Row>
               <h1 align="center">Total Users</h1>
               <UserChart/>
             </Grid.Row>
             <Grid.Row>
-              <h1 align="center">Total Jobs Cards </h1>
+              <h1 align="center">Total Job Cards </h1>
               <JobChart/>
             </Grid.Row>
             <Grid.Row>
