@@ -7,8 +7,6 @@ import Landing from './page-components/Landing.jsx';
 import User from './page-components/User.jsx';
 import store from './store';
 
-import { lightBaseTheme, MuiThemeProvider, getMuiTheme } from 'material-ui/styles';
-
 const App = () => (
   <div>
     <Header />
@@ -24,9 +22,7 @@ const App = () => (
 ReactDOM.render((
   <Provider store={store}>
     <BrowserRouter>
-      <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
         <App />
-      </MuiThemeProvider>
     </BrowserRouter>
   </Provider>
 ), document.getElementById('root'));

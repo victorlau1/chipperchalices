@@ -24,7 +24,7 @@ export class LifecycleBoard extends Component {
           <Grid.Column width={3.5}>
             <br/>
             <Segment raised textAlign='center' size='huge' inverted color='teal'>
-              Interested
+              <strong>Interested</strong>
             </Segment>
             <ListContainer
               jobs={interestedJobs}
@@ -34,7 +34,7 @@ export class LifecycleBoard extends Component {
           <Grid.Column width={3.5}>
             <br/>
             <Segment raised textAlign='center' size='huge' inverted color='teal'>
-              Applied
+              <strong>Applied</strong>
             </Segment>
             <ListContainer
               jobs={appliedJobs}
@@ -44,7 +44,7 @@ export class LifecycleBoard extends Component {
           <Grid.Column width={3.5}>
             <br/>
             <Segment raised textAlign='center' size='huge' inverted color='teal'>
-              Interview Scheduled
+              <strong>Interview Scheduled</strong>
             </Segment>
             <ListContainer
               jobs={interviewScheduledJobs}
@@ -54,7 +54,7 @@ export class LifecycleBoard extends Component {
           <Grid.Column width={3.5}>
             <br/>
             <Segment raised textAlign='center' size='huge' inverted color='teal'>
-              Interviewed
+              <strong>Interviewed</strong>
             </Segment>
             <ListContainer
               jobs={interviewedJobs}
