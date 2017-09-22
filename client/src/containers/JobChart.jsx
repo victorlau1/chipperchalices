@@ -33,6 +33,10 @@ class JobChart extends Component {
       });
   }
 
+  componentDidMount() {
+    this.updateSeries();
+  }
+
   getData(param) {
     var url = `/data/${param}`;
     var options = {      

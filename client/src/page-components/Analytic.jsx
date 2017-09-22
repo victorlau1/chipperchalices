@@ -16,7 +16,7 @@ class Analytic extends Component {
         <Grid centered padded='horizontally'>
           <Grid.Column width={12} >
             <Grid.Row>
-              <h1 align="center">Total User Cards</h1>
+              <h1 align="center">Total Users</h1>
               <UserChart/>
             </Grid.Row>
             <Grid.Row>
