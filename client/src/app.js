@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Header from './components/Header.jsx';
 import Landing from './page-components/Landing.jsx';
-import Dashboard from './page-components/Dashboard.jsx';
+import Analytic from './page-components/Analytic.jsx';
 import User from './page-components/User.jsx';
 import store from './store';
 
@@ -17,6 +17,7 @@ const App = () => (
       <Switch>
         <Route exact path='/' component={User} />
         <Route path='/landing' component= {Landing}/>
+        <Route path='/analytic' component={Analytic}/>
       </Switch>
     </main>
   </div>

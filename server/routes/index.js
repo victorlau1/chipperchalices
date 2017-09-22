@@ -3,4 +3,4 @@ module.exports.auth = require('./auth');
 module.exports.profiles = require('./profiles');
 module.exports.cards = require('./cards');
 module.exports.calendar = require('./calendar');
-module.exports.dashboard = require('./analytics');
+module.exports.analytic = require('./analytic');
