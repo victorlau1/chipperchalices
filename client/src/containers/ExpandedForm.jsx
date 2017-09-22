@@ -17,7 +17,7 @@ export default class ExpandedForm extends Component {
     };
 
     this.handleClick = this.handleClick.bind(this);
-    this.handleAppLink = this.handleAppLink.bind(this);
+    this.handleUrlLink = this.handleUrlLink.bind(this);
   }
 
   handleClick() {
@@ -26,20 +26,19 @@ export default class ExpandedForm extends Component {
     });
   }
 
-  handleAppLink() {
-    const { position_url } = this.props.job;
-    let appLink = position_url;
-    let httpCheck = position_url.slice(0, 4);
+  handleUrlLink(url) {
+    let urlLink = url;
+    let httpCheck = url.slice(0, 4);
 
     if (httpCheck !== 'http') {
-      appLink = `http://${position_url}`;
+      urlLink = `http://${url}`;
     }
-    return appLink;
+    return urlLink;
   }
 
   render() {
     const { position, position_url, recruiter_name, recruiter_email, notes } = this.props.job;
-    const { name, logo_url, description, industry, rating } = this.props.job.company;
+    const { name, logo_url, description, industry, rating, company_url } = this.props.job.company;
 
     return (
       <Modal trigger={<Button size='mini' floated='right' color='white' circular icon='expand' onClick={this.handleClick}/>}
@@ -50,32 +49,32 @@ export default class ExpandedForm extends Component {
         <Modal.Header style={{ fontSize: '2em' }}>{position} at {name}</Modal.Header>
         <Modal.Content>
           <Modal.Description>
-            <Grid columns='two' divided>
-              <Grid.Row columns={2} >
+            <Grid columns='two' >
+              <Grid.Row columns={2} divided>
                 <Grid.Column width={6}>
-                  <Image src={logo_url} />
+                  <Image href={this.handleUrlLink(company_url)} src={logo_url} />
                 </Grid.Column>
                 <Grid.Column style={{ paddingBottom: '2em', paddingTop: '2em' }}>
                   <Header as='h3'>
                     <b>Recruiter:</b> {recruiter_name}
                   </Header>
                   <p><b>Recruiter Email:</b> {recruiter_email}</p>
-                  <p><b>Application: </b><a target='_blank' href={this.handleAppLink()}>{position_url}</a></p>
+                  <p><b>Application: </b><a target='_blank' href={this.handleUrlLink(position_url)}>{position_url}</a></p>
                   <p><b>Notes:</b></p>
                   {notes}
                 </Grid.Column>
               </Grid.Row>
 
-              <Grid.Row columns={2}>
-                <Grid.Column width={8}>
-                  <Header as='h3' style={{ fontSize: '2em' }}>"{description}"</Header>
-                </Grid.Column>
+              <Grid.Row columns={2} >
                 <Grid.Column>
                   <p style={{ fontSize: '1.33em' }}>
                     <b>Glassdoor rating:</b> {rating}
                     <p/>
                     <b>Industry:</b> {industry}
                   </p>
+                </Grid.Column>
+                <Grid.Column floated='left' width={8}>
+                  <Header as='h3' style={{ fontSize: '2em' }}>"{description}"</Header>
                 </Grid.Column>
               </Grid.Row>
             </Grid>
