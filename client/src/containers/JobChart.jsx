@@ -14,7 +14,7 @@ class JobChart extends Component {
   }
 
   updateSeries() {
-    if (moment(this.state.series[0].date[this.state.series[0].date.length]).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY')){
+    if (moment(this.state.series[0].date[this.state.series[0].date.length - 1]).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY')){
       return;
     }
     this.getData('jobs')
