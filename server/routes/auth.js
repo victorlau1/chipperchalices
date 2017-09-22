@@ -5,7 +5,9 @@ const router = express.Router();
 
 router.route('/')
   .get(middleware.auth.verify, (req, res) => {
-    res.render('index.ejs');
+    const preloadedState = {};
+    preloadedState.user = req.user;
+    res.render('index.ejs', { preloadedState });
   });
 
 router.route('/login')
@@ -38,7 +40,7 @@ router.route('/profile')
 router.route('/logout')
   .get((req, res) => {
     req.logout();
-    res.redirect('/');
+    res.redirect('/login');
   });
 
 router.get('/auth/google', middleware.passport.authenticate('google', {

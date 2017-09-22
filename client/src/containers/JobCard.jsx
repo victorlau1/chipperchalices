@@ -22,9 +22,8 @@ class JobCard extends Component {
   }
 
   render() {
-    const job = this.props.job;
+    const { x, job, id } = this.props;
     const start = moment(job.date).format('YYYY-MM-DD');
-    const { id } = this.props;
 
     var age = now.diff(moment(start), 'days');
 
@@ -76,7 +75,7 @@ class JobCard extends Component {
                   {statusChange}
                   {calendar}
                   <ExpandedForm job={job} />
-                  <EditForm job={job} />
+                  <EditForm job={job} x={x}/>
                 </Card.Meta>
               </Card.Content>
             </Card>

@@ -84,7 +84,7 @@ const mapStateToProps = (state) => {
 // dispatch connects to imported actions
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchCards: (status) => dispatch(fetchCards(status)),
+    fetchCards: (status) => dispatch(fetchCards(status))
   };
 };
 

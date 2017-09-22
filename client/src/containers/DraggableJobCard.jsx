@@ -57,12 +57,12 @@ class DraggableJobCard extends Component {
   }
 
   render() {
-    const { isDragging, connectDragSource, job } = this.props;
+    const { isDragging, connectDragSource, job, x } = this.props;
 
     return connectDragSource(
       <div>
         {isDragging}
-        <JobCard job={job} />
+        <JobCard job={job} x={x}/>
       </div>
     );
   }

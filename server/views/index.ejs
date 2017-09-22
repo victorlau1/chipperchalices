@@ -1,6 +1,11 @@
 <% include head.ejs%>
 
     <div id='root'></div>
+    <script type="text/javascript" charset="utf-8">
+      window.__PRELOADED_STATE__ = <%- JSON.stringify(preloadedState)%>
+    </script>
     <script src="/dist/bundle.js"></script>
 
+
 <% include foot.ejs%>
+
