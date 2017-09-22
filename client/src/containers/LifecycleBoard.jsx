@@ -6,7 +6,6 @@ import { DragDropContext } from 'react-dnd';
 import ListContainer from './ListContainer.jsx';
 import { fetchCards } from '../actions/index.js';
 
-
 // Use named export for unconnected component (for tests)
 export class LifecycleBoard extends Component {
 

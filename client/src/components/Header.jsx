@@ -26,6 +26,11 @@ export class Header extends Component {
     return (
       <Menu fixed='top' size='large' inverted>
         <Menu.Item header>
+          <Link to='/'><Image src='https://i.imgur.com/IFOyk8I.png?1' /></Link>
+        </Menu.Item>
+        <Menu.Item><JobForm /></Menu.Item>
+        <Menu.Item><Link to='/analytic'><Button basic inverted color='teal'>Insights</Button></Link></Menu.Item>
+        <Menu.Item position='right'><Link to='/landing'><Button basic inverted color='teal'>Logout</Button></Link></Menu.Item>
           <Link to='/'>
             <Image src='https://i.imgur.com/IFOyk8I.png?1' />
           </Link>
