@@ -44,7 +44,6 @@ export const cards = (
     });
 
 
-
   case 'UPDATE_CARD':
     // insert works, but the job card received from the update PUT request may be saved differently, thus not showing up upon render
     console.log('testing insert', insertAtTop(state[action.status], action.job));

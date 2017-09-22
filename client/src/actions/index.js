@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { fromStatus } from '../helpers/status.js';
+import { getStatusDate } from '../helpers/statusDate.js';
 
 // These functions are Action Creators that each return an Action object with two properties:
 // 1. type property: always uppercase string
@@ -9,6 +10,7 @@ import { fromStatus } from '../helpers/status.js';
 
 
 // fetchCardsSuccess will be called when the data has been successfully fetched.
+
 export const fetchCardsSuccess = (interested, applied, interviewScheduled, interviewed) => {
   return {
 
@@ -47,7 +49,7 @@ export const fetchCards = (status) => {
 
     axios.get('/card')
       .then(response => {
-        console.log('Axios response.data', response.data);
+        console.log('Axios response.data from getAll!', response.data);
 
         let interested = [];
         let applied = [];
@@ -58,11 +60,16 @@ export const fetchCards = (status) => {
         response.data.forEach(jobCard => {
           let status = jobCard.current_status;
 
+          let statusDate = getStatusDate(jobCard);
+          jobCard.statusDate = statusDate;
+
           status === 'Interested' ? interested.push(jobCard) :
             status === 'Applied' ? applied.push(jobCard) :
               status === 'Interview Scheduled' ? interviewScheduled.push(jobCard) :
                 status === 'Interviewed' ? interviewed.push(jobCard) : jobCard;
         });
+
+        console.log('updated jobcards with statusDates!!', interested);
 
         dispatch(fetchCardsSuccess(interested, applied, interviewScheduled, interviewed));
       })

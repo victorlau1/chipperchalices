@@ -16,6 +16,7 @@ class EditForm extends React.Component {
       title: '',
       company: '',
       date: moment().toDate(),
+      // statusDate:
       status: '',
       notes: '',
       url: '',
@@ -156,10 +157,13 @@ class EditForm extends React.Component {
   }
 
   render() {
+
     // console.log('after componentDidMount daate', this.state.date)
     // const { job } = this.props;
     // let slicedDate = job.updated_at.slice(0, -14)
     // console.log('date', job.updated_at, 'sliced', slicedDate)
+
+    // const statusDate = moment(job.statusDate).format('YYYY-MM-DD');
 
     const options = [
       { key: 'Interested', text: 'Interested', value: 'Interested' },
