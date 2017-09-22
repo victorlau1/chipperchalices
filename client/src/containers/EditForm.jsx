@@ -181,7 +181,7 @@ class EditForm extends React.Component {
         open={this.state.modalOpen}
         onClose={this.handleClose}
         size='large'>
-        <Modal.Header>Edit Application</Modal.Header>
+        <Modal.Header>Edit Job</Modal.Header>
         <Modal.Content image>
           <Image wrapped size='medium' src={this.props.job.company.logo_url} />
           <Form>
@@ -217,7 +217,7 @@ class EditForm extends React.Component {
                 </Button.Group>
               </Form.Field>
               <Form.Field>
-                <DatePicker onChange={this.handleDate} defaultValue={this.state.date} value={this.state.date}/>
+                <DatePicker mode="landscape" onChange={this.handleDate} defaultValue={this.state.date} value={this.state.date}/>
               </Form.Field>
             </Form.Group>
             <Form.Field>
