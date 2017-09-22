@@ -7,6 +7,13 @@ const removeItem = (array, actionIndex) => {
   ];
 };
 
+const insertAtTop = (array, item) => {
+  return [
+    item,
+    ...array.slice(0)
+  ];
+};
+
 export const cards = (
   state = {
     interested: [],
@@ -34,6 +41,16 @@ export const cards = (
     return Object.assign({}, state, {
       [action.nextStatus]: state[action.nextStatus].concat(action.job),
       [action.lastStatus]: removeItem(state[action.lastStatus], action.lastX)
+    });
+
+
+
+  case 'UPDATE_CARD':
+    // insert works, but the job card received from the update PUT request may be saved differently, thus not showing up upon render
+    console.log('testing insert', insertAtTop(state[action.status], action.job));
+    return Object.assign({}, state, {
+      [action.status]: insertAtTop(state[action.status], action.job),
+      [action.status]: removeItem(state[action.status], action.lastX)
     });
 
   default:
