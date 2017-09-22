@@ -129,10 +129,7 @@ class EditForm extends React.Component {
     const { x, job, moveCard } = this.props;
 
     this.handleClose();
-    //If change then saveJob
-    if (!this.state.change) {
-      return 'No Changes';
-    }
+
     //Is an action instead of a CB
     var form = this;
     // Add more to object later
