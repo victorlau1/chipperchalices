@@ -11,7 +11,7 @@
     "server-test": "mocha server/test",
     "build": "webpack",
     "prestart": "knex migrate:latest",
-    "poststart": "knex seed:run && npm run build"
+    "poststart": "knex seed:run"
   },
   "author": "Hack Reactor",
   "license": "MIT",
