@@ -19,7 +19,7 @@ export class LifecycleBoard extends Component {
 
     return (
       <div>
-        <Grid divided centered columns={4} padded='horizontally'>
+        <Grid divided centered columns={4} padded='horizontally' style={{ minHeight: '85vh' }}>
           <Grid.Column width={3.5}>
             <br/>
             <Segment raised textAlign='center' size='huge' inverted color='teal'>

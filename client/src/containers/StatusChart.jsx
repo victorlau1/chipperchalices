@@ -16,7 +16,7 @@ class StatusChart extends Component {
   }
 
   updateSeries() {
-    if (moment(this.state.series[0].date[this.state.series[0].date.length]).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY')){
+    if (moment(this.state.series[0].date[this.state.series[0].date.length - 1]).format('MM-DD-YYYY') === moment().format('MM-DD-YYYY')){
       return;
     }
     this.getData('status')
@@ -35,6 +35,10 @@ class StatusChart extends Component {
       });
   }
 
+  componentDidMount() {
+    this.updateSeries();
+  }
+
   getData(param) {
     var url = `/data/${param}`;
     var options = {      
@@ -43,7 +47,7 @@ class StatusChart extends Component {
   }
 
   render() {
-    return <div style={{fontFamily:'sans-serif',fontSize:'3em'}}><Chart onClick={this.updateSeries} width={800} height={400} series={this.state.series} minY={0}>
+    return <div style={{fontFamily:'sans-serif',fontSize:'3em', wordWrap: 'break-word'}}><Chart onClick={this.updateSeries} width={800} height={400} series={this.state.series} minY={0}>
       <Layer width='80%' height='80%' position='middle center'>
         <Animate _ease='bounce' _ease='elastic'>
           <Ticks
