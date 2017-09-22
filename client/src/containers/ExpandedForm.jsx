@@ -28,8 +28,10 @@ export default class ExpandedModal extends Component {
 
   render() {
 
+    var appLink = `http://${this.state.job.position_url}`;
+
     return (
-      <Modal trigger={<Button size='mini' floated='right' color='blue' circular icon='expand' onClick={this.handleClick}/>}
+      <Modal trigger={<Button size='mini' floated='right' color='white' circular icon='expand' onClick={this.handleClick}/>}
         open={this.state.open}
         onClose={this.handleClick}
         size='small'
@@ -40,7 +42,7 @@ export default class ExpandedModal extends Component {
           <Modal.Description>
             <Header>Recruiter: {this.state.job.recruiter_name}</Header>
             <p>Recruiter Email: {this.state.job.recruiter_email}</p>
-            <p>Application: <a href={this.state.job.position_url}>{this.state.job.position_url}</a></p>
+            <p>Application: <a target='_blank' href={appLink}>{this.state.job.position_url}</a></p>
             <p>Notes: {this.state.job.notes}</p>
           </Modal.Description>
         </Modal.Content>

@@ -5,7 +5,7 @@ class User extends Component {
 
   render() {
     return (
-      <div>
+      <div style={ {backgroundColor: "#F8F8F9"} }>
         <LifecycleBoard/>
       </div>
     );
