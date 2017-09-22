@@ -4,7 +4,7 @@ const company = require('./companies.js');
 const Promise = require('bluebird');
 
 module.exports.getAll = (req, res) => {
-  models.Card.forge().where({user_id: req.user.id}).fetchAll({withRelated: ['company']})
+  models.Card.forge().where({user_id: req.user.id}).fetchAll({withRelated: ['company', 'lifecycle']})
     .then(result => {
       res.status(200).send(result);
     })
@@ -27,7 +27,6 @@ module.exports.create = (req, res, company) => {
   })
     .save()
     .then(result => {
-
       var card = {
         id: result.id,
         company: {

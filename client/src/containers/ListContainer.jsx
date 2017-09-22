@@ -39,7 +39,7 @@ const spec = {
         recruiter_email: job.recruiter_email
       },
       status: {
-        date: job.updated_at,
+        date: job.statusDate,
         status: toStatus(nextStatus)
       }
     };

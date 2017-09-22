@@ -37,7 +37,7 @@ export default class ExpandedForm extends Component {
   }
 
   render() {
-    const { position, position_url, recruiter_name, recruiter_email, notes } = this.props.job;
+    const { position, position_url, recruiter_name, recruiter_email, notes, statusDate } = this.props.job;
     const { name, logo_url, description, industry, rating, company_url } = this.props.job.company;
 
     return (
@@ -60,6 +60,7 @@ export default class ExpandedForm extends Component {
                   </Header>
                   <p><b>Recruiter Email:</b> {recruiter_email}</p>
                   <p><b>Application: </b><a target='_blank' href={this.handleUrlLink(position_url)}>{position_url}</a></p>
+                  <p><b>Most recent status date:</b> {statusDate}</p>
                   <p><b>Notes:</b></p>
                   {notes}
                 </Grid.Column>

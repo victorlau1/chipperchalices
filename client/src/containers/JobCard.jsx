@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { DragSource } from 'react-dnd';
-import { Button, Icon, Card, Image, Grid, Modal, Segment, Label } from 'semantic-ui-react'
+import { Button, Icon, Card, Image, Grid, Modal, Segment, Label } from 'semantic-ui-react';
 import ExpandedForm from './ExpandedForm.jsx';
 import EditForm from './EditForm.jsx';
 const moment = require('moment');
@@ -10,9 +10,10 @@ class JobCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      age: moment().diff('days', moment(this.props.job.date)),
+      age: moment().diff('days', moment(this.props.job.statusDate)),
       status: this.props.job.current_status
     };
+
 
     this.updateJob = this.updateJob.bind(this);
   }
@@ -23,36 +24,36 @@ class JobCard extends Component {
 
   render() {
     const { x, job, id } = this.props;
-    const start = moment(job.date).format('YYYY-MM-DD');
+    const start = moment(job.statusDate).format('YYYY-MM-DD');
 
     var age = now.diff(moment(start), 'days');
 
-    var statusChange;
-    if (age = 1) {
-      statusChange = <Label circular color='green' inverted><Icon name='time' /> 1 day</Label>
-    } else if (age = 2) {
-      statusChange = <Label circular color='green' inverted><Icon name='time' /> 2 days</Label>
-    } else if (age = 3) {
-      statusChange = <Label circular color='green' inverted><Icon name='time' /> 3 days</Label>
-    } else if (age = 4) {
-      statusChange = <Label circular color='olive' inverted><Icon name='time' /> 4 days</Label>
-    } else if (age = 5) {
-      statusChange = <Label circular color='olive' inverted><Icon name='time' /> 5 days</Label>
-    } else if (age = 6) {
-      statusChange = <Label circular color='olive' inverted><Icon name='time' /> 6 days</Label>
-    } else if (age = 7) {
-      statusChange = <Label circular color='yellow' inverted><Icon name='time' /> 1 week</Label>
+    var statusChange, calendar;
+
+    if (age <= 1) {
+      statusChange = <Label circular color='green' inverted><Icon name='time' /> 1 day</Label>;
+    } else if (age === 2) {
+      statusChange = <Label circular color='green' inverted><Icon name='time' /> 2 days</Label>;
+    } else if (age === 3) {
+      statusChange = <Label circular color='green' inverted><Icon name='time' /> 3 days</Label>;
+    } else if (age === 4) {
+      statusChange = <Label circular color='olive' inverted><Icon name='time' /> 4 days</Label>;
+    } else if (age === 5) {
+      statusChange = <Label circular color='olive' inverted><Icon name='time' /> 5 days</Label>;
+    } else if (age === 6) {
+      statusChange = <Label circular color='olive' inverted><Icon name='time' /> 6 days</Label>;
+    } else if (age === 7) {
+      statusChange = <Label circular color='yellow' inverted><Icon name='time' /> 1 week</Label>;
     } else if (age > 7 && age <= 14) {
-      statusChange = <Label circular color='yellow' inverted><Icon name='time' /> 1-2 weeks</Label>
+      statusChange = <Label circular color='yellow' inverted><Icon name='time' /> 1-2 weeks</Label>;
     } else if (age > 14 && age <= 21) {
-      statusChange = <Label circular color='orange' inverted><Icon name='time' /> 2-3 weeks</Label>
+      statusChange = <Label circular color='orange' inverted><Icon name='time' /> 2-3 weeks</Label>;
     } else if (age > 21) {
-      statusChange = <Label circular color='red' inverted><Icon name='time' /> >3 weeks</Label>
+      statusChange = <Label circular color='red' inverted><Icon name='time' /> >3 weeks</Label>;
     }
 
     const googleLink = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${job.position}+Interview+at+${job.company.name}`;
 
-    var calendar;
     if (this.state.status === 'Interview Scheduled') {
       calendar = <Button target='_blank' href={googleLink} size='mini' floated='right' color='blue' circular icon='add to calendar'/>;
     } else {
