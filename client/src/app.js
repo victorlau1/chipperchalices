@@ -12,8 +12,8 @@ import { lightBaseTheme, MuiThemeProvider, getMuiTheme } from 'material-ui/style
 
 const App = () => (
   <div>
-    <Header />
-    <main>
+    <main style={{ backgroundColor: "#F7F7F7", display: 'flex', flex: 1, flexDirection: 'column', minHeight: '80vh' }}>
+      <Header />
       <Switch>
         <Route exact path='/' component={User} />
         <Route path='/landing' component= {Landing}/>
