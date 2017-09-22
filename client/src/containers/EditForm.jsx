@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 import axios from 'axios';
 import moment from 'moment';
 import {DatePicker, TimePicker} from 'material-ui';
-import { Button, Header, Image, Modal, Icon, Form, Dropdown, TextArea } from 'semantic-ui-react'
+import { Button, Header, Image, Modal, Icon, Form, Dropdown, TextArea } from 'semantic-ui-react';
 
+import { fromStatus } from '../helpers/status.js';
+import { moveCard } from '../actions/index.js';
 
 class EditForm extends React.Component {
   constructor(props) {
@@ -44,8 +47,9 @@ class EditForm extends React.Component {
       title: dat.position,
       company: dat.company.name,
       company_id: dat.company.id,
-      date: moment(dat.date).toDate(),
-      status: dat.currentStatus,
+      date: moment(dat.updated_at).toDate(),
+      //date: dat.updated_at,
+      status: dat.current_status,
       notes: dat.notes,
       url: dat.position_url,
       value: 0,
@@ -58,11 +62,11 @@ class EditForm extends React.Component {
   //TO DO: refactor into less functions
 
   handleOpen() {
-    this.setState({ modalOpen: true })
+    this.setState({ modalOpen: true });
   }
 
   handleClose() {
-    this.setState({ modalOpen: false })
+    this.setState({ modalOpen: false });
   }
 
   handleTitle (e) {
@@ -120,7 +124,10 @@ class EditForm extends React.Component {
     });
   }
 
-  saveJob () {
+  saveJob (e) {
+    e.preventDefault();
+    const { x, job, moveCard } = this.props;
+
     this.handleClose();
     //If change then saveJob
     if (!this.state.change) {
@@ -145,22 +152,17 @@ class EditForm extends React.Component {
       }
     };
 
-    return axios.put('/card/update', content)
-      .then(function(response) {
-        form.setState({
-          open: false,
-        });
-        console.log('sent to server');
-      })
-      .catch(function(error) {
-        form.setState({
-          open: false,
-        });
-        console.log('error', error);
-      });
+    let lastStatus = fromStatus(job.current_status);
+    let nextStatus = fromStatus(this.state.status);
+
+    moveCard(content, lastStatus, nextStatus, x);
   }
 
   render() {
+    // console.log('after componentDidMount daate', this.state.date)
+    // const { job } = this.props;
+    // let slicedDate = job.updated_at.slice(0, -14)
+    // console.log('date', job.updated_at, 'sliced', slicedDate)
 
     const options = [
       { key: 'Interested', text: 'Interested', value: 'Interested' },
@@ -172,7 +174,7 @@ class EditForm extends React.Component {
       { key: 'Rejected', text: 'Rejected', value: 'Rejected' },
       { key: 'Offer made', text: 'Offer made', value: 'Offer made' },
       { key: 'Archived', text: 'Archived', value: 'Archived' },
-    ]
+    ];
 
     return (
       <Modal trigger={<Button size='mini' floated='right' color='white' circular icon='write' onClick={this.handleOpen} />}
@@ -210,18 +212,18 @@ class EditForm extends React.Component {
             <Form.Group>
               <Form.Field>
                 <Button.Group color='teal'>
-                <Button>Status</Button>
-                <Dropdown onChange={this.handleStatus} options={options} floating button />
+                  <Button>Status</Button>
+                  <Dropdown onChange={this.handleStatus} options={options} floating button />
                 </Button.Group>
               </Form.Field>
               <Form.Field>
                 <DatePicker onChange={this.handleDate} defaultValue={this.state.date} value={this.state.date}/>
               </Form.Field>
             </Form.Group>
-              <Form.Field>
-                <label>Notes</label>
-                <TextArea defaultValue={this.state.notes} onChange={this.handleNotes} />
-              </Form.Field>
+            <Form.Field>
+              <label>Notes</label>
+              <TextArea defaultValue={this.state.notes} onChange={this.handleNotes} />
+            </Form.Field>
           </Form>
         </Modal.Content>
         <Modal.Actions>
@@ -234,12 +236,10 @@ class EditForm extends React.Component {
   }
 }
 
-// function mapDispatchToProps () {
+const mapDispatchToProps = (dispatch) => {
+  return {
+    moveCard: (card, lastStatus, nextStatus, lastX) => dispatch(moveCard(card, lastStatus, nextStatus, lastX))
+  };
+};
 
-//}
-
-// function mapStateToProps () {
-
-// }
-
-export default EditForm;
+export default connect(null, mapDispatchToProps)(EditForm);

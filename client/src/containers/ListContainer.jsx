@@ -96,8 +96,8 @@ class ListContainer extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    moveCard: (item, lastStatus, nextStatus, lastX, nextX) =>
-      dispatch(moveCard(item, lastStatus, nextStatus, lastX, nextX))
+    moveCard: (card, lastStatus, nextStatus, lastX, nextX) =>
+      dispatch(moveCard(card, lastStatus, nextStatus, lastX, nextX))
   };
 };
 
